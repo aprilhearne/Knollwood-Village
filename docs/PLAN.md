@@ -7,6 +7,40 @@ This document is the working reference for the project. Update it as decisions c
 
 ---
 
+## Status (September 11, 2026)
+
+Phase 1 through 4 are built and live on the GitHub Pages preview. WordPress is untouched.
+
+| Done | Notes |
+|---|---|
+| Astro site, all public WordPress content migrated | 12 content pages, 15 news posts, 58 newsletters, deed restrictions, ACC forms, policies, minutes |
+| Redirects from every old URL | `public/_redirects` (Cloudflare) and `src/data/page-redirects.json` (any host) |
+| Interactive neighborhood map | HCAD parcel polygons, 11 deed sections, address search, parks, trail, signs |
+| Dues participation map | 2024, 2025, 2026 from the treasurer's master workbook; status only, no names or amounts |
+| New resident guide, documents library, events on the home page | |
+| GitHub Pages preview deploy | https://aprilhearne.github.io/Knollwood-Village/ |
+
+Decisions made during the build: Leaflet with free CARTO and Esri tiles (no Google billing account); dues map is public and shows paid vs. not-recorded, matching the paid-homes list the club already publishes in the newsletter; PayPal and Mailchimp embeds reused as-is.
+
+## Cutover checklist
+
+1. Review the preview and send edits.
+2. Create a free Cloudflare account, add the `knollwoodvillage.org` zone (Cloudflare will import the existing DNS records), and update the nameservers at the registrar. This alone changes nothing visible.
+3. In Cloudflare, create a Pages project connected to this GitHub repo: build command `npm run build`, output `dist`, Node 22. Confirm the `*.pages.dev` preview works.
+4. Add the custom domain `knollwoodvillage.org` (and `www`) to the Pages project. Cloudflare sets the DNS and SSL.
+5. Keep the WordPress host running for 30 to 60 days as a backup, then cancel it. Export the Mailchimp form and PayPal button IDs are already in `src/data/site.json`.
+6. Optional: turn on Cloudflare Web Analytics (free, no cookies) and paste the snippet into `src/layouts/Base.astro`.
+
+Alternative: GitHub Pages can host the final site too (custom domain + HTTPS supported). Set `BASE_PATH=/` in the workflow and add a `CNAME` file. The `_redirects` file would not apply; the page redirects still work.
+
+## Open items
+
+- 2023 newsletters were never published online and none were found locally.
+- Entrance sign locations on the map are approximate; send corrected pins.
+- Board meeting minutes since 2020 and the annual financial summary could be added to the Documents page once the board approves posting them.
+- ACC request forms are still email-based. A web form with file upload (Formspree or Cloudflare Pages Functions) is a small follow-up if wanted.
+- Vice President seat shows as open on the Contact page.
+
 ## 1. Recommended approach (summary)
 
 | Decision | Recommendation | Why |

@@ -1,0 +1,30 @@
+---
+import { url } from '../lib/url';
+import site from '../data/site.json';
+interface Props { compact?: boolean }
+const { compact = false } = Astro.props;
+---
+<div class="patrol">
+  <div class="patrol-top">
+    <img src={url('/images/smith-badge.png')} alt="Smith Protective Services" width={compact ? 56 : 84} />
+    <div>
+      <div class="eyebrow" style="color:#c8ccc6">Neighborhood patrol</div>
+      <div class="patrol-title">Smith Protective Services is on patrol</div>
+      {!compact && <div class="patrol-since">Patrolling Knollwood Village since August 19, 2026</div>}
+    </div>
+  </div>
+  <div class="patrol-dispatch">
+    <div class="eyebrow" style="color:#1e2230">Smith Protective Dispatch</div>
+    <a class="tel" href={`tel:${site.patrol.dispatchTel}`}>{site.patrol.dispatch}</a>
+    <div class="small">Save this number in your phone. In an emergency, always call 911 first.</div>
+    {!compact && <a class="btn btn-primary btn-sm" style="margin-top:.75rem" href={url('/security/')}>Security details</a>}
+  </div>
+</div>
+<style>
+  .patrol { border: 1px solid var(--navy); border-top: 6px solid var(--gold-2); border-bottom: 6px solid var(--gold-2); border-radius: var(--radius); overflow: hidden; }
+  .patrol-top { background: var(--navy); color: #fff; padding: 1.25rem 1.4rem; display: flex; gap: 1.1rem; align-items: center; }
+  .patrol-title { font-family: var(--font-serif); font-size: 1.35rem; line-height: 1.2; }
+  .patrol-since { color: var(--gold-2); font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-top: .5rem; }
+  .patrol-dispatch { background: var(--sky); padding: 1.1rem 1.4rem; text-align: center; }
+  .patrol-dispatch .tel { display: block; font-size: 2rem; margin: .2rem 0; }
+</style>

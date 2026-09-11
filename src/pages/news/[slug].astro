@@ -1,0 +1,23 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+import { url } from '../../lib/url';
+export async function getStaticPaths() {
+  const posts = await getCollection('news');
+  return posts.map((p) => ({ params: { slug: p.id }, props: { post: p } }));
+}
+const { post } = Astro.props;
+const { Content } = await render(post);
+const fmt = (d: Date) => d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+const ev = post.data.eventDate;
+const t = (d: Date) => d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'America/Chicago' });
+---
+<Base title={post.data.title} description={post.data.description} image={post.data.image}>
+  <div class="page-head"><div class="container">
+    <div class="eyebrow">{ev ? 'Event' : 'News'} · {fmt(post.data.date)}</div>
+    <h1>{post.data.title}</h1>
+    {ev && <p class="lead"><strong>{ev.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric', timeZone: 'America/Chicago' })}</strong>{ev.getUTCHours() ? ', ' + t(ev) : ''}{post.data.eventEnd ? ' to ' + t(post.data.eventEnd) : ''}{post.data.location ? ' · ' + post.data.location : ''}</p>}
+  </div></div>
+  <div class="container page-body"><article class="prose"><Content /></article>
+    <p style="margin-top:2rem"><a href={url('/news/')}>← All news</a></p></div>
+</Base>

@@ -1,0 +1,18 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import NewsCard from '../../components/NewsCard.astro';
+import { getCollection } from 'astro:content';
+const now = Date.now();
+const all = (await getCollection('news')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const upcoming = all.filter((p) => p.data.eventDate && p.data.eventDate.valueOf() > now - 86400000).sort((a, b) => a.data.eventDate!.valueOf() - b.data.eventDate!.valueOf());
+const past = all.filter((p) => !upcoming.includes(p));
+---
+<Base title="News & Events" description="Knollwood Village Civic Club announcements, meetings, and neighborhood events.">
+  <PageHead eyebrow="News" title="News & events" lead="Announcements from the board and the social committee. For the full story each quarter, read the Voice." />
+  <div class="container page-body narrow">
+    {upcoming.length > 0 && <section><h2 style="margin-top:0">Upcoming</h2>{upcoming.map((p) => <NewsCard title={p.data.title} slug={p.id} date={p.data.date} eventDate={p.data.eventDate} location={p.data.location} description={p.data.description} />)}</section>}
+    <h2 style={upcoming.length ? '' : 'margin-top:0'}>Announcements</h2>
+    {past.map((p) => <NewsCard title={p.data.title} slug={p.id} date={p.data.date} description={p.data.description} />)}
+  </div>
+</Base>

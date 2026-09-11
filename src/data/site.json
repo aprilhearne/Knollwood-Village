@@ -1,0 +1,71 @@
+{
+  "name": "Knollwood Village Civic Club",
+  "shortName": "KVCC",
+  "tagline": "A great inner loop Houston neighborhood of 624 homes",
+  "founded": 1954,
+  "homes": 624,
+  "duesYear": 2026,
+  "duesAmount": 290,
+  "duesCivic": 55,
+  "duesSecurity": 235,
+  "duesWithFees": 302,
+  "participationGoal": "40 percent",
+  "mailingAddress": ["Knollwood Village Civic Club", "PO Box 20801", "Houston, TX 77225"],
+  "emails": {
+    "president": "president@knollwoodvillage.org",
+    "treasurer": "treasurer@knollwoodvillage.org",
+    "build": "build@knollwoodvillage.org",
+    "security": "security@knollwoodvillage.org",
+    "welcome": "welcome@knollwoodvillage.org",
+    "social": "social@knollwoodvillage.org",
+    "advertise": "advertise@knollwoodvillage.org"
+  },
+  "patrol": {
+    "company": "Smith Protective Services",
+    "since": "Wednesday, August 19, 2026",
+    "dispatch": "713-266-6042",
+    "dispatchTel": "+17132666042",
+    "vacationWatch": "vacawatch@smithprotective.com",
+    "license": "C-217"
+  },
+  "phones": [
+    { "label": "Emergency", "value": "911", "tel": "911" },
+    { "label": "Smith Protective Dispatch", "value": "713-266-6042", "tel": "+17132666042" },
+    { "label": "HPD Non-Emergency", "value": "713-884-3131", "tel": "+17138843131" },
+    { "label": "Precinct 7 Constable", "value": "713-643-6602", "tel": "+17136436602" },
+    { "label": "City of Houston services (311)", "value": "311", "tel": "311" },
+    { "label": "Poison Control", "value": "800-222-1222", "tel": "+18002221222" },
+    { "label": "Mayor's Office", "value": "713-247-2200", "tel": "+17132472200" },
+    { "label": "City Council, District K (Martha Castex-Tatum)", "value": "832-393-3016", "tel": "+18323933016", "email": "districtk@houstontx.gov" },
+    { "label": "State Representative Ann Johnson, District 134", "value": "713-521-4474", "tel": "+17135214474" },
+    { "label": "Animal Control (BARC)", "value": "713-238-9600", "tel": "+17132389600" },
+    { "label": "Harris County Flood Control", "value": "713-684-4197", "tel": "+17136844197" },
+    { "label": "Street Light Replacement (CenterPoint)", "value": "713-207-2222", "tel": "+17132072222" }
+  ],
+  "mailchimp": {
+    "action": "https://knollwoodvillage.us4.list-manage.com/subscribe/post?u=d6e549db5a19c924b1d9c7a18&id=2a5fcf43fd&f_id=008f1feaf0",
+    "honeypot": "b_d6e549db5a19c924b1d9c7a18_2a5fcf43fd"
+  },
+  "paypal": {
+    "clientId": "BAA8xrHAb3SWOhYTP4h4nwRANZhRoEx1FoZs6E9nxQ3vXpbSbyQZZT6F7muXtSOvQiy9lwjbn-u7EjInno",
+    "duesHostedButtonId": "4SBZMKK34YHHG",
+    "accFeeHostedButtonId": "5WKSPDJAKLMA6"
+  },
+  "nav": [
+    { "label": "About", "href": "/about/" },
+    { "label": "Pay Dues", "href": "/dues/" },
+    { "label": "Security", "href": "/security/" },
+    { "label": "Building & Deeds", "href": "/build/", "children": [
+      { "label": "ACC Process", "href": "/build/" },
+      { "label": "ACC FAQs", "href": "/acc-faqs/" },
+      { "label": "Deed Restrictions", "href": "/deeds/" },
+      { "label": "Standard ACC Request", "href": "/standard-acc-request/" },
+      { "label": "New Construction / Addition", "href": "/new-construction-addition-acc-request/" }
+    ]},
+    { "label": "Map", "href": "/map/" },
+    { "label": "News", "href": "/news/" },
+    { "label": "Newsletters", "href": "/newsletters/" },
+    { "label": "Documents", "href": "/documents/" },
+    { "label": "Contact", "href": "/contact/" }
+  ]
+}

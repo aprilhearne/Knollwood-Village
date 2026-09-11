@@ -1,0 +1,73 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import { url } from '../../lib/url';
+import site from '../../data/site.json';
+---
+<Base title="Pay Dues" description={`Knollwood Village Civic Club ${site.duesYear} annual dues are $${site.duesAmount} per home. Pay by Zelle, PayPal or card, or check.`}>
+  <PageHead eyebrow="Neighborhood dues" title={`${site.duesYear} annual dues: $${site.duesAmount} per home`} lead={`$${site.duesCivic} is civic club dues and $${site.duesSecurity} funds the Smith Protective security patrol. That is less than eighty cents a day for a neighborhood with its own patrol.`} />
+  <div class="container page-body two-col">
+    <div class="prose">
+      <h2 style="margin-top:0">Three ways to pay</h2>
+      <div class="pay-grid">
+        <div class="card card-green">
+          <div class="badge badge-green">No fee · preferred</div>
+          <h3>Zelle</h3>
+          <p>Send to <strong>{site.emails.treasurer}</strong>. The payee shows as "Knollwood Village Civic Club." <strong>Put your property address in the memo</strong> so your payment is recorded to the right home.</p>
+        </div>
+        <div class="card">
+          <h3>Check</h3>
+          <p>Payable to "Knollwood Village Civic Club." Write your property address on the memo line and mail to:</p>
+          <p>{site.mailingAddress.map((l) => <span>{l}<br /></span>)}</p>
+        </div>
+      </div>
+      <div class="card" style="margin-top:1.25rem">
+        <h3>PayPal, Venmo, or debit / credit card</h3>
+        <p>No PayPal account needed. Card payments cost the club about $12 in fees on a ${site.duesAmount} payment, so please consider contributing <strong>${site.duesWithFees}</strong> to cover them.</p>
+        <div id={`paypal-container-${site.paypal.duesHostedButtonId}`}></div>
+        <script is:inline src={`https://www.paypal.com/sdk/js?client-id=${site.paypal.clientId}&components=hosted-buttons&enable-funding=venmo&currency=USD`}></script>
+        <script is:inline define:vars={{ id: site.paypal.duesHostedButtonId }}>
+          window.paypal && paypal.HostedButtons({ hostedButtonId: id }).render('#paypal-container-' + id);
+        </script>
+      </div>
+
+      <h2>Where the money goes</h2>
+      <p>For more than 70 years the Knollwood Village Civic Club has kept our neighborhood an attractive, welcoming, and safe place to live. The KVCC is a voluntary civic club, not a mandatory HOA, so everything below exists only because neighbors choose to pay for it. Your dues fund:</p>
+      <ul>
+        <li><strong>Neighborhood security</strong> provided by Smith Protective Services, shared with three neighboring civic clubs so our cost per home went down for the same coverage. Security is the largest line in the budget.</li>
+        <li><strong>Legal fees and insurance</strong> that protect the deed restrictions and the residents who rely on them.</li>
+        <li><strong>Communication and social events</strong>: the quarterly <em>Knollwood Village Voice</em>, this website, email alerts, National Night Out, decorating contests, and the spring festival.</li>
+        <li><strong>Beautification and maintenance</strong> of the esplanades and entrance signs.</li>
+      </ul>
+      <p>Renters: please ask your landlord to pay dues on your behalf. It is a small contribution that protects their investment and your family's quality of life. If you can afford to chip in a little extra, it goes a long way.</p>
+
+      <h2>Unsure whether you've paid this year?</h2>
+      <p>Look up your address on the <a href={url('/dues/map/')}>dues participation map</a>, which the treasurer updates as payments come in. For questions about a payment, email the KVCC Treasurer at <a href={`mailto:${site.emails.treasurer}`}>{site.emails.treasurer}</a>.</p>
+    </div>
+    <aside class="aside">
+      <div class="card card-soft">
+        <div class="eyebrow">{site.duesYear} dues</div>
+        <div style="font-family:var(--font-serif);font-size:2.4rem;font-weight:700;color:var(--navy);line-height:1">${site.duesAmount}</div>
+        <table class="small" style="margin:.75rem 0">
+          <tr><td>Civic club dues</td><td style="text-align:right">${site.duesCivic}</td></tr>
+          <tr><td>Security patrol contribution</td><td style="text-align:right">${site.duesSecurity}</td></tr>
+          <tr><th>Total per home</th><th style="text-align:right">${site.duesAmount}</th></tr>
+        </table>
+        <p class="small muted">Goal this year: {site.participationGoal} of homes participating.</p>
+      </div>
+      <div class="card">
+        <h3>Extra security contribution</h3>
+        <p class="small">Many neighbors add to the security line. Any amount above ${site.duesAmount} goes directly to patrol hours. Just note "additional security" in your memo.</p>
+      </div>
+      <div class="card">
+        <h3>Questions?</h3>
+        <p class="small">Treasurer: <a href={`mailto:${site.emails.treasurer}`}>{site.emails.treasurer}</a></p>
+      </div>
+    </aside>
+  </div>
+</Base>
+<style>
+  .pay-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  @media (max-width: 700px) { .pay-grid { grid-template-columns: 1fr; } }
+  .pay-grid .card + .card { margin-top: 0; }
+</style>

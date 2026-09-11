@@ -1,0 +1,33 @@
+---
+import site from '../data/site.json';
+interface Props { compact?: boolean }
+const { compact = false } = Astro.props;
+---
+<form class="stack signup" action={site.mailchimp.action} method="post" target="_blank" novalidate>
+  {!compact && <p class="small">The KVCC email list is how the board sends security alerts, meeting notices, and event reminders. We never share your information.</p>}
+  <div class="row">
+    <div><label for="mce-EMAIL">Email <span class="req">*</span></label><input type="email" name="EMAIL" id="mce-EMAIL" required autocomplete="email" /></div>
+  </div>
+  <div class="row two">
+    <div><label for="mce-FNAME">First name <span class="req">*</span></label><input type="text" name="FNAME" id="mce-FNAME" required autocomplete="given-name" /></div>
+    <div><label for="mce-LNAME">Last name <span class="req">*</span></label><input type="text" name="LNAME" id="mce-LNAME" required autocomplete="family-name" /></div>
+  </div>
+  <div class="row two">
+    <div><label for="mce-MMERGE9">Street number <span class="req">*</span></label><input type="text" name="MMERGE9" id="mce-MMERGE9" placeholder="ex. 2806" required /></div>
+    <div><label for="mce-ADDRESS-addr1">Street name <span class="req">*</span></label><input type="text" name="ADDRESS[addr1]" id="mce-ADDRESS-addr1" placeholder="ex. Ashwood St" required /></div>
+  </div>
+  <div class="row">
+    <div><label for="mce-PHONE">Phone (optional)</label><input type="tel" name="PHONE" id="mce-PHONE" autocomplete="tel" /></div>
+  </div>
+  <input type="hidden" name="ADDRESS[city]" value="Houston" />
+  <input type="hidden" name="ADDRESS[state]" value="TX" />
+  <input type="hidden" name="ADDRESS[zip]" value="77025" />
+  <input type="hidden" name="ADDRESS[country]" value="USA" />
+  <div style="position:absolute;left:-5000px" aria-hidden="true"><input type="text" name={site.mailchimp.honeypot} tabindex="-1" value="" /></div>
+  <button class="btn btn-primary" type="submit">Subscribe</button>
+</form>
+<style>
+  .signup { position: relative; }
+  .row.two { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+  @media (max-width: 520px) { .row.two { grid-template-columns: 1fr; gap: 0; } }
+</style>

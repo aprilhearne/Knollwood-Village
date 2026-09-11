@@ -1,0 +1,127 @@
+---
+import Base from '../layouts/Base.astro';
+import PatrolCard from '../components/PatrolCard.astro';
+import DuesCard from '../components/DuesCard.astro';
+import EmailSignup from '../components/EmailSignup.astro';
+import NewsCard from '../components/NewsCard.astro';
+import { url } from '../lib/url';
+import site from '../data/site.json';
+import { getCollection } from 'astro:content';
+const now = new Date();
+const all = (await getCollection('news')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const upcoming = all.filter((p) => p.data.eventDate && p.data.eventDate.valueOf() > now.valueOf() - 86400000 * 1).sort((a, b) => a.data.eventDate!.valueOf() - b.data.eventDate!.valueOf());
+const recent = all.filter((p) => !upcoming.includes(p)).slice(0, 4);
+const featured = upcoming[0];
+---
+<Base title="Home" description={`${site.name}: a voluntary civic club for ${site.homes} homes inside Loop 610 in Houston. Security patrol, deed restrictions, dues, newsletters, and neighborhood news.`}>
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <div class="eyebrow">Houston, Texas · Est. {site.founded}</div>
+        <h1>Knollwood Village</h1>
+        <p class="lead">A great inner loop neighborhood of {site.homes} homes between Kirby, Main, Stella Link, and Brays Bayou. For more than 70 years the Civic Club has kept it healthy, attractive, and safe, funded entirely by neighbors who choose to contribute.</p>
+        <div class="hero-actions">
+          <a class="btn btn-gold" href={url('/dues/')}>Pay {site.duesYear} dues</a>
+          <a class="btn btn-light" href={url('/new-residents/')}>New to the neighborhood?</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container band">
+    <div class="band-grid">
+      <PatrolCard />
+      {featured ? (
+        <div class="card card-soft event">
+          <div class="eyebrow">Coming up</div>
+          {featured.data.image && <a href={url(`/news/${featured.id}/`)}><img class="event-img" src={url(featured.data.image)} alt="" /></a>}
+          <h2 style="margin-top:.5rem"><a href={url(`/news/${featured.id}/`)}>{featured.data.title}</a></h2>
+          <p><strong>{featured.data.eventDate!.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', timeZone: 'America/Chicago' })}</strong>{featured.data.eventDate!.getUTCHours() ? ', ' + featured.data.eventDate!.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'America/Chicago' }) : ''}{featured.data.eventEnd ? ' to ' + featured.data.eventEnd.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'America/Chicago' }) : ''}<br />{featured.data.location}</p>
+          {featured.data.description && <p>{featured.data.description}</p>}
+          <a class="btn btn-primary btn-sm" href={url(`/news/${featured.id}/`)}>Event details</a>
+        </div>
+      ) : <DuesCard />}
+    </div>
+  </section>
+
+  <section class="container">
+    <div class="grid-3 pillars">
+      <a class="pillar" href={url('/security/')}>
+        <div class="eyebrow">Security</div>
+        <h3>A dedicated patrol, 365 days a year</h3>
+        <p>Smith Protective officers patrol Knollwood Village and three neighboring civic clubs. Vacation watch, alarm response, welfare checks, and more.</p>
+      </a>
+      <a class="pillar" href={url('/build/')}>
+        <div class="eyebrow">Building & deeds</div>
+        <h3>Deed-restricted, and we take it seriously</h3>
+        <p>Planning a remodel, addition, fence, or new build? Check your section's deed restrictions and get Architectural Control Committee approval first.</p>
+      </a>
+      <a class="pillar" href={url('/map/')}>
+        <div class="eyebrow">Explore</div>
+        <h3>Interactive neighborhood map</h3>
+        <p>Find your lot and your deed-restriction section, see the parks and the bayou trail, and check dues participation by street.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="container why">
+    <div class="two-col">
+      <div>
+        <div class="eyebrow">What your dues do</div>
+        <h2 style="margin-top:0">One contribution. Everything the club does.</h2>
+        <p>The Knollwood Village Civic Club is a voluntary civic club, not a mandatory HOA. Thanks to the annual contributions of residents, the KVCC:</p>
+        <ul class="checks">
+          <li>Funds the Smith Protective security patrol</li>
+          <li>Enforces the deed restrictions that protect property values</li>
+          <li>Maintains and landscapes the esplanades and entrance signs</li>
+          <li>Welcomes new residents and hosts neighborhood events</li>
+          <li>Publishes the <em>Knollwood Village Voice</em> newsletter and email alerts</li>
+          <li>Represents the neighborhood with city and county officials</li>
+        </ul>
+        <a class="btn btn-primary" href={url('/dues/')}>Pay {site.duesYear} dues</a> <a class="btn btn-outline" href={url('/dues/map/')}>See who has paid</a>
+      </div>
+      <DuesCard />
+    </div>
+  </section>
+
+  <section class="container">
+    <div class="two-col">
+      <div>
+        <div class="eyebrow">News & announcements</div>
+        <h2 style="margin-top:0">Latest from the board</h2>
+        {upcoming.slice(1).map((p) => <NewsCard title={p.data.title} slug={p.id} date={p.data.date} eventDate={p.data.eventDate} location={p.data.location} description={p.data.description} />)}
+        {recent.map((p) => <NewsCard title={p.data.title} slug={p.id} date={p.data.date} description={p.data.description} />)}
+        <p style="margin-top:1rem"><a href={url('/news/')}>All news</a> · <a href={url('/newsletters/')}>Newsletter archive</a></p>
+      </div>
+      <div class="card">
+        <h3>Join the KVCC email list</h3>
+        <EmailSignup compact />
+      </div>
+    </div>
+  </section>
+</Base>
+<style>
+  .hero { background: var(--navy) url('/images/hero-bayou-bridge.jpg') center/cover no-repeat; position: relative; color: #fff; }
+  .hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(33,42,64,.92) 0%, rgba(33,42,64,.75) 55%, rgba(33,42,64,.35) 100%); }
+  .hero-inner { position: relative; padding-top: 4.5rem; padding-bottom: 4.5rem; }
+  .hero-text { max-width: 640px; }
+  .hero h1 { color: #fff; font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: .75rem; }
+  .hero .lead { color: #e6e9f2; font-size: 1.15rem; }
+  .hero .eyebrow { color: var(--gold-2); }
+  .hero-actions { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: 1.5rem; }
+  .band { margin-top: -2rem; position: relative; z-index: 2; }
+  .band-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  @media (max-width: 860px) { .band-grid { grid-template-columns: 1fr; } .band { margin-top: 1.5rem; } }
+  .event h2 { font-size: 1.5rem; }
+  .event h2 a { text-decoration: none; }
+  .event-img { max-height: 220px; width: auto; border: 1px solid var(--line); background: #fff; border-radius: var(--radius); }
+  .pillars { margin-top: 3rem; }
+  .pillar { display: block; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem; text-decoration: none; color: var(--ink); box-shadow: var(--shadow); transition: transform .15s ease; }
+  .pillar:hover { transform: translateY(-2px); border-color: var(--gold); }
+  .pillar h3 { margin-top: .25rem; }
+  .pillar p { margin: 0; color: var(--ink-2); font-size: .95rem; }
+  .why { margin-top: 3.5rem; margin-bottom: 3rem; }
+  .checks { list-style: none; padding: 0; }
+  .checks li { padding-left: 1.75rem; position: relative; }
+  .checks li::before { content: "✓"; position: absolute; left: 0; color: var(--green-2); font-weight: 800; }
+</style>

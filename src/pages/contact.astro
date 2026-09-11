@@ -1,0 +1,74 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import { url } from '../lib/url';
+import site from '../data/site.json';
+import o from '../data/officers.json';
+---
+<Base title="Board & Contact" description="Knollwood Village Civic Club officers, board members, committees, mailing address, and useful City of Houston phone numbers.">
+  <PageHead eyebrow="Contact" title="Board, committees & contact" lead="Every board member and committee chair is a volunteer neighbor. The fastest way to reach the right person is the role email address." />
+  <div class="container page-body">
+    <div class="two-col">
+      <div>
+        <h2 style="margin-top:0">{o.year} officers</h2>
+        <div class="grid-2 officers">
+          {o.officers.map((x) => (
+            <div class="card">
+              <div class="eyebrow">{x.role}</div>
+              <div class="name">{x.name}</div>
+              {x.note && <p class="small muted" style="margin:.35rem 0 0">{x.note}</p>}
+              {x.email && <p class="small" style="margin:.35rem 0 0"><a href={`mailto:${x.email}`}>{x.email}</a></p>}
+            </div>
+          ))}
+        </div>
+        <h3>Board of Directors</h3>
+        <p>{o.board.join(' · ')}</p>
+
+        <h2>Committees</h2>
+        <div class="committees">
+          {o.committees.map((c) => (
+            <div class="committee">
+              <h3>{c.name}</h3>
+              <p class="small muted" style="margin:0 0 .35rem">{c.blurb}</p>
+              <p style="margin:0">{c.chair && <span><strong>{c.chair}</strong>, Chair{c.members.length ? ' · ' : ''}</span>}{c.members.join(', ')}</p>
+              {c.email && <p style="margin:.25rem 0 0"><a href={`mailto:${c.email}`}>{c.email}</a></p>}
+            </div>
+          ))}
+        </div>
+        <div class="notice">
+          <strong>Want to help?</strong> Homeowners and renters alike are welcome as volunteers. Even if you don't see a role above, email <a href={`mailto:${site.emails.president}`}>{site.emails.president}</a> and share your interest. The Vice President seat is open right now.
+        </div>
+
+        <h2>Useful phone numbers</h2>
+        <div class="table-wrap"><table>
+          {site.phones.map((ph) => <tr><td>{ph.label}</td><td><a href={`tel:${ph.tel}`}>{ph.value}</a>{ph.email && <span> · <a href={`mailto:${ph.email}`}>{ph.email}</a></span>}</td></tr>)}
+        </table></div>
+        <p class="small">City of Houston services (nuisance violations, water and sewer repairs, heavy trash, streetlights, potholes): call <strong>311</strong> or use <a href="https://www.houstontx.gov/311/">houstontx.gov/311</a>.</p>
+      </div>
+      <aside class="aside">
+        <div class="card">
+          <h3>Mailing address</h3>
+          <p>{site.mailingAddress.map((l) => <span>{l}<br /></span>)}</p>
+        </div>
+        <div class="card card-sky">
+          <h3>Security</h3>
+          <p class="small">Emergency: <strong>911</strong><br />Smith Dispatch: <a href={`tel:${site.patrol.dispatchTel}`}>{site.patrol.dispatch}</a><br />Vacation Watch: <a href={`mailto:${site.patrol.vacationWatch}`}>{site.patrol.vacationWatch}</a></p>
+        </div>
+        <div class="card">
+          <h3>Trash & recycling</h3>
+          <p class="small">Heavy trash pickup is the <strong>third Monday of each month</strong>. Tree waste and junk waste alternate months. Details in the <a href={url('/new-residents/')}>New Resident Guide</a> and at <a href="https://www.houstontx.gov/solidwaste/">houstontx.gov/solidwaste</a>.</p>
+        </div>
+        <div class="card">
+          <h3>Bylaws</h3>
+          <p class="small"><a href={url('/docs/club/KVCC-Bylaws-2004.pdf')}>Knollwood Village Civic Club By-Laws (PDF)</a></p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</Base>
+<style>
+  .officers .card + .card { margin-top: 0; }
+  .name { font-family: var(--font-serif); font-size: 1.3rem; color: var(--navy); }
+  .committee { padding: 1rem 0; border-bottom: 1px solid var(--line); }
+  .committee h3 { margin: 0 0 .25rem; font-size: 1.1rem; }
+</style>

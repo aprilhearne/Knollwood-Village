@@ -1,0 +1,62 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import { url } from '../lib/url';
+import site from '../data/site.json';
+import o from '../data/officers.json';
+const acc = o.committees[0];
+---
+<Base title="Building & ACC Process" description="How to get Architectural Control Committee (ACC) approval in Knollwood Village before building, remodeling, adding on, or putting up a fence or shed.">
+  <PageHead eyebrow="Building & deed restrictions" title="Before you build, remodel, or fence" lead="Knollwood Village is a deed-restricted community and the Architectural Control Committee (ACC) takes that seriously. Approval is required before work that changes the size, shape, or exterior of your home. You will get timely, personal support." />
+  <div class="container page-body two-col">
+    <div class="prose">
+      <div class="notice">
+        <strong>Not everything needs a request.</strong> Swimming pools, driveways, re-roofing, painting, solar panels, and landscaping generally do not require an ACC request. City inspectors may still ask you for an approval letter in some cases, so when in doubt email <a href={`mailto:${site.emails.build}`}>{site.emails.build}</a>.
+      </div>
+      <h2>Four steps</h2>
+      <ol class="steps">
+        <li><strong>Read the <a href={url('/acc-faqs/')}>ACC FAQs</a>.</strong> They answer most questions about setbacks, easements, sheds, fences, and stories.</li>
+        <li><strong>Review the <a href={url('/docs/acc/Guideline-for-Multi-Story-Residences-2020.pdf')}>Guideline for Multi-Story Residences</a></strong> if your project adds a second story. (Section 8 and Braes Terrace II have their own <a href={url('/docs/acc/Building-Guidelines-Section-8.pdf')}>building guidelines</a>.)</li>
+        <li><strong>Read the <a href={url('/deeds/')}>deed restrictions for your section</a>.</strong> Not sure which section you're in? <a href={url('/map/')}>Find your lot on the map</a>.</li>
+        <li><strong>Choose the right request type:</strong>
+          <div class="grid-2" style="margin-top:.75rem">
+            <a class="pick" href={url('/standard-acc-request/')}>
+              <div class="eyebrow">Standard request · no fee</div>
+              <strong>Fence, storage shed, or a change to the front of the home</strong>
+              <span class="small muted">Any item not tied to an addition or new build.</span>
+            </a>
+            <a class="pick" href={url('/new-construction-addition-acc-request/')}>
+              <div class="eyebrow">New construction / addition · fee applies</div>
+              <strong>Any work that changes the size or shape of your home, or a new house</strong>
+              <span class="small muted">Full plan review. $150 for additions, $250 for new construction.</span>
+            </a>
+          </div>
+        </li>
+      </ol>
+      <h2>What happens after you submit</h2>
+      <p>The ACC has up to 30 days to complete its initial review after receiving all required documentation. You'll be notified by email if the submission is incomplete or doesn't meet the deed restrictions, and you'll receive a signed approval letter by email when your project is approved. Once approved, a "KVCC Approved" yard sign is available on request.</p>
+      <p>Any City of Houston building permit application requires the homeowner to sign an affidavit that the work complies with the neighborhood's deed restrictions. ACC approval is what lets you sign that honestly.</p>
+    </div>
+    <aside class="aside">
+      <div class="card">
+        <h3>Architectural Control Committee</h3>
+        <p class="small"><strong>{acc.chair}</strong>, Chair<br />{acc.members.join(', ')}</p>
+        <p class="small"><a href={`mailto:${acc.email}`}>{acc.email}</a></p>
+      </div>
+      <div class="card card-soft">
+        <h3>Key documents</h3>
+        <ul class="doc-list small">
+          <li><a href={url('/docs/acc/Plan-Approval-Submission-Form.pdf')}>Plan Approval Submission Form</a></li>
+          <li><a href={url('/docs/acc/Construction-Site-Guidelines-and-Pledge.pdf')}>Construction Site Guidelines & Pledge</a></li>
+          <li><a href={url('/docs/acc/Guideline-for-Multi-Story-Residences-2020.pdf')}>Multi-Story Residence Guideline</a></li>
+          <li><a href={url('/docs/deeds/Front-Fence-Guideline-2022.pdf')}>Front Fence Guideline</a></li>
+        </ul>
+        <p class="small" style="margin:.75rem 0 0"><a href={url('/documents/')}>All documents</a></p>
+      </div>
+    </aside>
+  </div>
+</Base>
+<style>
+  .pick { display: flex; flex-direction: column; gap: .3rem; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem; text-decoration: none; color: var(--ink); }
+  .pick:hover { border-color: var(--gold); }
+</style>

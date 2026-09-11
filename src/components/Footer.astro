@@ -1,0 +1,54 @@
+---
+import { url } from '../lib/url';
+import site from '../data/site.json';
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="f-brand"><img src={url('/images/oak-green.png')} alt="" width="36" height="36" /> <span>Knollwood Village Civic Club</span></div>
+      <p class="small">A voluntary civic club serving {site.homes} homes inside Loop 610 since {site.founded}. Not a mandatory HOA: everything we do is funded by neighbors who choose to contribute.</p>
+      <p class="small">{site.mailingAddress.join(', ')}</p>
+    </div>
+    <div>
+      <h4>Quick links</h4>
+      <ul>
+        <li><a href={url('/dues/')}>Pay dues</a></li>
+        <li><a href={url('/security/')}>Security patrol</a></li>
+        <li><a href={url('/build/')}>Building & ACC</a></li>
+        <li><a href={url('/deeds/')}>Deed restrictions</a></li>
+        <li><a href={url('/new-residents/')}>New resident guide</a></li>
+        <li><a href={url('/map/')}>Neighborhood map</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li><a href={`mailto:${site.emails.president}`}>{site.emails.president}</a></li>
+        <li><a href={`mailto:${site.emails.treasurer}`}>{site.emails.treasurer}</a></li>
+        <li><a href={`mailto:${site.emails.build}`}>{site.emails.build}</a></li>
+        <li><a href={`mailto:${site.emails.security}`}>{site.emails.security}</a></li>
+        <li><a href={url('/contact/')}>Board & committees</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Security</h4>
+      <p class="small"><strong>Emergency: 911</strong><br />Smith Protective Dispatch: <a href={`tel:${site.patrol.dispatchTel}`}>{site.patrol.dispatch}</a><br />HPD Non-Emergency: <a href="tel:+17138843131">713-884-3131</a></p>
+      <p class="small"><a href={url('/email-list/')}>Join the email list</a> for alerts and news.</p>
+    </div>
+  </div>
+  <div class="container copyright small">© {year} Knollwood Village Civic Club · <a href={url('/advertise/')}>Advertise in the Voice</a> · <a href={url('/documents/')}>Documents</a></div>
+</footer>
+<style>
+  .site-footer { background: var(--navy); color: #cfd4e2; margin-top: 3rem; padding: 2.5rem 0 1.5rem; }
+  .site-footer a { color: #fff; }
+  .site-footer h4 { color: var(--gold-2); font-family: var(--font-sans); font-size: .8rem; letter-spacing: .15em; text-transform: uppercase; margin-bottom: .75rem; }
+  .site-footer ul { list-style: none; padding: 0; margin: 0; }
+  .site-footer li { margin-bottom: .4rem; font-size: .95rem; }
+  .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1.2fr 1.2fr; gap: 2rem; }
+  @media (max-width: 800px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 520px) { .footer-grid { grid-template-columns: 1fr; } }
+  .f-brand { display: flex; align-items: center; gap: .6rem; font-family: var(--font-serif); font-size: 1.15rem; color: #fff; margin-bottom: .6rem; }
+  .f-brand img { filter: brightness(0) invert(1); opacity: .9; }
+  .copyright { border-top: 1px solid rgba(255,255,255,.12); margin-top: 2rem; padding-top: 1rem; color: #9aa3ba; }
+</style>

@@ -1,0 +1,48 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import { url } from '../lib/url';
+import site from '../data/site.json';
+const sections = [
+  { id: '1', file: 'Section-1' }, { id: '2', file: 'Section-2' }, { id: '3', file: 'Section-3' }, { id: '4', file: 'Section-4' }, { id: '5', file: 'Section-5' },
+  { id: '6', file: 'Section-6' }, { id: '7', file: 'Section-7' }, { id: '8', file: 'Section-8', note: 'as amended September 2020' }, { id: '9', file: 'Section-9' }, { id: '10', file: 'Section-10' },
+  { id: 'BT2', label: 'Braes Terrace II', file: 'Braes-Terrace-II' },
+];
+---
+<Base title="Deed Restrictions by Section" description="Knollwood Village deed restrictions for Sections 1 through 10 and Braes Terrace II, with a map to find your section.">
+  <PageHead eyebrow="Building & deed restrictions" title="Deed restrictions by section" lead="Knollwood Village is a deed-restricted community. Before you build or remodel, read the restrictions for your section and submit your plans to the Architectural Control Committee." />
+  <div class="container page-body">
+    <h2 style="margin-top:0">Find your section</h2>
+    <p>Type your address or click your lot. Each lot links to the deed restrictions that apply to it. Restrictions for all sections except Section 8 are similar but differ slightly, so always read the one for your own section.</p>
+    <div class="map-wrap">
+      <div class="map-tools"><input id="addr-search" type="search" placeholder="Search an address, e.g. 3018 Linkwood" aria-label="Search address" autocomplete="off" /><div id="addr-results" class="results" hidden></div></div>
+      <div id="map" class="map" data-mode="sections" data-base={import.meta.env.BASE_URL}></div>
+    </div>
+    <h2>Documents by section</h2>
+    <ul class="doc-list">
+      {sections.map((s) => <li><a href={url(`/docs/deeds/Deed-Restrictions-${s.file}.pdf`)}>{s.label ?? `Section ${s.id}`}</a>{s.note && <span class="small muted">({s.note})</span>}</li>)}
+      <li><a href={url('/docs/deeds/Front-Fence-Guideline-2022.pdf')}>Front Fence Guideline (2022)</a><span class="small muted">applies to all sections</span></li>
+      <li><a href={url('/docs/deeds/Section-8-Amendment-Sep-2020.pdf')}>Section 8 amendment, September 2020</a></li>
+      <li><a href={url('/docs/deeds/Deed-Restrictions-Section-8-original.pdf')}>Section 8 original restrictions (pre-2020)</a></li>
+    </ul>
+    <p>Questions about how a restriction applies to your project? Email the ACC at <a href={`mailto:${site.emails.build}`}>{site.emails.build}</a>. See also the <a href={url('/build/')}>ACC process</a> and <a href={url('/acc-faqs/')}>FAQs</a>.</p>
+    <details style="margin-top:2rem"><summary>Original section map (image)</summary><img src={url('/images/knollwood-section-map.png')} alt="Knollwood Village section map with lots colored by section" style="margin-top:1rem;max-width:720px" /></details>
+  </div>
+  <script src="../scripts/map.ts"></script>
+</Base>
+<style is:global>
+  .map-wrap { position: relative; margin: 1rem 0 2rem; }
+  .map { height: 560px; border: 1px solid var(--line); border-radius: var(--radius); background: #eef1ee; z-index: 0; }
+  @media (max-width: 700px) { .map { height: 440px; } }
+  .map-tools { position: absolute; top: .75rem; left: 3.5rem; right: .75rem; z-index: 500; max-width: 380px; }
+  .map-tools input { width: 100%; padding: .65rem .8rem; border: 1px solid #b9b4a6; border-radius: var(--radius); font: inherit; box-shadow: var(--shadow); }
+  .results { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); max-height: 220px; overflow: auto; margin-top: .25rem; }
+  .results button { display: block; width: 100%; text-align: left; background: none; border: 0; border-bottom: 1px solid var(--line); padding: .5rem .8rem; font: inherit; cursor: pointer; }
+  .results button:hover { background: var(--gold-soft); }
+  .leaflet-popup-content { font-family: var(--font-sans); font-size: .95rem; line-height: 1.45; }
+  .leaflet-popup-content h4 { margin: 0 0 .25rem; font-family: var(--font-serif); font-size: 1.05rem; }
+  .map-legend { background: #fff; padding: .6rem .8rem; border-radius: var(--radius); box-shadow: var(--shadow); font-size: .8rem; line-height: 1.5; max-width: 200px; }
+  .map-legend h5 { margin: 0 0 .3rem; font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+  .map-legend .sw { display: inline-block; width: 12px; height: 12px; border-radius: 2px; margin-right: .4rem; vertical-align: -1px; border: 1px solid rgba(0,0,0,.25); }
+  .map-legend label { display: block; cursor: pointer; }
+</style>

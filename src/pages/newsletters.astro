@@ -1,0 +1,38 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import { url } from '../lib/url';
+import nl from '../data/newsletters.json';
+const years = [...new Set(nl.map((n) => n.year))].sort((a, b) => b - a);
+const labels: Record<number, string> = { 1: 'Spring (Q1)', 2: 'Summer (Q2)', 3: 'Fall (Q3)', 4: 'Winter (Q4)' };
+const latest = nl[0];
+---
+<Base title="Newsletters" description="Every issue of the Knollwood Village Voice, the KVCC quarterly newsletter, back to 2010.">
+  <PageHead eyebrow="The Knollwood Village Voice" title="Newsletter archive" lead="The Voice is published quarterly and mailed to all 624 homes. Every issue since 2010 is here as a PDF." >
+    <p style="margin-top:1rem"><a class="btn btn-primary" href={url(latest.file)}>Read the latest issue: {labels[latest.quarter]} {latest.year}</a> <a class="btn btn-outline" href={url('/advertise/')}>Advertise in the Voice</a></p>
+  </PageHead>
+  <div class="container page-body">
+    <div class="years">
+      {years.map((y) => (
+        <div class="year">
+          <h2>{y}</h2>
+          <div class="issues">
+            {[1, 2, 3, 4].map((q) => { const i = nl.find((n) => n.year === y && n.quarter === q); return i ? <a class="issue" href={url(i.file)}><span class="q">Q{q}</span>{labels[q]}</a> : <span class="issue missing"><span class="q">Q{q}</span>Not published</span>; })}
+          </div>
+        </div>
+      ))}
+    </div>
+    <p class="small muted">No issues were published in 2023. Missing an issue you have a copy of? Email <a href="mailto:president@knollwoodvillage.org">president@knollwoodvillage.org</a>.</p>
+  </div>
+</Base>
+<style>
+  .year { display: grid; grid-template-columns: 120px 1fr; gap: 1rem; align-items: start; padding: 1rem 0; border-bottom: 1px solid var(--line); }
+  .year h2 { margin: 0; font-size: 1.6rem; }
+  .issues { display: grid; grid-template-columns: repeat(4, 1fr); gap: .75rem; }
+  @media (max-width: 700px) { .year { grid-template-columns: 1fr; } .issues { grid-template-columns: 1fr 1fr; } }
+  .issue { display: flex; align-items: center; gap: .6rem; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: .7rem .9rem; text-decoration: none; color: var(--navy); font-weight: 600; font-size: .95rem; }
+  .issue:hover { border-color: var(--gold); background: var(--gold-soft); }
+  .issue .q { font-size: .7rem; font-weight: 800; background: var(--navy); color: #fff; border-radius: 3px; padding: .15rem .35rem; }
+  .issue.missing { color: var(--muted); font-weight: 400; background: transparent; border-style: dashed; }
+  .issue.missing .q { background: #c9c4b6; }
+</style>

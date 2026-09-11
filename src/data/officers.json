@@ -1,0 +1,18 @@
+{
+  "year": 2026,
+  "officers": [
+    { "role": "President", "name": "April Hearne", "email": "president@knollwoodvillage.org" },
+    { "role": "Vice President", "name": "Open position", "note": "We're looking for neighbors interested in getting involved.", "email": "president@knollwoodvillage.org" },
+    { "role": "Treasurer", "name": "Michelle Jarrell", "email": "treasurer@knollwoodvillage.org" },
+    { "role": "Secretary", "name": "Laura Ferro" }
+  ],
+  "board": ["Laura Ferro", "April Hearne", "Grant Heemer", "Michelle Jarrell", "David Meinert", "Michelle Moudry", "Cheryl O'Brien", "Joe Powers", "Joel Shields", "Mary Ann Shields", "Leslie Swain", "David Wood"],
+  "committees": [
+    { "name": "Architectural Control (ACC)", "chair": "Joe Powers", "members": ["David Roder", "Brent Nyquist", "Bev Blackwood", "Reed Hablinski", "Parul Vyas"], "email": "build@knollwoodvillage.org", "blurb": "Reviews building plans for compliance with the deed restrictions." },
+    { "name": "Security", "chair": "David Wood", "members": ["Lee Nash"], "email": "security@knollwoodvillage.org", "blurb": "Manages the Smith Protective patrol contract and security communications." },
+    { "name": "Welcome", "chair": "Mary & Joel Shields", "members": [], "email": "welcome@knollwoodvillage.org", "blurb": "Greets new residents and answers newcomer questions." },
+    { "name": "Communications", "chair": null, "members": ["Scott Rose (website, advertising)", "April Hearne (newsletter)"], "email": "advertise@knollwoodvillage.org", "blurb": "Website, the Knollwood Village Voice newsletter, and email alerts." },
+    { "name": "Social", "chair": null, "members": ["Bevin Barrett", "Katy Butterwick", "Charmaine Jackson"], "email": "social@knollwoodvillage.org", "blurb": "National Night Out, decorating contests, the spring festival, and more." },
+    { "name": "Beautification / Landscaping", "chair": "Scott Rose", "members": [], "email": null, "blurb": "Esplanades, entrance signs, and neighborhood landscaping." }
+  ]
+}

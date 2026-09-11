@@ -1,0 +1,9 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import EmailSignup from '../components/EmailSignup.astro';
+---
+<Base title="Join the Email List" description="Sign up for Knollwood Village Civic Club email alerts: security updates, meeting notices, and neighborhood events.">
+  <PageHead eyebrow="Stay informed" title="Join the KVCC email list" lead="The board sends occasional email alerts about security, meetings, and events. Don't miss the news." />
+  <div class="container page-body"><div class="card" style="max-width:640px"><EmailSignup /></div></div>
+</Base>

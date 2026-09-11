@@ -1,0 +1,20 @@
+---
+import { url } from '../lib/url';
+interface Props { title: string; slug: string; date: Date; eventDate?: Date; location?: string; description?: string; }
+const { title, slug, date, eventDate, location, description } = Astro.props;
+const fmt = (d: Date) => d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+const fmtEvent = (d: Date) => d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', timeZone: 'America/Chicago' }) + (d.getUTCHours() ? ', ' + d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'America/Chicago' }) : '');
+---
+<article class="news-card">
+  {eventDate ? <div class="badge badge-green">Event · {fmtEvent(eventDate)}</div> : <div class="small muted">{fmt(date)}</div>}
+  <h3><a href={url(`/news/${slug}/`)}>{title}</a></h3>
+  {location && <div class="small muted">{location}</div>}
+  {description && <p class="small">{description}</p>}
+</article>
+<style>
+  .news-card { padding: 1rem 0; border-bottom: 1px solid var(--line); }
+  .news-card h3 { margin: .35rem 0 .25rem; font-size: 1.15rem; }
+  .news-card a { text-decoration: none; }
+  .news-card a:hover { text-decoration: underline; }
+  .news-card p { margin: .35rem 0 0; }
+</style>

@@ -1,0 +1,44 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import { url } from '../../lib/url';
+import site from '../../data/site.json';
+---
+<Base title="Dues Participation Map" description="See which Knollwood Village homes have paid civic club dues this year, and look up your own address.">
+  <PageHead eyebrow="Neighborhood dues" title="Who has paid?" lead="Green lots have paid in full for the selected year. The treasurer updates this as payments are recorded, so allow a couple of weeks after you pay. Names and amounts are never shown.">
+    <div class="controls">
+      <label for="dues-year"><strong>Year</strong></label> <select id="dues-year"></select>
+      <span id="dues-stats" class="stats">Loading…</span>
+      <a class="btn btn-gold btn-sm" href={url('/dues/')}>Pay dues</a>
+    </div>
+  </PageHead>
+  <div class="container page-body">
+    <div class="map-wrap">
+      <div class="map-tools"><input id="addr-search" type="search" placeholder="Look up your address" aria-label="Search address" autocomplete="off" /><div id="addr-results" class="results" hidden></div></div>
+      <div id="map" class="map" data-base={import.meta.env.BASE_URL}></div>
+    </div>
+    <div class="grid-2">
+      <div class="card card-soft"><h3>Why we publish this</h3><p class="small">The Knollwood Village Civic Club is voluntary. The security patrol, deed restriction enforcement, esplanades, newsletter, and events exist only because neighbors choose to contribute. The club has published a paid-homes list in the newsletter for years; this map is the same information, easier to read. Thank you to everyone who has paid.</p></div>
+      <div class="card"><h3>See an error?</h3><p class="small">If you've paid and your lot isn't green after two weeks, email the treasurer at <a href={`mailto:${site.emails.treasurer}`}>{site.emails.treasurer}</a> with your address and payment date. Zelle payments without an address in the memo are the most common cause.</p></div>
+    </div>
+  </div>
+  <script src="../../scripts/dues-map.ts"></script>
+</Base>
+<style is:global>
+  .controls { display: flex; align-items: center; gap: .75rem; flex-wrap: wrap; margin-top: 1rem; }
+  .controls select { font: inherit; padding: .4rem .6rem; border-radius: var(--radius); border: 1px solid #b9b4a6; }
+  .stats { color: var(--ink-2); }
+  .map-wrap { position: relative; margin: 0 0 2rem; }
+  .map { height: 620px; border: 1px solid var(--line); border-radius: var(--radius); background: #eef1ee; z-index: 0; }
+  @media (max-width: 700px) { .map { height: 460px; } }
+  .map-tools { position: absolute; top: .75rem; left: 3.5rem; right: .75rem; z-index: 500; max-width: 380px; }
+  .map-tools input { width: 100%; padding: .65rem .8rem; border: 1px solid #b9b4a6; border-radius: var(--radius); font: inherit; box-shadow: var(--shadow); }
+  .results { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); max-height: 220px; overflow: auto; margin-top: .25rem; }
+  .results button { display: block; width: 100%; text-align: left; background: none; border: 0; border-bottom: 1px solid var(--line); padding: .5rem .8rem; font: inherit; cursor: pointer; }
+  .results button:hover { background: var(--gold-soft); }
+  .leaflet-popup-content { font-family: var(--font-sans); font-size: .95rem; line-height: 1.45; }
+  .leaflet-popup-content h4 { margin: 0 0 .25rem; font-family: var(--font-serif); font-size: 1.05rem; }
+  .map-legend { background: #fff; padding: .6rem .8rem; border-radius: var(--radius); box-shadow: var(--shadow); font-size: .8rem; line-height: 1.5; }
+  .map-legend h5 { margin: 0 0 .3rem; font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+  .map-legend .sw { display: inline-block; width: 12px; height: 12px; border-radius: 2px; margin-right: .4rem; vertical-align: -1px; border: 1px solid rgba(0,0,0,.25); }
+</style>

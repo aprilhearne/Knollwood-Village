@@ -7,11 +7,11 @@ Welcome to the neighborhood. Whether you just closed on a house or signed a leas
 
 ## 1. Save the patrol number
 
-Knollwood Village funds its own security patrol through **Smith Protective Services**. Save Dispatch in your phone: **[713-266-6042](tel:+17132666042)**. Call them for suspicious activity, a patrol request, or a welfare check. In an emergency, always call 911 first. Going out of town? Smith offers a free [Vacation Watch](/security/#vacation-watch).
+Knollwood Village funds a **Smith Protective Services** patrol, shared with three neighboring civic clubs. Save Dispatch in your phone: **[713-266-6042](tel:+17132666042)**. Call them for suspicious activity, a patrol request, or a welfare check. In an emergency, always call 911 first. Going out of town? Smith offers a free [Vacation Watch](/security/#vacation-watch).
 
 ## 2. Join the email list
 
-The board's email list is how you'll hear about security alerts, meetings, and events. [Sign up here](/email-list/). It takes a minute and we never share your information.
+The board's email list is how you'll hear about security alerts, meetings, and events. [Sign up here](/contact/#email). It takes a minute and we never share your information.
 
 ## 3. Pay your dues
 
@@ -19,7 +19,7 @@ The KVCC is a voluntary civic club, not a mandatory HOA. There is no automatic a
 
 ## 4. Know the deed restrictions
 
-Knollwood Village is deed-restricted, and Architectural Control Committee (ACC) approval is required before any work that changes the size, shape, or exterior of your home, and for fences and sheds. [Find your section on the map](/deeds/) and read the restrictions before you plan a project. Painting, roofing, pools, and landscaping generally don't need approval.
+Knollwood Village is deed-restricted, and Architectural Control Committee (ACC) approval is required before any work that changes the size, shape, or exterior of your home, and for fences and sheds. [Find your section on the map](/build/#sections) and read the restrictions before you plan a project. Painting, roofing, pools, and landscaping generally don't need approval.
 
 ## 5. Trash and recycling
 
@@ -34,7 +34,7 @@ Knollwood Village is deed-restricted, and Architectural Control Committee (ACC) 
 - **Spring festival** and the **annual resident meeting** each January.
 - The **Welcome Committee** ([welcome@knollwoodvillage.org](mailto:welcome@knollwoodvillage.org)) will happily answer newcomer questions.
 
-Check [News & Events](/news/) and the [newsletter](/newsletters/) for dates.
+Check [News and Events](/news/) for dates and the newsletter archive.
 
 ## 7. Get around
 
@@ -53,3 +53,5 @@ Brays Bayou Greenway trail runs along the north side of the neighborhood: two an
 | Anything else | [president@knollwoodvillage.org](mailto:president@knollwoodvillage.org) |
 
 [Full list of board members, committees, and city phone numbers](/contact/).
+
+Buying or selling? [Notes for agents and title companies](/realtors/).

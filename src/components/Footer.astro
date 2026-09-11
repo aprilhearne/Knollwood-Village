@@ -16,10 +16,10 @@ const year = new Date().getFullYear();
       <ul>
         <li><a href={url('/dues/')}>Dues</a></li>
         <li><a href={url('/security/')}>Security patrol</a></li>
-        <li><a href={url('/build/')}>Building & ACC</a></li>
-        <li><a href={url('/deeds/')}>Deed restrictions</a></li>
-        <li><a href={url('/new-residents/')}>New resident guide</a></li>
+        <li><a href={url('/build/')}>Building and deed restrictions</a></li>
         <li><a href={url('/map/')}>Neighborhood map</a></li>
+        <li><a href={url('/new-residents/')}>New resident guide</a></li>
+        <li><a href={url('/realtors/')}>For agents and title companies</a></li>
       </ul>
     </div>
     <div>
@@ -29,16 +29,16 @@ const year = new Date().getFullYear();
         <li><a href={`mailto:${site.emails.treasurer}`}>{site.emails.treasurer}</a></li>
         <li><a href={`mailto:${site.emails.build}`}>{site.emails.build}</a></li>
         <li><a href={`mailto:${site.emails.security}`}>{site.emails.security}</a></li>
-        <li><a href={url('/contact/')}>Board & committees</a></li>
+        <li><a href={url('/contact/')}>Board and committees</a></li>
       </ul>
     </div>
     <div>
       <h4>In a pinch</h4>
-      <p class="small"><strong>Emergency: 911</strong><br />Patrol dispatch: <a href={`tel:${site.patrol.dispatchTel}`}>{site.patrol.dispatch}</a><br />HPD non-emergency: <a href="tel:+17138843131">713-884-3131</a><br />City services: 311</p>
+      <p class="small"><strong>Emergency: 911</strong><br />Smith Protective dispatch: <a href={`tel:${site.patrol.dispatchTel}`}>{site.patrol.dispatch}</a><br />HPD non-emergency: <a href="tel:+17138843131">713-884-3131</a><br />City services: 311</p>
       <p class="small"><a href={url('/email-list/')}>Get neighborhood emails</a></p>
     </div>
   </div>
-  <div class="container copyright small">© {year} Knollwood Village Civic Club · <a href={url('/advertise/')}>Advertise in the Voice</a> · <a href={url('/documents/')}>Documents</a> · <a href={url('/newsletters/')}>Newsletters</a></div>
+  <div class="container copyright small">© {year} Knollwood Village Civic Club · <a href={url('/advertise/')}>Advertise in the Voice</a> · <a href={url('/news/#newsletters')}>Newsletters</a></div>
 </footer>
 <style>
   .site-footer { background: var(--brown); color: #e2d7c6; margin-top: 3rem; }

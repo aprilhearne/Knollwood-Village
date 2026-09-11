@@ -117,7 +117,7 @@ code { font-family: ui-monospace, Menlo, monospace; font-size: .9em; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .doc-list { list-style: none; padding: 0; }
 .doc-list li { display: flex; gap: .75rem; align-items: baseline; padding: .55rem 0; border-bottom: 1px solid var(--line); }
-.doc-list li::before { content: "PDF"; font-size: .65rem; font-weight: 800; letter-spacing: .08em; color: #fff; background: var(--brick); padding: .15rem .35rem; border-radius: 3px; flex: none; }
+.doc-list li::before { content: "PDF"; font-size: .6rem; font-weight: 800; letter-spacing: .08em; color: #fff; background: var(--brick); padding: .15rem .35rem; border-radius: 3px; flex: none; }
 .doc-list li.doc-docx::before { content: "DOCX"; background: var(--green); }
 .doc-list li.doc-link::before { content: "LINK"; background: var(--green-2); }
 .doc-list .meta { color: var(--muted); font-size: .9rem; margin-left: auto; white-space: nowrap; }
@@ -125,3 +125,27 @@ form.stack label { display: block; font-weight: 700; font-size: .9rem; margin-bo
 form.stack input, form.stack select { width: 100%; padding: .65rem .75rem; border: 1px solid #c5b79c; border-radius: var(--radius); font: inherit; font-size: 1rem; background: #fff; margin-bottom: .9rem; }
 form.stack input:focus { outline: 2px solid var(--gold); border-color: var(--green); }
 .req { color: var(--red); }
+
+/* Mid-century brick and breeze-block motifs */
+:root {
+  --breeze-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Crect width='56' height='56' fill='none'/%3E%3Ccircle cx='28' cy='28' r='17' fill='none' stroke='%23c9a87a' stroke-width='5'/%3E%3Cpath d='M0 0h11v11H0zM45 0h11v11H45zM0 45h11v11H0zM45 45h11v11H45z' fill='%23c9a87a'/%3E%3C/svg%3E");
+  --breeze-pattern-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Ccircle cx='28' cy='28' r='17' fill='none' stroke='%23ffffff' stroke-width='5'/%3E%3Cpath d='M0 0h11v11H0zM45 0h11v11H45zM0 45h11v11H0zM45 45h11v11H45z' fill='%23ffffff'/%3E%3C/svg%3E");
+}
+.breeze { position: relative; }
+.breeze::before { content: ""; position: absolute; inset: 0; background: var(--breeze-pattern) center/56px 56px; opacity: .22; pointer-events: none; }
+.breeze > * { position: relative; }
+.page-head { position: relative; overflow: hidden; }
+.page-head::after { content: ""; position: absolute; top: 0; right: 0; bottom: 0; width: 34%; background: var(--breeze-pattern) center/56px 56px; opacity: .28; -webkit-mask-image: linear-gradient(90deg, transparent, #000 60%); mask-image: linear-gradient(90deg, transparent, #000 60%); pointer-events: none; }
+.page-head > .container { position: relative; }
+.brick-wall { background: var(--brick-pattern); background-size: 64px 32px; color: #fff; }
+.brick-wall .eyebrow { color: var(--gold-soft); }
+.planter { border-bottom: 10px solid transparent; border-image: var(--brick-pattern) 0 0 32 0 / 0 0 10px 0 round; }
+.card.planter { border-radius: var(--radius) var(--radius) 0 0; }
+.section-divider { height: 24px; background: var(--breeze-pattern) center/56px 56px; opacity: .45; margin: 2.5rem 0; -webkit-mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent); mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent); }
+.card table { table-layout: fixed; width: 100%; }
+.card table td, .card table th { overflow-wrap: anywhere; word-break: break-word; padding: .45rem .35rem; }
+.card table td:first-child { width: 42%; color: var(--ink-2); }
+.strip { background: var(--green); color: #fff; }
+.strip a { color: #fff; }
+.strip-inner { display: flex; gap: 1.5rem; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: .9rem 1.25rem; }
+.strip .tel { color: #fff; font-size: 1.5rem; }

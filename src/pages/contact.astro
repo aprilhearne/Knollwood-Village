@@ -1,43 +1,106 @@
 ---
 import Base from '../layouts/Base.astro';
-import PageHead from '../components/PageHead.astro';
+import EmailSignup from '../components/EmailSignup.astro';
 import { url } from '../lib/url';
 import site from '../data/site.json';
 import o from '../data/officers.json';
+import nl from '../data/newsletters.json';
+const latest = nl[0];
 ---
-<Base title="Board & Contact" description="Knollwood Village Civic Club officers, board members, committees, mailing address, and useful City of Houston phone numbers.">
-  <PageHead eyebrow="Contact" title="Board, committees & contact" lead="Every board member and committee chair is a volunteer neighbor. The fastest way to reach the right person is the role email address." />
-  <div class="container page-body">
-    <div class="two-col">
-      <div>
-        <h2 style="margin-top:0">{o.year} officers</h2>
-        <div class="grid-2 officers">
-          {o.officers.map((x) => (
-            <div class="card">
-              <div class="eyebrow">{x.role}</div>
-              <div class="name">{x.name}</div>
-              {x.note && <p class="small muted" style="margin:.35rem 0 0">{x.note}</p>}
-              {x.email && <p class="small" style="margin:.35rem 0 0"><a href={`mailto:${x.email}`}>{x.email}</a></p>}
-            </div>
-          ))}
-        </div>
-        <h3>Board of Directors</h3>
-        <p>{o.board.join(' · ')}</p>
+<Base title="Board, Volunteers, and Contact" description="Meet the volunteer board of the Knollwood Village Civic Club, find the right email for your question, and learn how to get involved.">
+  <div class="page-head"><div class="container">
+    <div class="eyebrow">Contact</div>
+    <h1>The board is just neighbors. Come be one.</h1>
+    <p class="lead">Everything the Civic Club does, from the Smith patrol contract to the newsletter in your mailbox, is done by volunteers who live on these streets. Here's who they are, how to reach them, and how to join in.</p>
+  </div></div>
 
-        <h2>Committees</h2>
-        <div class="committees">
-          {o.committees.map((c) => (
-            <div class="committee">
-              <h3>{c.name}</h3>
-              <p class="small muted" style="margin:0 0 .35rem">{c.blurb}</p>
-              <p style="margin:0">{c.chair && <span><strong>{c.chair}</strong>, Chair{c.members.length ? ' · ' : ''}</span>}{c.members.join(', ')}</p>
-              {c.email && <p style="margin:.25rem 0 0"><a href={`mailto:${c.email}`}>{c.email}</a></p>}
-            </div>
-          ))}
+  <div class="container page-body">
+    <section class="two-col">
+      <div class="prose">
+        <h2 style="margin-top:0">What the board actually does</h2>
+        <p>The Knollwood Village Civic Club is a Texas nonprofit run by an elected board of resident volunteers. There is no management company and no paid staff. The board meets about every other month, usually in a neighbor's living room or at Linkwood Park, and hosts a resident meeting once or twice a year. Over a typical year the board:</p>
+        <ul class="checks">
+          <li>Manages the Smith Protective patrol agreement and coordinates with the three neighboring civic clubs that share it</li>
+          <li>Reviews building plans through the Architectural Control Committee and keeps the deed restrictions enforceable</li>
+          <li>Keeps the esplanades mowed and planted and the entrance signs in good repair</li>
+          <li>Collects and stewards dues, keeps the books, and files the nonprofit paperwork</li>
+          <li>Publishes the <em>Knollwood Village Voice</em> four times a year and sends email alerts</li>
+          <li>Throws National Night Out, the decorating contests, and the spring festival</li>
+          <li>Shows up at City Council, Public Works, and Harris County Flood Control meetings so the neighborhood has a voice</li>
+        </ul>
+        <h2>Why join</h2>
+        <p>Board and committee work is the most direct way to shape the place you live. It is also how you get to know the neighborhood beyond your own block. Most roles take a few hours a month. You don't need experience with civic clubs, HOAs, or nonprofits, and renters are as welcome as owners.</p>
+        <p><strong>Where we could use help right now:</strong></p>
+        <ul>
+          <li><strong>Vice President.</strong> The seat is open. The VP backs up the president, helps run meetings, and is the natural next president.</li>
+          <li><strong>Social Committee.</strong> Planning parties and contests. Fun, low commitment, and very appreciated.</li>
+          <li><strong>Block captains.</strong> One or two neighbors per street to pass along news and welcome newcomers.</li>
+          <li><strong>Newsletter and website.</strong> Writing, photography, ad sales, and keeping this site current.</li>
+          <li><strong>Beautification.</strong> Esplanade plantings and sign upkeep.</li>
+        </ul>
+        <p>Email <a href={`mailto:${site.emails.president}`}>{site.emails.president}</a> and tell us what you'd enjoy doing. We'll find the right fit.</p>
+      </div>
+      <aside class="aside">
+        <div class="card planter" style="padding:0;overflow:hidden">
+          <a href={url(latest.file)}><img src={url('/images/newsletter-latest-cover.jpg')} alt={`Cover of the latest Knollwood Village Voice newsletter`} style="display:block" /></a>
+          <div style="padding:1rem 1.25rem">
+            <div class="eyebrow">The Knollwood Village Voice</div>
+            <p class="small" style="margin:0">Written, laid out, and mailed by volunteers four times a year. <a href={url(latest.file)}>Read the latest issue</a> or <a href={url('/news/#newsletters')}>browse the archive</a>.</p>
+          </div>
         </div>
-        <div class="notice">
-          <strong>Want to help?</strong> Homeowners and renters alike are welcome as volunteers. Even if you don't see a role above, email <a href={`mailto:${site.emails.president}`}>{site.emails.president}</a> and share your interest. The Vice President seat is open right now.
+        <div class="card">
+          <h3>Mailing address</h3>
+          <p class="small">{site.mailingAddress.map((l) => <span>{l}<br /></span>)}</p>
+          <p class="small"><a href={url('/docs/club/KVCC-Bylaws-2004.pdf')}>Civic Club bylaws (PDF)</a></p>
         </div>
+      </aside>
+    </section>
+
+    <div class="section-divider" aria-hidden="true"></div>
+
+    <section>
+      <h2 style="margin-top:0">{o.year} board</h2>
+      <div class="grid-2 officers">
+        {o.officers.map((x) => (
+          <div class="card">
+            <div class="eyebrow">{x.role}</div>
+            <div class="name">{x.name}</div>
+            {x.note && <p class="small muted" style="margin:.35rem 0 0">{x.note}</p>}
+            {x.email && <p class="small" style="margin:.35rem 0 0"><a href={`mailto:${x.email}`}>{x.email}</a></p>}
+          </div>
+        ))}
+      </div>
+      <h3>Board of Directors</h3>
+      <p>{o.board.join(' · ')}</p>
+
+      <h2>Committees</h2>
+      <div class="grid-2">
+        {o.committees.map((c) => (
+          <div class="committee">
+            <h3>{c.name}</h3>
+            <p class="small muted" style="margin:0 0 .35rem">{c.blurb}</p>
+            <p style="margin:0">{c.chair && <span><strong>{c.chair}</strong>, Chair{c.members.length ? ' · ' : ''}</span>}{c.members.join(', ')}</p>
+            {c.email && <p style="margin:.25rem 0 0"><a href={`mailto:${c.email}`}>{c.email}</a></p>}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <div class="section-divider" aria-hidden="true"></div>
+
+    <section class="two-col">
+      <div>
+        <h2 style="margin-top:0">Who to email</h2>
+        <div class="table-wrap"><table>
+          <tr><td>Anything about the club, volunteering, or this website</td><td><a href={`mailto:${site.emails.president}`}>{site.emails.president}</a></td></tr>
+          <tr><td>Dues and payments</td><td><a href={`mailto:${site.emails.treasurer}`}>{site.emails.treasurer}</a></td></tr>
+          <tr><td>Building plans, fences, sheds, deed restrictions</td><td><a href={`mailto:${site.emails.build}`}>{site.emails.build}</a></td></tr>
+          <tr><td>Security and the Smith patrol</td><td><a href={`mailto:${site.emails.security}`}>{site.emails.security}</a></td></tr>
+          <tr><td>New to the neighborhood</td><td><a href={`mailto:${site.emails.welcome}`}>{site.emails.welcome}</a></td></tr>
+          <tr><td>Events and the social committee</td><td><a href={`mailto:${site.emails.social}`}>{site.emails.social}</a></td></tr>
+          <tr><td>Advertising in the Voice</td><td><a href={`mailto:${site.emails.advertise}`}>{site.emails.advertise}</a></td></tr>
+          <tr><td>Title companies and real estate agents</td><td><a href={url('/realtors/')}>Read this first</a></td></tr>
+        </table></div>
 
         <h2>Useful phone numbers</h2>
         <div class="table-wrap"><table>
@@ -46,29 +109,20 @@ import o from '../data/officers.json';
         <p class="small">City of Houston services (nuisance violations, water and sewer repairs, heavy trash, streetlights, potholes): call <strong>311</strong> or use <a href="https://www.houstontx.gov/311/">houstontx.gov/311</a>.</p>
       </div>
       <aside class="aside">
-        <div class="card">
-          <h3>Mailing address</h3>
-          <p>{site.mailingAddress.map((l) => <span>{l}<br /></span>)}</p>
-        </div>
-        <div class="card card-sky">
-          <h3>Security</h3>
-          <p class="small">Emergency: <strong>911</strong><br />Smith Dispatch: <a href={`tel:${site.patrol.dispatchTel}`}>{site.patrol.dispatch}</a><br />Vacation Watch: <a href={`mailto:${site.patrol.vacationWatch}`}>{site.patrol.vacationWatch}</a></p>
-        </div>
-        <div class="card">
-          <h3>Trash & recycling</h3>
-          <p class="small">Heavy trash pickup is the <strong>third Monday of each month</strong>. Tree waste and junk waste alternate months. Details in the <a href={url('/new-residents/')}>New Resident Guide</a> and at <a href="https://www.houstontx.gov/solidwaste/">houstontx.gov/solidwaste</a>.</p>
-        </div>
-        <div class="card">
-          <h3>Bylaws</h3>
-          <p class="small"><a href={url('/docs/club/KVCC-Bylaws-2004.pdf')}>Knollwood Village Civic Club By-Laws (PDF)</a></p>
+        <div class="card" id="email">
+          <h3>Get neighborhood emails</h3>
+          <EmailSignup />
         </div>
       </aside>
-    </div>
+    </section>
   </div>
 </Base>
 <style>
   .officers .card + .card { margin-top: 0; }
-  .name { font-family: var(--font-serif); font-size: 1.3rem; color: var(--navy); }
+  .name { font-family: var(--font-serif); font-variation-settings: "SOFT" 100; font-size: 1.3rem; color: var(--brown); }
   .committee { padding: 1rem 0; border-bottom: 1px solid var(--line); }
   .committee h3 { margin: 0 0 .25rem; font-size: 1.1rem; }
+  .checks { list-style: none; padding: 0; }
+  .checks li { padding-left: 1.75rem; position: relative; }
+  .checks li::before { content: "🌳"; position: absolute; left: 0; top: .05em; font-size: .9em; }
 </style>

@@ -13,6 +13,6 @@
     { "name": "Welcome", "chair": "Mary & Joel Shields", "members": [], "email": "welcome@knollwoodvillage.org", "blurb": "Greets new residents and answers newcomer questions." },
     { "name": "Communications", "chair": null, "members": ["Scott Rose (website, advertising)", "April Hearne (newsletter)"], "email": "advertise@knollwoodvillage.org", "blurb": "Website, the Knollwood Village Voice newsletter, and email alerts." },
     { "name": "Social", "chair": null, "members": ["Bevin Barrett", "Katy Butterwick", "Charmaine Jackson"], "email": "social@knollwoodvillage.org", "blurb": "National Night Out, decorating contests, the spring festival, and more." },
-    { "name": "Beautification / Landscaping", "chair": "Scott Rose", "members": [], "email": null, "blurb": "Esplanades, entrance signs, and neighborhood landscaping." }
+    { "name": "Beautification and Landscaping", "chair": "Scott Rose", "members": [], "email": null, "blurb": "Esplanades, entrance signs, and neighborhood landscaping." }
   ]
 }

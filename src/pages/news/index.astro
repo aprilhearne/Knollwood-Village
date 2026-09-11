@@ -2,17 +2,67 @@
 import Base from '../../layouts/Base.astro';
 import PageHead from '../../components/PageHead.astro';
 import NewsCard from '../../components/NewsCard.astro';
+import { url } from '../../lib/url';
 import { getCollection } from 'astro:content';
+import nl from '../../data/newsletters.json';
 const now = Date.now();
 const all = (await getCollection('news')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 const upcoming = all.filter((p) => p.data.eventDate && p.data.eventDate.valueOf() > now - 86400000).sort((a, b) => a.data.eventDate!.valueOf() - b.data.eventDate!.valueOf());
 const past = all.filter((p) => !upcoming.includes(p));
+const years = [...new Set(nl.map((n) => n.year))].sort((a, b) => b - a);
+const labels: Record<number, string> = { 1: 'Spring', 2: 'Summer', 3: 'Fall', 4: 'Winter' };
+const latest = nl[0];
 ---
-<Base title="News & Events" description="Knollwood Village Civic Club announcements, meetings, and neighborhood events.">
-  <PageHead eyebrow="News" title="News & events" lead="Announcements from the board and the social committee. For the full story each quarter, read the Voice." />
-  <div class="container page-body narrow">
-    {upcoming.length > 0 && <section><h2 style="margin-top:0">Upcoming</h2>{upcoming.map((p) => <NewsCard title={p.data.title} slug={p.id} date={p.data.date} eventDate={p.data.eventDate} location={p.data.location} description={p.data.description} />)}</section>}
-    <h2 style={upcoming.length ? '' : 'margin-top:0'}>Announcements</h2>
-    {past.map((p) => <NewsCard title={p.data.title} slug={p.id} date={p.data.date} description={p.data.description} />)}
+<Base title="News and Events" description="Knollwood Village Civic Club announcements, meetings, neighborhood events, and every issue of the Knollwood Village Voice newsletter since 2010.">
+  <PageHead eyebrow="News and events" title="What's going on" lead="Announcements from the board and the social committee, plus every issue of the Knollwood Village Voice.">
+    <nav class="jump small" aria-label="On this page"><a href="#upcoming">Upcoming</a><a href="#announcements">Announcements</a><a href="#newsletters">Newsletter archive</a></nav>
+  </PageHead>
+  <div class="container page-body">
+    <div class="two-col">
+      <div>
+        {upcoming.length > 0 && <section id="upcoming"><h2 style="margin-top:0">Upcoming</h2>{upcoming.map((p) => <NewsCard title={p.data.title} slug={p.id} date={p.data.date} eventDate={p.data.eventDate} location={p.data.location} description={p.data.description} />)}</section>}
+        <h2 id="announcements" style={upcoming.length ? '' : 'margin-top:0'}>Announcements</h2>
+        {past.map((p) => <NewsCard title={p.data.title} slug={p.id} date={p.data.date} description={p.data.description} />)}
+      </div>
+      <aside class="aside">
+        <div class="card planter" style="padding:0;overflow:hidden">
+          <a href={url(latest.file)}><img src={url('/images/newsletter-latest-cover.jpg')} alt="Cover of the latest Knollwood Village Voice" style="display:block" /></a>
+          <div style="padding:1rem 1.25rem">
+            <div class="eyebrow">Latest issue</div>
+            <p class="small" style="margin:0"><a href={url(latest.file)}>{labels[latest.quarter]} {latest.year} Knollwood Village Voice</a></p>
+          </div>
+        </div>
+        <div class="card"><h3>Every year, in your mailbox</h3><p class="small">The Voice goes to all 624 homes in March, June, September, and December. Local businesses can <a href={url('/advertise/')}>advertise</a> to help cover printing.</p></div>
+      </aside>
+    </div>
+
+    <div class="section-divider" aria-hidden="true"></div>
+
+    <h2 id="newsletters" style="margin-top:0">Newsletter archive</h2>
+    <p>Every issue of the <em>Knollwood Village Voice</em> since 2010, as PDFs.</p>
+    <div class="years">
+      {years.map((y) => (
+        <div class="year">
+          <h3>{y}</h3>
+          <div class="issues">
+            {[1, 2, 3, 4].map((q) => { const i = nl.find((n) => n.year === y && n.quarter === q); return i ? <a class="issue" href={url(i.file)}><span class="q">Q{q}</span>{labels[q]}</a> : <span class="issue missing"><span class="q">Q{q}</span>Not published</span>; })}
+          </div>
+        </div>
+      ))}
+    </div>
+    <p class="small muted">No issues were published in 2023. Have a copy of a missing issue? Email <a href="mailto:president@knollwoodvillage.org">president@knollwoodvillage.org</a>.</p>
   </div>
 </Base>
+<style>
+  .jump { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem; }
+  .jump a { font-weight: 700; }
+  .year { display: grid; grid-template-columns: 100px 1fr; gap: 1rem; align-items: center; padding: .6rem 0; border-bottom: 1px solid var(--line); }
+  .year h3 { margin: 0; font-size: 1.3rem; }
+  .issues { display: grid; grid-template-columns: repeat(4, 1fr); gap: .6rem; }
+  @media (max-width: 700px) { .year { grid-template-columns: 1fr; } .issues { grid-template-columns: 1fr 1fr; } }
+  .issue { display: flex; align-items: center; gap: .6rem; background: var(--white); border: 1px solid var(--line); border-radius: 999px; padding: .5rem .9rem; text-decoration: none; color: var(--brown); font-weight: 700; font-size: .9rem; }
+  .issue:hover { border-color: var(--gold); background: var(--gold-soft); }
+  .issue .q { font-size: .7rem; font-weight: 800; background: var(--green); color: #fff; border-radius: 999px; padding: .15rem .4rem; }
+  .issue.missing { color: var(--muted); font-weight: 400; background: transparent; border-style: dashed; }
+  .issue.missing .q { background: #c9c4b6; }
+</style>

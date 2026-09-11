@@ -3,7 +3,7 @@ title: "Advertise in the Knollwood Village Voice"
 description: "Reach 624 homes plus out-of-area owners four times a year in the KVCC quarterly newsletter. Rates, sizes, deadlines, and how to submit artwork."
 ---
 
-The *Knollwood Village Voice* is the quarterly newsletter published by the Knollwood Village Civic Club and delivered to all 624 homes between Kirby, Main Street, Stella Link, and S. Braeswood, plus roughly 75 homeowners of record who live outside the neighborhood. It is printed in black and white and also [available online as a PDF](/newsletters/).
+The *Knollwood Village Voice* is the quarterly newsletter published by the Knollwood Village Civic Club and delivered to all 624 homes between Kirby, Main Street, Stella Link, and S. Braeswood, plus roughly 75 homeowners of record who live outside the neighborhood. It is printed in black and white and also [available online as a PDF](/news/#newsletters).
 
 Every issue carries a message from the President, meeting information, a financial update, a security report, and community news. Advertisements help offset the cost of printing and mailing. Because volunteers write, collect ads for, and publish the newsletter, distribution is targeted to four months rather than fixed dates:
 

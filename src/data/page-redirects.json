@@ -2,10 +2,10 @@
  "/contribute/": "/dues/",
  "/contact-us/": "/contact/",
  "/email/": "/email-list/",
- "/esplanade-signs/": "/about/neighborhood-signs/",
+ "/esplanade-signs/": "/about/#signs",
  "/bsbridge/": "/news/buffalo-speedway-bridge-2018/",
  "/contributed/": "/dues/thank-you/",
- "/thank-you/": "/new-construction-addition-acc-request/",
+ "/thank-you/": "/build/#new-construction",
  "/acc-submission/": "/build/",
  "/button-test/": "/build/",
  "/membership-login/": "/",
@@ -35,5 +35,14 @@
  "/2023/11/26/2023-halloween-decorating-results/": "/news/2023-halloween-decorating-results/",
  "/2023/12/25/annual-knollwood-village-resident-2024mtg/": "/news/annual-knollwood-village-resident-2024mtg/",
  "/2023/12/26/2023-holiday-decoration-results/": "/news/2023-holiday-decoration-results/",
- "/2024/03/27/2024kvspringfest/": "/news/2024kvspringfest/"
+ "/2024/03/27/2024kvspringfest/": "/news/2024kvspringfest/",
+ "/deeds/": "/build/#sections",
+ "/acc-faqs/": "/build/#faqs",
+ "/standard-acc-request/": "/build/#standard",
+ "/new-construction-addition-acc-request/": "/build/#new-construction",
+ "/documents/": "/build/#documents",
+ "/newsletters/": "/news/#newsletters",
+ "/email-list/": "/contact/#email",
+ "/dues/map/": "/dues/#map",
+ "/about/neighborhood-signs/": "/about/#signs"
 }

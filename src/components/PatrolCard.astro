@@ -7,14 +7,14 @@ const { compact = false } = Astro.props;
 <div class="patrol">
   <div class="patrol-top">
     <div>
-      <div class="eyebrow" style="color:var(--gold)">Neighborhood security patrol</div>
-      <div class="patrol-title">Our patrol is on duty every day of the year</div>
+      <div class="eyebrow" style="color:var(--gold)">Security patrol</div>
+      <div class="patrol-title">Smith Protective is on duty every day of the year</div>
       {!compact && <div class="patrol-since">Smith Protective Services, on patrol in Knollwood Village since August 19, 2026</div>}
     </div>
     <img src={url('/images/smith-badge.png')} alt="Smith Protective Services" width={compact ? 44 : 60} />
   </div>
   <div class="patrol-dispatch">
-    <div class="eyebrow" style="color:var(--brown-2)">Patrol dispatch, save it in your phone</div>
+    <div class="eyebrow" style="color:var(--brown-2)">Smith dispatch, save it in your phone</div>
     <a class="tel" href={`tel:${site.patrol.dispatchTel}`}>{site.patrol.dispatch}</a>
     <div class="small">For anything that seems off on your street. In an emergency, always call 911 first.</div>
     {!compact && <a class="small" style="display:inline-block;margin-top:.6rem" href={url('/security/')}>How the patrol works, and vacation watch →</a>}

@@ -1,28 +1,34 @@
 ---
 import Base from '../layouts/Base.astro';
-import PatrolCard from '../components/PatrolCard.astro';
 import { url } from '../lib/url';
 import site from '../data/site.json';
 const p = site.patrol;
 ---
-<Base title="Neighborhood Security Patrol" description="Smith Protective Services patrols Knollwood Village. Dispatch 713-266-6042. Vacation watch, alarm response, and how to report incidents.">
-  <div class="page-head"><div class="container"><div class="eyebrow">Security</div><h1>Neighborhood security patrol</h1><p class="lead">Smith Protective Services has patrolled Knollwood Village since {p.since}. If you spot our officer out on patrol, say hello and introduce yourself.</p></div></div>
+<Base title="Security and the Smith Protective Patrol" description="Smith Protective Services patrols Knollwood Village. Dispatch 713-266-6042. Vacation watch, how to report incidents, and how the four-neighborhood patrol works.">
+  <div class="page-head"><div class="container"><div class="eyebrow">Security</div><h1>Smith Protective patrols Knollwood Village</h1><p class="lead">Smith Protective Services has patrolled Knollwood Village since {p.since}. If you spot the Smith officer out on patrol, say hello and introduce yourself.</p></div></div>
+
+  <div class="strip">
+    <div class="container strip-inner">
+      <div><div class="eyebrow" style="color:var(--gold);margin:0">Smith Protective dispatch, save it in your phone</div><a class="tel" href={`tel:${p.dispatchTel}`}>{p.dispatch}</a></div>
+      <div class="small" style="max-width:520px">Vacation watch: <a href={`mailto:${p.vacationWatch}`}>{p.vacationWatch}</a><br />In an emergency, always call 911 first.</div>
+    </div>
+  </div>
+
   <div class="container page-body two-col">
     <div class="prose">
-      <PatrolCard />
-      <figure style="margin-top:1.5rem"><img src={url('/images/smith-patrol-vehicle.jpg')} alt="Smith Protective Services patrol vehicle parked on a Knollwood Village street with the officer at the wheel" /><figcaption>Our Smith patrol vehicle in Knollwood Village</figcaption></figure>
+      <figure style="margin-top:0"><img src={url('/images/smith-patrol-vehicle.jpg')} alt="Smith Protective Services patrol vehicle parked on a Knollwood Village street with the officer at the wheel" /><figcaption>The Smith patrol vehicle in Knollwood Village</figcaption></figure>
 
       <h2>In an emergency, always call 911 first</h2>
       <p>A crime in progress, a fire, a medical emergency, anything that threatens someone's safety: call 911 first. Smith is an added layer of security for our neighborhood. It does not replace police, fire, or EMS.</p>
 
       <h2>Security concerns and patrol requests</h2>
-      <p>For a security concern or a patrol request, call <strong>Smith Dispatch at <a href={`tel:${p.dispatchTel}`}>{p.dispatch}</a></strong>. That covers suspicious people or vehicles, trespassing, loitering, disturbances, anything that seems off, or a request to check on a particular spot.</p>
-      <p>You do not need to know whether our officer is on duty before you call. If the officer is on patrol, Dispatch will pass the request along. If not, Dispatch will reach the field supervisor to determine an appropriate response.</p>
+      <p>For a security concern or a patrol request, call <strong>Smith dispatch at <a href={`tel:${p.dispatchTel}`}>{p.dispatch}</a></strong>. That covers suspicious people or vehicles, trespassing, loitering, disturbances, anything that seems off, or a request to check on a particular spot.</p>
+      <p>You do not need to know whether the Smith officer is on duty before you call. If the officer is on patrol, dispatch will pass the request along. If not, dispatch will reach the field supervisor to determine an appropriate response.</p>
 
       <h2>Please report to HPD as well</h2>
-      <p>Report criminal incidents to <strong>both</strong> HPD (<a href="tel:+17138843131">713-884-3131</a>) and Smith Dispatch (<a href={`tel:${p.dispatchTel}`}>{p.dispatch}</a>). HPD assigns patrol resources where incidents get reported, so if we don't report, we don't get the resources. And Smith doesn't receive HPD's reports, so unless we tell them directly our officer won't know what to watch for.</p>
+      <p>Report criminal incidents to <strong>both</strong> HPD (<a href="tel:+17138843131">713-884-3131</a>) and Smith dispatch (<a href={`tel:${p.dispatchTel}`}>{p.dispatch}</a>). HPD assigns patrol resources where incidents get reported, so if we don't report, we don't get the resources. And Smith doesn't receive HPD's reports, so unless we tell them directly the officer won't know what to watch for.</p>
 
-      <h2>What our patrol does</h2>
+      <h2>What Smith does for us</h2>
       <p>Beyond routine patrol, Smith provides:</p>
       <ul>
         <li>Vacation home checks while you are away</li>
@@ -32,7 +38,7 @@ const p = site.patrol;
         <li>Watching for open doors and gates, and accumulated newspapers</li>
       </ul>
 
-      <h2 id="vacation-watch">Vacation Watch</h2>
+      <h2 id="vacation-watch">Vacation watch</h2>
       <p>Going out of town? Send your request to <a href={`mailto:${p.vacationWatch}`}>{p.vacationWatch}</a>. Two weeks' notice is ideal, though they will accommodate less.</p>
       <p>Put "Knollwood Village" and your travel dates in the subject line. In the body, include:</p>
       <ul>
@@ -41,21 +47,27 @@ const p = site.patrol;
         <li>A local emergency contact and their phone number</li>
       </ul>
 
-      <h2>About our patrol</h2>
-      <p>Knollwood Village contracts with Smith Protective Services, in business since 1903 and licensed by the Texas Department of Public Safety Private Security Board (license {p.license}). Their officers are licensed, in uniform, and patrol in a marked vehicle.</p>
-      <h3>Why we changed providers</h3>
-      <p>Earlier in 2026, our previous provider raised our hourly rate by about 47%, and the Board began evaluating alternatives. Knollwood Village has joined with three neighboring civic clubs, Woodside, Westridge, and Linkwood, to share one dedicated patrol. That combined size lets us pool resources, provide more service hours in our greater community, and ensure a more consistent officer presence.</p>
-      <p>The four communities share a single patrol that runs 365 days a year. Hours are divided by neighborhood size.</p>
-      <h3>What's coming next</h3>
+      <h2 id="four-neighborhoods">One patrol, four neighborhoods</h2>
+      <p>Earlier in 2026 our previous provider raised our hourly rate by about 47 percent, and the board went looking for a better arrangement. Knollwood Village joined with three neighboring civic clubs, <strong>Woodside, Westridge, and Linkwood</strong>, to share one dedicated Smith Protective patrol. Together the four neighborhoods are {p.totalHomes.toLocaleString()} homes, and that size lets us pool resources, buy more patrol hours for our greater community, and keep a consistent officer presence.</p>
+      <div class="map-wrap">
+        <div id="patrol-map" class="map" data-base={import.meta.env.BASE_URL}></div>
+      </div>
+      <p>How it works:</p>
       <ul>
-        <li><strong>New signs.</strong> The old S.E.A.L. Security signs around the neighborhood are being replaced with Smith Protective signs.</li>
-        <li><strong>An updated patrol vehicle</strong> marked with the name of each neighborhood it serves: Knollwood Village, Woodside, Westridge, and Linkwood.</li>
+        <li>An armed, licensed Smith officer in a marked vehicle patrols the four neighborhoods <strong>{p.hoursPerDay} hours a day, 365 days a year</strong>, {p.hoursPerWeek} patrol hours every week, on a rotating shift so the coverage isn't predictable.</li>
+        <li>Patrol time is divided in proportion to each neighborhood's size. Knollwood Village is the largest of the four and gets the largest share.</li>
+        <li>Each civic club holds its own agreement with Smith. No neighborhood is responsible for another's fees.</li>
+        <li>Because the cost is shared, our cost per home went down rather than up for roughly the same hours of coverage.</li>
       </ul>
+      <div class="table-wrap"><table>
+        <tr><th>Neighborhood</th><th>Homes</th><th>Share of patrol</th><th>Hours per week</th></tr>
+        {p.share.map((s) => <tr><td>{s.name}</td><td>{s.homes}</td><td>{s.pct}</td><td>{s.hrsWeek}</td></tr>)}
+        <tr><th>Total</th><th>{p.totalHomes.toLocaleString()}</th><th>100%</th><th>{p.hoursPerWeek}</th></tr>
+      </table></div>
+      <p>Smith Protective Services has been in business since 1903 and is licensed by the Texas Department of Public Safety Private Security Board (license {p.license}). Their officers are licensed, in uniform, and patrol in a marked vehicle. Look for new Smith signs around the neighborhood and a patrol vehicle marked with the names of all four communities.</p>
 
       <h2>How the patrol is funded</h2>
-      <p>The patrol is paid for by residents through dues collected by the Knollwood Village Civic Club. Nothing about dues is changing, and because of the four-neighborhood arrangement our cost per home went down rather than up for roughly the same hours of coverage.</p>
-      <p><strong>{site.duesYear} dues: ${site.duesAmount} a year</strong>, less than eighty cents a day for a neighborhood with its own patrol. KVCC is a voluntary civic club and not a mandatory HOA, so the patrol exists only because neighbors choose to pay for it. We're working toward a goal of {site.participationGoal} participation this year.</p>
-      <p><a href={url('/dues/')}>How dues work →</a></p>
+      <p>The patrol is paid for by residents through dues collected by the Knollwood Village Civic Club. Because the KVCC is a voluntary civic club and not a mandatory HOA, the patrol exists only because neighbors choose to pay for it. {site.duesYear} dues are ${site.duesAmount} a year, and ${site.duesSecurity} of that goes to Smith. <a href={url('/dues/')}>How dues work →</a></p>
 
       <h2>Questions?</h2>
       <p>Email <a href={`mailto:${site.emails.security}`}>{site.emails.security}</a> and a board member will get back to you.</p>
@@ -63,18 +75,18 @@ const p = site.patrol;
     <aside class="aside">
       <div class="card card-sky">
         <h3>Quick reference</h3>
-        <table class="small">
-          <tr><td>Emergency</td><td><a href="tel:911"><strong>911</strong></a></td></tr>
-          <tr><td>Smith Dispatch</td><td><a href={`tel:${p.dispatchTel}`}><strong>{p.dispatch}</strong></a></td></tr>
-          <tr><td>Smith Vacation Watch</td><td><a href={`mailto:${p.vacationWatch}`}>{p.vacationWatch}</a></td></tr>
-          <tr><td>HPD Non-Emergency</td><td><a href="tel:+17138843131">713-884-3131</a></td></tr>
-          <tr><td>Precinct 7 Constable</td><td><a href="tel:+17136436602">713-643-6602</a></td></tr>
-          <tr><td>KVCC Security questions</td><td><a href={`mailto:${site.emails.security}`}>{site.emails.security}</a></td></tr>
-        </table>
+        <dl class="ref">
+          <dt>Emergency</dt><dd><a href="tel:911"><strong>911</strong></a></dd>
+          <dt>Smith dispatch</dt><dd><a href={`tel:${p.dispatchTel}`}><strong>{p.dispatch}</strong></a></dd>
+          <dt>Smith vacation watch</dt><dd><a href={`mailto:${p.vacationWatch}`}>{p.vacationWatch}</a></dd>
+          <dt>HPD non-emergency</dt><dd><a href="tel:+17138843131">713-884-3131</a></dd>
+          <dt>Precinct 7 Constable</dt><dd><a href="tel:+17136436602">713-643-6602</a></dd>
+          <dt>KVCC security questions</dt><dd><a href={`mailto:${site.emails.security}`}>{site.emails.security}</a></dd>
+        </dl>
       </div>
       <div class="card">
         <h3>Report it twice</h3>
-        <p class="small">Incidents: call HPD <em>and</em> Smith Dispatch. HPD staffing follows reports. Smith watches for what we tell them.</p>
+        <p class="small">Incidents: call HPD <em>and</em> Smith dispatch. HPD staffing follows reports. Smith watches for what we tell them.</p>
       </div>
       <div class="card">
         <h3>Security Committee</h3>
@@ -82,4 +94,18 @@ const p = site.patrol;
       </div>
     </aside>
   </div>
+  <script src="../scripts/patrol-map.ts"></script>
 </Base>
+<style is:global>
+  .ref { margin: 0; }
+  .ref dt { font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-top: .6rem; }
+  .ref dd { margin: 0; overflow-wrap: anywhere; }
+  .map-wrap { position: relative; margin: 1rem 0 1.5rem; }
+  .map { height: 460px; border: 1px solid var(--line); border-radius: var(--radius); background: #eef1ee; z-index: 0; }
+  .hood-label { background: rgba(255,253,248,.85); border: 0; box-shadow: none; font-family: var(--font-serif); font-size: 1rem; color: var(--brown); padding: .2rem .5rem; border-radius: 999px; }
+  .hood-label::before { display: none; }
+  .map-legend { background: #fff; padding: .6rem .8rem; border-radius: var(--radius); box-shadow: var(--shadow); font-size: .8rem; line-height: 1.5; }
+  .map-legend .sw { display: inline-block; width: 12px; height: 12px; border-radius: 2px; margin-right: .4rem; vertical-align: -1px; border: 1px solid rgba(0,0,0,.25); }
+  .leaflet-popup-content { font-family: var(--font-sans); font-size: .95rem; line-height: 1.45; }
+  .leaflet-popup-content h4 { margin: 0 0 .25rem; font-family: var(--font-serif); font-size: 1.05rem; }
+</style>

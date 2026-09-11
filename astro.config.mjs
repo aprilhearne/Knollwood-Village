@@ -28,7 +28,7 @@ export default defineConfig({
   base,
   trailingSlash: 'always',
   integrations: [sitemap()],
-  redirects: pageRedirects,
+  redirects: Object.fromEntries(Object.entries(pageRedirects).map(([from, to]) => [from, base.replace(/\/$/, '') + to])),
   markdown: { rehypePlugins: [rehypeBaseLinks] },
   build: { format: 'directory' },
 });

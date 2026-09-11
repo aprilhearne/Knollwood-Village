@@ -4,14 +4,14 @@ import PageHead from '../../components/PageHead.astro';
 import { url } from '../../lib/url';
 import site from '../../data/site.json';
 ---
-<Base title="Pay Dues" description={`Knollwood Village Civic Club ${site.duesYear} annual dues are $${site.duesAmount} per home. Pay by Zelle, PayPal or card, or check.`}>
-  <PageHead eyebrow="Neighborhood dues" title={`${site.duesYear} annual dues: $${site.duesAmount} per home`} lead={`$${site.duesCivic} is civic club dues and $${site.duesSecurity} funds the Smith Protective security patrol. That is less than eighty cents a day for a neighborhood with its own patrol.`} />
+<Base title="Dues" description={`Knollwood Village Civic Club ${site.duesYear} annual dues are $${site.duesAmount} per home. Pay by Zelle, PayPal or card, or check.`}>
+  <PageHead eyebrow="Neighborhood dues" title={`${site.duesYear} dues: $${site.duesAmount} per household`} lead={`Dues are voluntary. $${site.duesCivic} runs the club and $${site.duesSecurity} pays for the neighborhood patrol. Thank you to every household that contributes.`} />
   <div class="container page-body two-col">
     <div class="prose">
-      <h2 style="margin-top:0">Three ways to pay</h2>
+      <h2 style="margin-top:0">How to pay</h2>
       <div class="pay-grid">
         <div class="card card-green">
-          <div class="badge badge-green">No fee · preferred</div>
+          <div class="badge badge-green">No fee</div>
           <h3>Zelle</h3>
           <p>Send to <strong>{site.emails.treasurer}</strong>. The payee shows as "Knollwood Village Civic Club." <strong>Put your property address in the memo</strong> so your payment is recorded to the right home.</p>
         </div>
@@ -53,11 +53,11 @@ import site from '../../data/site.json';
           <tr><td>Security patrol contribution</td><td style="text-align:right">${site.duesSecurity}</td></tr>
           <tr><th>Total per home</th><th style="text-align:right">${site.duesAmount}</th></tr>
         </table>
-        <p class="small muted">Goal this year: {site.participationGoal} of homes participating.</p>
+        <p class="small muted">The board's goal this year is {site.participationGoal} of households participating.</p>
       </div>
       <div class="card">
-        <h3>Extra security contribution</h3>
-        <p class="small">Many neighbors add to the security line. Any amount above ${site.duesAmount} goes directly to patrol hours. Just note "additional security" in your memo.</p>
+        <h3>Giving a little extra</h3>
+        <p class="small">Some neighbors add to the security line. Anything above ${site.duesAmount} goes to patrol hours. Just note "additional security" in your memo.</p>
       </div>
       <div class="card">
         <h3>Questions?</h3>

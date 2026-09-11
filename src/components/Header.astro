@@ -7,21 +7,21 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
 <header class="site-header">
   <div class="topbar">
     <div class="container topbar-inner">
-      <span><strong>Smith Protective Dispatch</strong> <a href={`tel:${site.patrol.dispatchTel}`}>{site.patrol.dispatch}</a> · Emergency: 911</span>
-      <a class="topbar-link" href={url('/email-list/')}>Join the email list</a>
+      <span>Neighborhood patrol dispatch <a href={`tel:${site.patrol.dispatchTel}`}>{site.patrol.dispatch}</a> · Emergency 911</span>
+      <a class="topbar-link" href={url('/email-list/')}>Get neighborhood emails</a>
     </div>
   </div>
   <div class="container header-inner">
     <a class="brand" href={url('/')} aria-label="Knollwood Village Civic Club home">
-      <img src={url('/images/oak-green.png')} alt="" width="44" height="44" />
-      <span class="brand-text"><span class="brand-name">Knollwood Village</span><span class="brand-sub">Civic Club · Houston, Texas</span></span>
+      <img src={url('/images/oak-green.png')} alt="" width="52" height="52" />
+      <span class="brand-text"><span class="brand-name">Knollwood Village</span><span class="brand-sub">Civic Club · Houston · Since 1954</span></span>
     </a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav id="site-nav" class="nav" aria-label="Main">
       <ul>
         {site.nav.map((item) => (
           <li class={item.children ? 'has-children' : ''}>
-            <a href={url(item.href)} aria-current={isActive(item.href) ? 'page' : undefined} class={item.label === 'Pay Dues' ? 'nav-cta' : ''}>{item.label}</a>
+            <a href={url(item.href)} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
             {item.children && (
               <ul class="sub">
                 {item.children.map((c) => <li><a href={url(c.href)}>{c.label}</a></li>)}
@@ -32,6 +32,7 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
       </ul>
     </nav>
   </div>
+  <div class="brick-band" aria-hidden="true"></div>
 </header>
 <script>
   const btn = document.querySelector('.nav-toggle');
@@ -50,28 +51,26 @@ const isActive = (href: string) => href === '/' ? path === '/' : path.startsWith
   });
 </script>
 <style>
-  .site-header { background: #fff; border-bottom: 1px solid var(--line); position: relative; z-index: 20; }
-  .topbar { background: var(--navy); color: #d9dde8; font-size: .85rem; }
+  .site-header { background: var(--white); position: relative; z-index: 20; }
+  .topbar { background: var(--brown); color: #e9dfd0; font-size: .85rem; }
   .topbar a { color: #fff; font-weight: 700; }
   .topbar-inner { display: flex; justify-content: space-between; gap: 1rem; padding-top: .45rem; padding-bottom: .45rem; flex-wrap: wrap; }
-  .topbar-link { color: var(--gold-2) !important; }
-  .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding-top: .9rem; padding-bottom: .9rem; }
-  .brand { display: flex; align-items: center; gap: .75rem; text-decoration: none; color: var(--navy); }
+  .topbar-link { color: var(--gold) !important; }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding-top: 1rem; padding-bottom: 1rem; }
+  .brand { display: flex; align-items: center; gap: .8rem; text-decoration: none; color: var(--brown); }
   .brand-text { display: flex; flex-direction: column; line-height: 1.1; }
-  .brand-name { font-family: var(--font-serif); font-weight: 700; font-size: 1.35rem; white-space: nowrap; }
-  .brand-sub { white-space: nowrap; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-top: .2rem; }
-  .nav > ul { list-style: none; margin: 0; padding: 0; display: flex; gap: .15rem; align-items: center; }
+  .brand-name { font-family: var(--font-serif); font-variation-settings: "SOFT" 100, "WONK" 1; font-weight: 700; font-size: 1.5rem; white-space: nowrap; color: var(--green); }
+  .brand-sub { white-space: nowrap; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-top: .25rem; }
+  .nav > ul { list-style: none; margin: 0; padding: 0; display: flex; gap: .1rem; align-items: center; }
   .nav ul.sub { list-style: none; margin: 0; padding: .4rem; }
-  .nav a { display: block; white-space: nowrap; padding: .55rem .6rem; text-decoration: none; color: var(--ink); font-weight: 600; font-size: .9rem; border-radius: var(--radius); }
-  .nav a:hover, .nav a[aria-current="page"] { background: var(--gold-soft); color: var(--navy); }
-  .nav a.nav-cta { background: var(--gold-2); color: var(--navy); }
-  .nav a.nav-cta:hover { background: #dbb23a; }
+  .nav a { display: block; white-space: nowrap; padding: .55rem .6rem; text-decoration: none; color: var(--ink); font-weight: 700; font-size: .9rem; border-radius: 999px; }
+  .nav a:hover, .nav a[aria-current="page"] { background: var(--green-soft); color: var(--green); }
   .has-children { position: relative; }
   .has-children > a::after { content: " ▾"; font-size: .75em; color: var(--muted); }
-  .sub { display: none; position: absolute; top: 100%; left: 0; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); min-width: 240px; padding: .4rem; flex-direction: column; align-items: stretch; }
+  .sub { display: none; position: absolute; top: 100%; left: 0; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); min-width: 240px; flex-direction: column; align-items: stretch; }
   .has-children:hover .sub, .has-children:focus-within .sub { display: flex; }
-  .sub a { font-weight: 500; }
-  .nav-toggle { display: none; font: inherit; font-weight: 700; background: none; border: 2px solid var(--navy); color: var(--navy); border-radius: var(--radius); padding: .45rem .9rem; cursor: pointer; }
+  .sub a { font-weight: 500; border-radius: 6px; }
+  .nav-toggle { display: none; font: inherit; font-weight: 700; background: none; border: 2px solid var(--brown); color: var(--brown); border-radius: 999px; padding: .45rem 1rem; cursor: pointer; }
   @media (max-width: 1080px) {
     .header-inner { flex-wrap: wrap; gap: .75rem; }
     .nav-toggle { display: block; }

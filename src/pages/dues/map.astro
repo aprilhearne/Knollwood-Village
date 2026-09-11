@@ -9,7 +9,7 @@ import site from '../../data/site.json';
     <div class="controls">
       <label for="dues-year"><strong>Year</strong></label> <select id="dues-year"></select>
       <span id="dues-stats" class="stats">Loading…</span>
-      <a class="btn btn-gold btn-sm" href={url('/dues/')}>Pay dues</a>
+      <a class="btn btn-outline btn-sm" href={url('/dues/')}>How to pay</a>
     </div>
   </PageHead>
   <div class="container page-body">
@@ -18,7 +18,7 @@ import site from '../../data/site.json';
       <div id="map" class="map" data-base={import.meta.env.BASE_URL}></div>
     </div>
     <div class="grid-2">
-      <div class="card card-soft"><h3>Why we publish this</h3><p class="small">The Knollwood Village Civic Club is voluntary. The security patrol, deed restriction enforcement, esplanades, newsletter, and events exist only because neighbors choose to contribute. The club has published a paid-homes list in the newsletter for years; this map is the same information, easier to read. Thank you to everyone who has paid.</p></div>
+      <div class="card card-soft"><h3>Why we share this</h3><p class="small">The club has printed a list of contributing households in the newsletter for years. This map is the same information, easier to read. Thank you to every household that helps keep the patrol running.</p></div>
       <div class="card"><h3>See an error?</h3><p class="small">If you've paid and your lot isn't green after two weeks, email the treasurer at <a href={`mailto:${site.emails.treasurer}`}>{site.emails.treasurer}</a> with your address and payment date. Zelle payments without an address in the memo are the most common cause.</p></div>
     </div>
   </div>

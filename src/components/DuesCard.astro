@@ -3,12 +3,13 @@ import { url } from '../lib/url';
 import site from '../data/site.json';
 ---
 <div class="card card-soft">
-  <div class="eyebrow">{site.duesYear} annual dues</div>
-  <div class="amount">${site.duesAmount}</div>
-  <p class="small">${site.duesCivic} civic club dues + ${site.duesSecurity} security patrol contribution. Less than eighty cents a day for a neighborhood with its own patrol.</p>
-  <a class="btn btn-primary" href={url('/dues/')}>Pay dues</a>
+  <div class="eyebrow">{site.duesYear} membership dues</div>
+  <div class="amount">${site.duesAmount} <span class="per">per household, per year</span></div>
+  <p class="small">${site.duesCivic} runs the club and ${site.duesSecurity} funds the patrol. Dues are voluntary, and every household that chips in makes the patrol and the rest possible.</p>
+  <a class="btn btn-primary btn-sm" href={url('/dues/')}>Dues and how to pay</a>
   <p class="small muted" style="margin:.75rem 0 0">Zelle (no fee): {site.emails.treasurer}</p>
 </div>
 <style>
-  .amount { font-family: var(--font-serif); font-size: 2.6rem; font-weight: 700; color: var(--navy); line-height: 1; margin-bottom: .5rem; }
+  .amount { font-family: var(--font-serif); font-variation-settings: "SOFT" 100; font-size: 2.4rem; font-weight: 700; color: var(--brown); line-height: 1; margin-bottom: .6rem; }
+  .per { font-family: var(--font-sans); font-size: .85rem; font-weight: 600; color: var(--muted); }
 </style>

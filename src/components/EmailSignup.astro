@@ -4,7 +4,7 @@ interface Props { compact?: boolean }
 const { compact = false } = Astro.props;
 ---
 <form class="stack signup" action={site.mailchimp.action} method="post" target="_blank" novalidate>
-  {!compact && <p class="small">The KVCC email list is how the board sends security alerts, meeting notices, and event reminders. We never share your information.</p>}
+  {!compact && <p class="small">The board uses this list for security notes, meeting dates, and event reminders. A few emails a month at most, and we never share your information.</p>}
   <div class="row">
     <div><label for="mce-EMAIL">Email <span class="req">*</span></label><input type="email" name="EMAIL" id="mce-EMAIL" required autocomplete="email" /></div>
   </div>

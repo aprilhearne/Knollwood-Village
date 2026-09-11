@@ -9,20 +9,21 @@ import site from '../data/site.json';
 import { getCollection } from 'astro:content';
 const now = new Date();
 const all = (await getCollection('news')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-const upcoming = all.filter((p) => p.data.eventDate && p.data.eventDate.valueOf() > now.valueOf() - 86400000 * 1).sort((a, b) => a.data.eventDate!.valueOf() - b.data.eventDate!.valueOf());
+const upcoming = all.filter((p) => p.data.eventDate && p.data.eventDate.valueOf() > now.valueOf() - 86400000).sort((a, b) => a.data.eventDate!.valueOf() - b.data.eventDate!.valueOf());
 const recent = all.filter((p) => !upcoming.includes(p)).slice(0, 4);
 const featured = upcoming[0];
+const t = (d: Date) => d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'America/Chicago' });
 ---
-<Base title="Home" description={`${site.name}: a voluntary civic club for ${site.homes} homes inside Loop 610 in Houston. Security patrol, deed restrictions, dues, newsletters, and neighborhood news.`}>
+<Base title="Home" description={`${site.name}: a volunteer-run civic club for the ${site.homes} homes of Knollwood Village in Houston. Neighborhood patrol, deed restrictions, dues, newsletters, and news.`}>
   <section class="hero">
     <div class="container hero-inner">
       <div class="hero-text">
-        <div class="eyebrow">Houston, Texas · Est. {site.founded}</div>
-        <h1>Knollwood Village</h1>
-        <p class="lead">A great inner loop neighborhood of {site.homes} homes between Kirby, Main, Stella Link, and Brays Bayou. For more than 70 years the Civic Club has kept it healthy, attractive, and safe, funded entirely by neighbors who choose to contribute.</p>
+        <div class="eyebrow">Houston, Texas · Since 1954</div>
+        <h1>Welcome, neighbor.</h1>
+        <p class="lead">Knollwood Village is {site.homes} homes under big old oaks, inside the Loop between Kirby, Main, Stella Link, and Brays Bayou. The Civic Club is the volunteer group of neighbors that looks after the place: the patrol, the deed restrictions, the esplanades, the newsletter, and the block parties.</p>
         <div class="hero-actions">
-          <a class="btn btn-gold" href={url('/dues/')}>Pay {site.duesYear} dues</a>
-          <a class="btn btn-light" href={url('/new-residents/')}>New to the neighborhood?</a>
+          <a class="btn btn-gold" href={url('/new-residents/')}>New here? Start with the resident guide</a>
+          <a class="btn btn-light" href={url('/about/')}>About the neighborhood</a>
         </div>
       </div>
     </div>
@@ -32,82 +33,81 @@ const featured = upcoming[0];
     <div class="band-grid">
       <PatrolCard />
       {featured ? (
-        <div class="card card-soft event">
+        <div class="card event">
           <div class="eyebrow">Coming up</div>
           {featured.data.image && <a href={url(`/news/${featured.id}/`)}><img class="event-img" src={url(featured.data.image)} alt="" /></a>}
           <h2 style="margin-top:.5rem"><a href={url(`/news/${featured.id}/`)}>{featured.data.title}</a></h2>
-          <p><strong>{featured.data.eventDate!.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', timeZone: 'America/Chicago' })}</strong>{featured.data.eventDate!.getUTCHours() ? ', ' + featured.data.eventDate!.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'America/Chicago' }) : ''}{featured.data.eventEnd ? ' to ' + featured.data.eventEnd.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'America/Chicago' }) : ''}<br />{featured.data.location}</p>
+          <p><strong>{featured.data.eventDate!.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', timeZone: 'America/Chicago' })}</strong>{featured.data.eventDate!.getUTCHours() ? ', ' + t(featured.data.eventDate!) : ''}{featured.data.eventEnd ? ' to ' + t(featured.data.eventEnd) : ''}<br />{featured.data.location}</p>
           {featured.data.description && <p>{featured.data.description}</p>}
-          <a class="btn btn-primary btn-sm" href={url(`/news/${featured.id}/`)}>Event details</a>
+          <a href={url(`/news/${featured.id}/`)}>Details →</a>
         </div>
       ) : <DuesCard />}
     </div>
   </section>
 
-  <section class="container">
-    <div class="grid-3 pillars">
-      <a class="pillar" href={url('/security/')}>
-        <div class="eyebrow">Security</div>
-        <h3>A dedicated patrol, 365 days a year</h3>
-        <p>Smith Protective officers patrol Knollwood Village and three neighboring civic clubs. Vacation watch, alarm response, welfare checks, and more.</p>
-      </a>
-      <a class="pillar" href={url('/build/')}>
-        <div class="eyebrow">Building & deeds</div>
-        <h3>Deed-restricted, and we take it seriously</h3>
-        <p>Planning a remodel, addition, fence, or new build? Check your section's deed restrictions and get Architectural Control Committee approval first.</p>
-      </a>
-      <a class="pillar" href={url('/map/')}>
-        <div class="eyebrow">Explore</div>
-        <h3>Interactive neighborhood map</h3>
-        <p>Find your lot and your deed-restriction section, see the parks and the bayou trail, and check dues participation by street.</p>
-      </a>
-    </div>
-  </section>
-
-  <section class="container why">
+  <section class="container about-club">
     <div class="two-col">
       <div>
-        <div class="eyebrow">What your dues do</div>
-        <h2 style="margin-top:0">One contribution. Everything the club does.</h2>
-        <p>The Knollwood Village Civic Club is a voluntary civic club, not a mandatory HOA. Thanks to the annual contributions of residents, the KVCC:</p>
+        <div class="eyebrow">About the club</div>
+        <h2 style="margin-top:0">Run by neighbors, for neighbors</h2>
+        <p>The Knollwood Village Civic Club is not a management company or a mandatory HOA. It's a group of volunteers who live here, meet a few times a year, and take care of the things a neighborhood needs that no one else will do:</p>
         <ul class="checks">
-          <li>Funds the Smith Protective security patrol</li>
-          <li>Enforces the deed restrictions that protect property values</li>
-          <li>Maintains and landscapes the esplanades and entrance signs</li>
-          <li>Welcomes new residents and hosts neighborhood events</li>
-          <li>Publishes the <em>Knollwood Village Voice</em> newsletter and email alerts</li>
-          <li>Represents the neighborhood with city and county officials</li>
+          <li>A security patrol that knows our streets, shared with three neighboring civic clubs</li>
+          <li>Keeping the deed restrictions that have protected the neighborhood's character since the 1950s</li>
+          <li>Mowing, planting, and repairing the esplanades and entrance signs</li>
+          <li>Welcoming new families and hosting National Night Out, decorating contests, and the spring festival</li>
+          <li>The quarterly <em>Knollwood Village Voice</em> and email alerts</li>
+          <li>Speaking for the neighborhood at City Hall and with Harris County</li>
         </ul>
-        <a class="btn btn-primary" href={url('/dues/')}>Pay {site.duesYear} dues</a> <a class="btn btn-outline" href={url('/dues/map/')}>See who has paid</a>
+        <p>All of it is paid for by households that choose to pay annual dues. <a href={url('/dues/')}>Here's how dues work</a>, and <a href={url('/dues/map/')}>here's who has contributed this year</a>. Want to volunteer? <a href={url('/contact/')}>The board would love to hear from you.</a></p>
       </div>
       <DuesCard />
     </div>
   </section>
 
   <section class="container">
+    <div class="eyebrow">Around the neighborhood</div>
+    <div class="grid-3 pillars">
+      <a class="pillar" href={url('/security/')}>
+        <h3>Security patrol</h3>
+        <p>Who to call, what the patrol does, and how to set up a vacation watch before you travel.</p>
+      </a>
+      <a class="pillar" href={url('/build/')}>
+        <h3>Building & deed restrictions</h3>
+        <p>Planning a remodel, addition, fence, or shed? Start with your section's restrictions and the ACC.</p>
+      </a>
+      <a class="pillar" href={url('/map/')}>
+        <h3>Neighborhood map</h3>
+        <p>Find your lot and its deed section, the parks, the bayou trail, and the entrance signs.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="container news-band">
     <div class="two-col">
       <div>
-        <div class="eyebrow">News & announcements</div>
-        <h2 style="margin-top:0">Latest from the board</h2>
+        <div class="eyebrow">News & events</div>
+        <h2 style="margin-top:0">What's going on</h2>
         {upcoming.slice(1).map((p) => <NewsCard title={p.data.title} slug={p.id} date={p.data.date} eventDate={p.data.eventDate} location={p.data.location} description={p.data.description} />)}
         {recent.map((p) => <NewsCard title={p.data.title} slug={p.id} date={p.data.date} description={p.data.description} />)}
         <p style="margin-top:1rem"><a href={url('/news/')}>All news</a> · <a href={url('/newsletters/')}>Newsletter archive</a></p>
       </div>
       <div class="card">
-        <h3>Join the KVCC email list</h3>
+        <h3>Get neighborhood emails</h3>
+        <p class="small">A few times a month at most: security notes, meeting dates, and events.</p>
         <EmailSignup compact />
       </div>
     </div>
   </section>
 </Base>
 <style>
-  .hero { background: var(--navy) url('/images/hero-bayou-bridge.jpg') center/cover no-repeat; position: relative; color: #fff; }
-  .hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(33,42,64,.92) 0%, rgba(33,42,64,.75) 55%, rgba(33,42,64,.35) 100%); }
+  .hero { background: var(--brown) url('/images/hero-bayou-bridge.jpg') center/cover no-repeat; position: relative; color: #fff; }
+  .hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(43,29,20,.93) 0%, rgba(43,29,20,.78) 50%, rgba(47,79,58,.45) 100%); }
   .hero-inner { position: relative; padding-top: 4.5rem; padding-bottom: 4.5rem; }
-  .hero-text { max-width: 640px; }
-  .hero h1 { color: #fff; font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: .75rem; }
-  .hero .lead { color: #e6e9f2; font-size: 1.15rem; }
-  .hero .eyebrow { color: var(--gold-2); }
+  .hero-text { max-width: 660px; }
+  .hero h1 { color: var(--cream); font-size: clamp(2.6rem, 6vw, 4.2rem); margin-bottom: .75rem; }
+  .hero .lead { color: #efe6d6; font-size: 1.15rem; }
+  .hero .eyebrow { color: var(--gold); }
   .hero-actions { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: 1.5rem; }
   .band { margin-top: -2rem; position: relative; z-index: 2; }
   .band-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
@@ -115,13 +115,14 @@ const featured = upcoming[0];
   .event h2 { font-size: 1.5rem; }
   .event h2 a { text-decoration: none; }
   .event-img { max-height: 220px; width: auto; border: 1px solid var(--line); background: #fff; border-radius: var(--radius); }
-  .pillars { margin-top: 3rem; }
-  .pillar { display: block; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem; text-decoration: none; color: var(--ink); box-shadow: var(--shadow); transition: transform .15s ease; }
-  .pillar:hover { transform: translateY(-2px); border-color: var(--gold); }
-  .pillar h3 { margin-top: .25rem; }
-  .pillar p { margin: 0; color: var(--ink-2); font-size: .95rem; }
-  .why { margin-top: 3.5rem; margin-bottom: 3rem; }
+  .about-club { margin-top: 3.5rem; }
   .checks { list-style: none; padding: 0; }
   .checks li { padding-left: 1.75rem; position: relative; }
-  .checks li::before { content: "✓"; position: absolute; left: 0; color: var(--green-2); font-weight: 800; }
+  .checks li::before { content: "🌳"; position: absolute; left: 0; top: .05em; font-size: .9em; }
+  .pillars { margin-top: .5rem; }
+  .pillar { display: block; background: var(--white); border: 1px solid var(--line); border-top: 6px solid var(--brick); border-radius: var(--radius); padding: 1.4rem; text-decoration: none; color: var(--ink); box-shadow: var(--shadow); }
+  .pillar:hover { border-top-color: var(--gold); }
+  .pillar h3 { margin-top: 0; }
+  .pillar p { margin: 0; color: var(--ink-2); font-size: .95rem; }
+  .news-band { margin-top: 3.5rem; }
 </style>

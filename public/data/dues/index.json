@@ -7,20 +7,17 @@
  "summary": {
   "2024": {
    "homes": 621,
-   "paid": 201,
-   "partial": 6,
+   "paid": 208,
    "asOf": "2024-09-23"
   },
   "2025": {
    "homes": 621,
-   "paid": 243,
-   "partial": 6,
+   "paid": 249,
    "asOf": "2026-01-08"
   },
   "2026": {
    "homes": 621,
-   "paid": 196,
-   "partial": 4,
+   "paid": 200,
    "asOf": "2026-09-15"
   }
  }

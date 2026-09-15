@@ -3,7 +3,7 @@
 
 Usage: python3 scripts/export-dues.py "/path/to/KVCC.Master.2026.xlsx" 2026
 Reads the `PNP.Master` sheet (columns: address, #, Street, Civic, Security, Sec +, Tot Cont, ...).
-Writes status only: full (civic + security paid), partial (one of them), none. Never names or amounts.
+Writes status only: paid (any payment recorded) or none. Never names or amounts.
 """
 import json, re, sys, os
 try:
@@ -39,14 +39,18 @@ for r in rows[hdr + 1:]:
         civic, sec, extra = float(r[3] or 0), float(r[4] or 0), float(r[5] or 0)
     except (TypeError, ValueError):
         continue
-    st = 'full' if civic > 0 and sec > 0 else 'partial' if (civic > 0 or sec > 0) else 'none'
-    status[norm(str(r[0]))] = {'s': st, 'x': extra > 0}
-out = {'year': year, 'asOf': as_of, 'homes': len(status), 'paid': sum(1 for v in status.values() if v['s'] == 'full'), 'partial': sum(1 for v in status.values() if v['s'] == 'partial'), 'status': status}
+    try:
+        total = float(r[6] or 0)
+    except (TypeError, ValueError):
+        total = 0
+    st = 'paid' if (civic > 0 or sec > 0 or extra > 0 or total > 0) else 'none'
+    status[norm(str(r[0]))] = {'s': st}
+out = {'year': year, 'asOf': as_of, 'homes': len(status), 'paid': sum(1 for v in status.values() if v['s'] == 'paid'), 'status': status}
 os.makedirs(f'{root}/public/data/dues', exist_ok=True)
 json.dump(out, open(f'{root}/public/data/dues/{year}.json', 'w'), separators=(',', ':'))
 idx_path = f'{root}/public/data/dues/index.json'
 idx = json.load(open(idx_path)) if os.path.exists(idx_path) else {'years': [], 'summary': {}}
 idx['years'] = sorted(set(idx['years'] + [year]), reverse=True)
-idx['summary'][str(year)] = {'homes': out['homes'], 'paid': out['paid'], 'partial': out['partial'], 'asOf': as_of}
+idx['summary'][str(year)] = {'homes': out['homes'], 'paid': out['paid'], 'asOf': as_of}
 json.dump(idx, open(idx_path, 'w'), indent=1)
-print(f'{year}: {out["paid"]} of {out["homes"]} paid, {out["partial"]} partial, as of {as_of}')
+print(f'{year}: {out["paid"]} of {out["homes"]} paid, as of {as_of}')

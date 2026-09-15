@@ -10,16 +10,16 @@ const latest = nl[0];
 <Base title="Board, Volunteers, and Contact" description="Meet the volunteer board of the Knollwood Village Civic Club, find the right email for your question, and learn how to get involved.">
   <div class="page-head"><div class="container">
     <div class="eyebrow">Contact</div>
-    <h1>The board is just neighbors. Come be one.</h1>
-    <p class="lead">Everything the Civic Club does, from the Smith patrol contract to the newsletter in your mailbox, is done by volunteers who live on these streets. Here's who they are, how to reach them, and how to join in.</p>
+    <h1>Board, volunteers, and contact</h1>
+    <p class="lead">Everything the Civic Club does is done by volunteers who live here. This page covers who they are, how to reach them, and how to get involved.</p>
   </div></div>
 
   <div class="container page-body">
     <section class="two-col">
       <div class="prose">
-        <h2 style="margin-top:0">What the board actually does</h2>
-        <p>The Knollwood Village Civic Club is a Texas nonprofit run by an elected board of resident volunteers. There is no management company and no paid staff. The board meets about every other month, usually in a neighbor's living room or at Linkwood Park, and hosts a resident meeting once or twice a year. Over a typical year the board:</p>
-        <ul class="checks">
+        <h2 style="margin-top:0">What the board does</h2>
+        <p>The Civic Club is a Texas nonprofit run by an elected board of resident volunteers. There is no management company and no paid staff. The board meets about every other month and hosts a resident meeting once or twice a year. Over a year, the board:</p>
+        <ul>
           <li>Manages the Smith Protective patrol agreement and coordinates with the three neighboring civic clubs that share it</li>
           <li>Reviews building plans through the Architectural Control Committee and keeps the deed restrictions enforceable</li>
           <li>Keeps the esplanades mowed and planted and the entrance signs in good repair</li>
@@ -28,24 +28,23 @@ const latest = nl[0];
           <li>Throws National Night Out, the decorating contests, and the spring festival</li>
           <li>Shows up at City Council, Public Works, and Harris County Flood Control meetings so the neighborhood has a voice</li>
         </ul>
-        <h2>Why join</h2>
-        <p>Board and committee work is the most direct way to shape the place you live. It is also how you get to know the neighborhood beyond your own block. Most roles take a few hours a month. You don't need experience with civic clubs, HOAs, or nonprofits, and renters are as welcome as owners.</p>
-        <p><strong>Where we could use help right now:</strong></p>
+        <h2>Getting involved</h2>
+        <p>Most roles take a few hours a month. No experience with civic clubs or nonprofits is needed, and renters are as welcome as owners. Where help is needed right now:</p>
         <ul>
-          <li><strong>Vice President.</strong> The seat is open. The VP backs up the president, helps run meetings, and is the natural next president.</li>
-          <li><strong>Social Committee.</strong> Planning parties and contests. Fun, low commitment, and very appreciated.</li>
+          <li><strong>Vice President.</strong> The seat is open. The VP backs up the president and helps run meetings.</li>
+          <li><strong>Social Committee.</strong> Planning events and the decorating contests.</li>
           <li><strong>Block captains.</strong> One or two neighbors per street to pass along news and welcome newcomers.</li>
           <li><strong>Newsletter and website.</strong> Writing, photography, ad sales, and keeping this site current.</li>
           <li><strong>Beautification.</strong> Esplanade plantings and sign upkeep.</li>
         </ul>
-        <p>Email <a href={`mailto:${site.emails.president}`}>{site.emails.president}</a> and tell us what you'd enjoy doing. We'll find the right fit.</p>
+        <p>Email <a href={`mailto:${site.emails.president}`}>{site.emails.president}</a> and say what you'd like to do.</p>
       </div>
       <aside class="aside">
         <div class="card planter" style="padding:0;overflow:hidden">
           <a href={url(latest.file)}><img src={url('/images/newsletter-latest-cover.jpg')} alt={`Cover of the latest Knollwood Village Voice newsletter`} style="display:block" /></a>
           <div style="padding:1rem 1.25rem">
             <div class="eyebrow">The Knollwood Village Voice</div>
-            <p class="small" style="margin:0">Written, laid out, and mailed by volunteers four times a year. <a href={url(latest.file)}>Read the latest issue</a> or <a href={url('/news/#newsletters')}>browse the archive</a>.</p>
+            <p class="small" style="margin:0">Written and mailed by volunteers four times a year. <a href={url(latest.file)}>Latest issue</a> · <a href={url('/news/#newsletters')}>Archive</a></p>
           </div>
         </div>
         <div class="card">
@@ -110,7 +109,7 @@ const latest = nl[0];
       </div>
       <aside class="aside">
         <div class="card" id="email">
-          <h3>Get neighborhood emails</h3>
+          <h3>Neighborhood emails</h3>
           <EmailSignup />
         </div>
       </aside>
@@ -122,7 +121,4 @@ const latest = nl[0];
   .name { font-family: var(--font-serif); font-variation-settings: "SOFT" 100; font-size: 1.3rem; color: var(--brown); }
   .committee { padding: 1rem 0; border-bottom: 1px solid var(--line); }
   .committee h3 { margin: 0 0 .25rem; font-size: 1.1rem; }
-  .checks { list-style: none; padding: 0; }
-  .checks li { padding-left: 1.75rem; position: relative; }
-  .checks li::before { content: "🌳"; position: absolute; left: 0; top: .05em; font-size: .9em; }
 </style>

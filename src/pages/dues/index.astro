@@ -7,7 +7,7 @@ import site from '../../data/site.json';
   <div class="page-head"><div class="container">
     <div class="eyebrow">Neighborhood dues</div>
     <h1>{site.duesYear} dues: ${site.duesAmount} per household</h1>
-    <p class="lead">Dues are voluntary. ${site.duesCivic} runs the club and ${site.duesSecurity} pays for the Smith Protective patrol. Thank you to every household that contributes.</p>
+    <p class="lead">Dues are voluntary. ${site.duesCivic} runs the club and ${site.duesSecurity} pays for the Smith Protective patrol.</p>
     <div class="controls">
       <label for="dues-year"><strong>Year</strong></label> <select id="dues-year"></select>
       <span id="dues-stats" class="stats">Loading…</span>
@@ -21,7 +21,7 @@ import site from '../../data/site.json';
       <div class="map-tools"><input id="addr-search" type="search" placeholder="Look up your address" aria-label="Search address" autocomplete="off" /><div id="addr-results" class="results" hidden></div></div>
       <div id="map" class="map" data-base={import.meta.env.BASE_URL}></div>
     </div>
-    <p class="small muted">The club has printed a list of contributing households in the newsletter for years. This map is the same information, easier to read. If you've paid and your lot isn't green after two weeks, email <a href={`mailto:${site.emails.treasurer}`}>{site.emails.treasurer}</a> with your address and payment date. Zelle payments without an address in the memo are the most common cause.</p>
+    <p class="small muted">The newsletter has printed this list for years; the map is the same information. If you've paid and your lot isn't green after two weeks, email <a href={`mailto:${site.emails.treasurer}`}>{site.emails.treasurer}</a> with your address and payment date. Zelle payments without an address in the memo are the most common cause.</p>
 
     <div class="section-divider" aria-hidden="true"></div>
 
@@ -51,14 +51,14 @@ import site from '../../data/site.json';
         </div>
 
         <h2>Where the money goes</h2>
-        <p>For more than 70 years the Knollwood Village Civic Club has kept our neighborhood an attractive, welcoming, and safe place to live. The KVCC is a voluntary civic club, not a mandatory HOA, so everything below exists only because neighbors choose to pay for it. Dues fund:</p>
+        <p>The Civic Club is voluntary, not a mandatory HOA, so everything below is paid for by neighbors who choose to. Dues fund:</p>
         <ul>
-          <li><strong>The Smith Protective patrol</strong>, shared with three neighboring civic clubs so our cost per home went down for the same coverage. Security is the largest line in the budget.</li>
+          <li><strong>The Smith Protective patrol</strong>, shared with three neighboring civic clubs. Security is the largest line in the budget.</li>
           <li><strong>Legal fees and insurance</strong> that protect the deed restrictions and the residents who rely on them.</li>
           <li><strong>Communication and social events</strong>: the quarterly <em>Knollwood Village Voice</em>, this website, email alerts, National Night Out, decorating contests, and the spring festival.</li>
           <li><strong>Beautification and maintenance</strong> of the esplanades and entrance signs.</li>
         </ul>
-        <p>Renters: please ask your landlord to pay dues on your behalf. It is a small contribution that protects their investment and your family's quality of life. If you can afford to chip in a little extra, it goes a long way.</p>
+        <p>Renters: please ask your landlord to pay dues on your behalf.</p>
         <p>For questions about a payment, email the KVCC Treasurer at <a href={`mailto:${site.emails.treasurer}`}>{site.emails.treasurer}</a>.</p>
       </div>
       <aside class="aside">
@@ -70,11 +70,11 @@ import site from '../../data/site.json';
             <tr><td>Smith Protective patrol</td><td style="text-align:right">${site.duesSecurity}</td></tr>
             <tr><th>Total per household</th><th style="text-align:right">${site.duesAmount}</th></tr>
           </table>
-          <p class="small muted">The board's goal this year is {site.participationGoal} of households participating.</p>
+          <p class="small muted">The board's goal is {site.participationGoal} of households participating.</p>
         </div>
         <div class="card">
-          <h3>Giving a little extra</h3>
-          <p class="small">Some neighbors add to the security line. Anything above ${site.duesAmount} goes to patrol hours. Just note "additional security" in your memo.</p>
+          <h3>Giving extra</h3>
+          <p class="small">Anything above ${site.duesAmount} goes to Smith patrol hours. Note "additional security" in your memo.</p>
         </div>
         <div class="card">
           <h3>Buying or selling a home?</h3>

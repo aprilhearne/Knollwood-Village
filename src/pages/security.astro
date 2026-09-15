@@ -5,11 +5,11 @@ import site from '../data/site.json';
 const p = site.patrol;
 ---
 <Base title="Security and the Smith Protective Patrol" description="Smith Protective Services patrols Knollwood Village. Dispatch 713-266-6042. Vacation watch, how to report incidents, and how the four-neighborhood patrol works.">
-  <div class="page-head"><div class="container"><div class="eyebrow">Security</div><h1>Smith Protective patrols Knollwood Village</h1><p class="lead">Smith Protective Services has patrolled Knollwood Village since {p.since}. If you spot the Smith officer out on patrol, say hello and introduce yourself.</p></div></div>
+  <div class="page-head"><div class="container"><div class="eyebrow">Security</div><h1>Smith Protective patrols Knollwood Village</h1><p class="lead">Smith Protective Services has patrolled Knollwood Village since {p.since}.</p></div></div>
 
   <div class="strip">
     <div class="container strip-inner">
-      <div><div class="eyebrow" style="color:var(--gold);margin:0">Smith Protective dispatch, save it in your phone</div><a class="tel" href={`tel:${p.dispatchTel}`}>{p.dispatch}</a></div>
+      <div><span class="strip-label">Smith Protective dispatch</span><a class="tel" href={`tel:${p.dispatchTel}`}>{p.dispatch}</a></div>
       <div class="small" style="max-width:520px">Vacation watch: <a href={`mailto:${p.vacationWatch}`}>{p.vacationWatch}</a><br />In an emergency, always call 911 first.</div>
     </div>
   </div>

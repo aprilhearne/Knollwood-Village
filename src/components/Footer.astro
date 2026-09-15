@@ -8,11 +8,11 @@ const year = new Date().getFullYear();
   <div class="container footer-grid">
     <div>
       <div class="f-brand"><img src={url('/images/oak-green.png')} alt="" width="40" height="40" /> <span>Knollwood Village Civic Club</span></div>
-      <p class="small">A volunteer-run civic club for the {site.homes} homes of Knollwood Village and Braes Terrace II, inside Loop 610 in Houston, since {site.founded}. Membership is voluntary and open to every household.</p>
+      <p class="small">A volunteer civic club for the {site.homes} homes of Knollwood Village and Braes Terrace II in Houston, since {site.founded}. Membership is voluntary.</p>
       <p class="small">{site.mailingAddress.join(', ')}</p>
     </div>
     <div>
-      <h4>Around the club</h4>
+      <h4>On this site</h4>
       <ul>
         <li><a href={url('/dues/')}>Dues</a></li>
         <li><a href={url('/security/')}>Security patrol</a></li>
@@ -23,7 +23,7 @@ const year = new Date().getFullYear();
       </ul>
     </div>
     <div>
-      <h4>Reach a volunteer</h4>
+      <h4>Email</h4>
       <ul>
         <li><a href={`mailto:${site.emails.president}`}>{site.emails.president}</a></li>
         <li><a href={`mailto:${site.emails.treasurer}`}>{site.emails.treasurer}</a></li>
@@ -33,9 +33,9 @@ const year = new Date().getFullYear();
       </ul>
     </div>
     <div>
-      <h4>In a pinch</h4>
+      <h4>Phone numbers</h4>
       <p class="small"><strong>Emergency: 911</strong><br />Smith Protective dispatch: <a href={`tel:${site.patrol.dispatchTel}`}>{site.patrol.dispatch}</a><br />HPD non-emergency: <a href="tel:+17138843131">713-884-3131</a><br />City services: 311</p>
-      <p class="small"><a href={url('/email-list/')}>Get neighborhood emails</a></p>
+      <p class="small"><a href={url('/contact/#email')}>Neighborhood emails</a></p>
     </div>
   </div>
   <div class="container copyright small">© {year} Knollwood Village Civic Club · <a href={url('/advertise/')}>Advertise in the Voice</a> · <a href={url('/news/#newsletters')}>Newsletters</a></div>

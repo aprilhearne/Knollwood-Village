@@ -5,9 +5,7 @@ description: "An established neighborhood of 624 homes in the heart of Houston, 
 
 <img src="/images/hero-bayou.jpg" alt="Sunset over Brays Bayou at the edge of Knollwood Village" />
 
-Knollwood Village was formed in 1954 on the site of the former Houston Main Street Airport. Homes began going up in 1951, and the Knollwood Village Civic Club was established that same year. Today it is an established neighborhood of 624 homes bounded by Kirby Drive, Main Street, Stella Link Road, and South Braeswood along Brays Bayou. Most of the houses are the original one-story ranches, brick and wood under mature live oaks, with a growing number of thoughtful additions and new builds that follow the deed restrictions.
-
-Located inside Loop 610, just west of NRG Stadium and south of the Brays Bayou trail, Knollwood Village lets residents enjoy everything Houston has to offer without spending their lives in traffic.
+Knollwood Village was formed in 1954 on the site of the former Houston Main Street Airport. Homes began going up in 1951, and the Knollwood Village Civic Club was established that same year. Today it is an established neighborhood of 624 homes bounded by Kirby Drive, Main Street, Stella Link Road, and South Braeswood along Brays Bayou. Most of the houses are the original one-story ranches, brick and wood under mature live oaks.
 
 ## The Civic Club
 

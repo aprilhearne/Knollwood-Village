@@ -58,12 +58,12 @@ code { font-family: ui-monospace, Menlo, monospace; font-size: .9em; }
 
 .container { max-width: var(--max); margin: 0 auto; padding: 0 1.25rem; }
 .narrow { max-width: 780px; }
-.eyebrow { font-size: .78rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--brick); margin-bottom: .5rem; }
+.eyebrow { font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: .5rem; }
 .lead { font-size: 1.2rem; color: var(--ink-2); }
 .muted { color: var(--muted); }
 .small { font-size: .9rem; }
 
-.btn { display: inline-block; padding: .8rem 1.4rem; border-radius: 999px; font-weight: 700; font-size: .95rem; letter-spacing: .02em; text-decoration: none; border: 2px solid transparent; cursor: pointer; line-height: 1.2; }
+.btn { display: inline-block; padding: .7rem 1.2rem; border-radius: 6px; font-weight: 700; font-size: .95rem; letter-spacing: .02em; text-decoration: none; border: 2px solid transparent; cursor: pointer; line-height: 1.2; }
 .btn-primary { background: var(--green); color: #fff; border-color: var(--green); }
 .btn-primary:hover { background: var(--green-2); border-color: var(--green-2); }
 .btn-gold { background: var(--gold); color: var(--bark); border-color: var(--gold); }
@@ -132,20 +132,20 @@ form.stack input:focus { outline: 2px solid var(--gold); border-color: var(--gre
   --breeze-pattern-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Ccircle cx='28' cy='28' r='17' fill='none' stroke='%23ffffff' stroke-width='5'/%3E%3Cpath d='M0 0h11v11H0zM45 0h11v11H45zM0 45h11v11H0zM45 45h11v11H45z' fill='%23ffffff'/%3E%3C/svg%3E");
 }
 .breeze { position: relative; }
-.breeze::before { content: ""; position: absolute; inset: 0; background: var(--breeze-pattern) center/56px 56px; opacity: .22; pointer-events: none; }
+.breeze::before { content: ""; position: absolute; inset: 0; background: var(--breeze-pattern) center/56px 56px; opacity: .14; pointer-events: none; }
 .breeze > * { position: relative; }
 .page-head { position: relative; overflow: hidden; }
-.page-head::after { content: ""; position: absolute; top: 0; right: 0; bottom: 0; width: 34%; background: var(--breeze-pattern) center/56px 56px; opacity: .28; -webkit-mask-image: linear-gradient(90deg, transparent, #000 60%); mask-image: linear-gradient(90deg, transparent, #000 60%); pointer-events: none; }
+.page-head::after { content: ""; position: absolute; top: 0; right: 0; bottom: 0; width: 26%; background: var(--breeze-pattern) center/56px 56px; opacity: .14; -webkit-mask-image: linear-gradient(90deg, transparent, #000 60%); mask-image: linear-gradient(90deg, transparent, #000 60%); pointer-events: none; }
 .page-head > .container { position: relative; }
 .brick-wall { background: var(--brick-pattern); background-size: 64px 32px; color: #fff; }
 .brick-wall .eyebrow { color: var(--gold-soft); }
 .planter { border-bottom: 10px solid transparent; border-image: var(--brick-pattern) 0 0 32 0 / 0 0 10px 0 round; }
 .card.planter { border-radius: var(--radius) var(--radius) 0 0; }
-.section-divider { height: 24px; background: var(--breeze-pattern) center/56px 56px; opacity: .45; margin: 2.5rem 0; -webkit-mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent); mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent); }
+.section-divider { height: 20px; background: var(--breeze-pattern) center/56px 56px; opacity: .3; margin: 2.5rem 0; -webkit-mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent); mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent); }
 .card table { table-layout: fixed; width: 100%; }
 .card table td, .card table th { overflow-wrap: anywhere; word-break: break-word; padding: .45rem .35rem; }
 .card table td:first-child { width: 42%; color: var(--ink-2); }
-.strip { background: var(--green); color: #fff; }
-.strip a { color: #fff; }
-.strip-inner { display: flex; gap: 1.5rem; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: .9rem 1.25rem; }
-.strip .tel { color: #fff; font-size: 1.5rem; }
+.strip { background: var(--cream-2); border-bottom: 1px solid var(--line); }
+.strip-inner { display: flex; gap: 1.5rem; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: .8rem 1.25rem; }
+.strip-label { font-weight: 700; color: var(--brown); margin-right: .5rem; }
+.strip .tel { color: var(--brown); font-size: 1.35rem; }

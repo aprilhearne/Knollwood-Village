@@ -1,6 +1,5 @@
 ---
 import Base from '../layouts/Base.astro';
-import DuesCard from '../components/DuesCard.astro';
 import EmailSignup from '../components/EmailSignup.astro';
 import NewsCard from '../components/NewsCard.astro';
 import { url } from '../lib/url';
@@ -14,122 +13,77 @@ const featured = upcoming[0];
 const t = (d: Date) => d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'America/Chicago' });
 const day = (d: Date) => d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', timeZone: 'America/Chicago' });
 ---
-<Base title="Home" description={`${site.name}: a volunteer-run civic club for the ${site.homes} homes of Knollwood Village in Houston. Smith Protective patrol, deed restrictions, dues, newsletters, and news.`}>
+<Base title="Home" description={`${site.name}: a volunteer civic club for the ${site.homes} homes of Knollwood Village in Houston. Smith Protective patrol, deed restrictions, dues, newsletters, and news.`}>
   <section class="hero">
     <div class="container hero-inner">
       <div class="hero-text">
-        <div class="eyebrow">Houston, Texas · Since 1954</div>
-        <h1>Welcome, neighbor.</h1>
-        <p class="lead">{site.homes} homes under big old oaks, inside the Loop between Kirby, Main, Stella Link, and Brays Bayou. The Civic Club is the volunteer group of neighbors that looks after the place: the Smith Protective patrol, the deed restrictions, the esplanades, the newsletter, and the block parties.</p>
-        <div class="hero-actions">
-          <a class="btn btn-gold" href={url('/new-residents/')}>New here? Start with the resident guide</a>
-          <a class="btn btn-light" href={url('/about/')}>About the neighborhood</a>
-        </div>
+        <h1>Knollwood Village Civic Club</h1>
+        <p class="lead">Knollwood Village is {site.homes} homes inside the Loop, between Kirby, Main, Stella Link, and Brays Bayou, established in 1954. The Civic Club is the volunteer group of neighbors that runs the Smith Protective patrol, keeps up the deed restrictions and esplanades, and puts out the newsletter.</p>
+        <p>New to the neighborhood? <a href={url('/new-residents/')}>Start with the resident guide.</a></p>
       </div>
-      {featured && (
-        <a class="hero-event" href={url(`/news/${featured.id}/`)}>
-          <div class="eyebrow">Coming up</div>
-          {featured.data.image && <img src={url(featured.data.image)} alt="" />}
-          <div class="hero-event-body">
-            <strong>{featured.data.title}</strong>
-            <span>{day(featured.data.eventDate!)}{featured.data.eventDate!.getUTCHours() ? ', ' + t(featured.data.eventDate!) : ''}{featured.data.eventEnd ? ' to ' + t(featured.data.eventEnd) : ''}</span>
-            <span>{featured.data.location}</span>
-          </div>
-        </a>
-      )}
+      <img class="hero-photo" src={url('/images/hero-bayou-bridge.jpg')} alt="The Buffalo Speedway bridge over Brays Bayou at sunset" />
     </div>
-    <div class="brick-band" aria-hidden="true"></div>
   </section>
 
   <div class="strip">
     <div class="container strip-inner">
-      <div><div class="eyebrow" style="color:var(--gold);margin:0">Smith Protective dispatch</div><a class="tel" href={`tel:${site.patrol.dispatchTel}`}>{site.patrol.dispatch}</a></div>
-      <div class="small" style="max-width:520px">Smith Protective patrols Knollwood Village every day. Call dispatch for anything that seems off on your street, or to set up a vacation watch. In an emergency, always call 911 first. <a href={url('/security/')}>How the patrol works →</a></div>
+      <div><span class="strip-label">Smith Protective dispatch</span> <a class="tel" href={`tel:${site.patrol.dispatchTel}`}>{site.patrol.dispatch}</a></div>
+      <div class="small">Call for anything that seems off on your street, or to set up a vacation watch. In an emergency, call 911 first. <a href={url('/security/')}>About the patrol</a></div>
     </div>
   </div>
 
-  <section class="container about-club">
-    <div class="two-col">
-      <div>
-        <div class="eyebrow">About the club</div>
-        <h2 style="margin-top:0">Run by neighbors, for neighbors</h2>
-        <p>The Knollwood Village Civic Club is not a management company or a mandatory HOA. It's a group of volunteers who live here, meet a few times a year, and take care of the things a neighborhood needs that no one else will do:</p>
-        <ul class="checks">
-          <li>The Smith Protective security patrol, shared with three neighboring civic clubs</li>
-          <li>Keeping the deed restrictions that have protected the neighborhood's character since the 1950s</li>
-          <li>Mowing, planting, and repairing the esplanades and entrance signs</li>
-          <li>Welcoming new families and hosting National Night Out, decorating contests, and the spring festival</li>
-          <li>The quarterly <em>Knollwood Village Voice</em> and email alerts</li>
-          <li>Speaking for the neighborhood at City Hall and with Harris County</li>
-        </ul>
-        <p>All of it is paid for by households that choose to pay annual dues. <a href={url('/dues/')}>Here's how dues work and who has contributed this year</a>. Want to help? <a href={url('/contact/')}>The board would love to hear from you.</a></p>
-      </div>
-      <DuesCard />
-    </div>
-  </section>
+  <section class="container main-grid">
+    <div>
+      {featured && (
+        <div class="event">
+          <div class="event-text">
+            <div class="small muted">Coming up</div>
+            <h2><a href={url(`/news/${featured.id}/`)}>{featured.data.title}</a></h2>
+            <p>{day(featured.data.eventDate!)}{featured.data.eventDate!.getUTCHours() ? ', ' + t(featured.data.eventDate!) : ''}{featured.data.eventEnd ? ' to ' + t(featured.data.eventEnd) : ''}<br />{featured.data.location}</p>
+            {featured.data.description && <p>{featured.data.description}</p>}
+          </div>
+          {featured.data.image && <a href={url(`/news/${featured.id}/`)}><img src={url(featured.data.image)} alt="" /></a>}
+        </div>
+      )}
 
-  <section class="breeze around">
-    <div class="container">
-      <div class="eyebrow">Around the neighborhood</div>
-      <div class="grid-3">
-        <a class="pillar planter" href={url('/security/')}>
-          <h3>Smith Protective patrol</h3>
-          <p>Who to call, what the patrol does, and how to set up a vacation watch before you travel.</p>
-        </a>
-        <a class="pillar planter" href={url('/build/')}>
-          <h3>Building and deed restrictions</h3>
-          <p>Planning a remodel, addition, fence, or shed? Start with your section's restrictions and the ACC.</p>
-        </a>
-        <a class="pillar planter" href={url('/map/')}>
-          <h3>Neighborhood map</h3>
-          <p>Find your lot and its deed section, the parks, the bayou trail, and the entrance signs.</p>
-        </a>
-      </div>
+      <h2>News</h2>
+      {upcoming.slice(1).map((p) => <NewsCard title={p.data.title} slug={p.id} date={p.data.date} eventDate={p.data.eventDate} location={p.data.location} description={p.data.description} />)}
+      {recent.map((p) => <NewsCard title={p.data.title} slug={p.id} date={p.data.date} description={p.data.description} />)}
+      <p style="margin-top:1rem"><a href={url('/news/')}>All news and the newsletter archive</a></p>
     </div>
-  </section>
-
-  <section class="container news-band">
-    <div class="two-col">
-      <div>
-        <div class="eyebrow">News and events</div>
-        <h2 style="margin-top:0">What's going on</h2>
-        {upcoming.slice(1).map((p) => <NewsCard title={p.data.title} slug={p.id} date={p.data.date} eventDate={p.data.eventDate} location={p.data.location} description={p.data.description} />)}
-        {recent.map((p) => <NewsCard title={p.data.title} slug={p.id} date={p.data.date} description={p.data.description} />)}
-        <p style="margin-top:1rem"><a href={url('/news/')}>All news and the newsletter archive</a></p>
+    <aside class="aside">
+      <div class="card">
+        <h3>About the club</h3>
+        <p class="small">The Civic Club is not an HOA. Dues are voluntary, there is no management company, and the board is elected neighbors. Dues pay for the Smith patrol, deed restriction enforcement, the esplanades, the newsletter, and events like National Night Out.</p>
+        <p class="small" style="margin:0">{site.duesYear} dues are ${site.duesAmount} per household. <a href={url('/dues/')}>How to pay, and who has contributed</a></p>
       </div>
       <div class="card">
-        <h3>Get neighborhood emails</h3>
-        <p class="small">A few times a month at most: security notes, meeting dates, and events.</p>
+        <h3>Neighborhood emails</h3>
+        <p class="small">Security notes, meeting dates, and events. A few a month at most.</p>
         <EmailSignup compact />
       </div>
-    </div>
+    </aside>
   </section>
 </Base>
 <style>
-  .hero { background: var(--brown) url('/images/hero-bayou-bridge.jpg') center/cover no-repeat; position: relative; color: #fff; }
-  .hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(43,29,20,.94) 0%, rgba(43,29,20,.82) 45%, rgba(47,79,58,.55) 100%); }
-  .hero-inner { position: relative; padding-top: 4rem; padding-bottom: 4rem; display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(280px, .8fr); gap: 3rem; align-items: center; }
-  @media (max-width: 860px) { .hero-inner { grid-template-columns: 1fr; gap: 2rem; } }
-  .hero h1 { color: var(--cream); font-size: clamp(2.6rem, 6vw, 4.2rem); margin-bottom: .75rem; }
-  .hero .lead { color: #efe6d6; font-size: 1.15rem; }
-  .hero .eyebrow { color: var(--gold); }
-  .hero-actions { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: 1.5rem; }
-  .hero-event { display: block; background: var(--cream); color: var(--ink); text-decoration: none; border-radius: var(--radius); padding: 1.1rem; box-shadow: 0 20px 50px rgba(0,0,0,.35); transform: rotate(1.5deg); }
-  .hero-event:hover { transform: rotate(0deg); }
-  .hero-event .eyebrow { color: var(--brick); margin-bottom: .6rem; }
-  .hero-event img { width: 100%; max-height: 260px; object-fit: cover; object-position: top; border-radius: 6px; border: 1px solid var(--line); background: #fff; }
-  .hero-event-body { display: flex; flex-direction: column; gap: .15rem; margin-top: .75rem; }
-  .hero-event-body strong { font-family: var(--font-serif); font-variation-settings: "SOFT" 100; font-size: 1.25rem; color: var(--brown); }
-  .hero-event-body span { font-size: .9rem; color: var(--ink-2); }
-  .hero .brick-band { position: relative; }
-  .about-club { margin-top: 3.5rem; margin-bottom: 3.5rem; }
-  .checks { list-style: none; padding: 0; }
-  .checks li { padding-left: 1.75rem; position: relative; }
-  .checks li::before { content: "🌳"; position: absolute; left: 0; top: .05em; font-size: .9em; }
-  .around { padding: 3rem 0; background: var(--cream-2); }
-  .pillar { display: block; background: var(--white); border: 1px solid var(--line); padding: 1.4rem; text-decoration: none; color: var(--ink); box-shadow: var(--shadow); }
-  .pillar:hover h3 { color: var(--brick); }
-  .pillar h3 { margin-top: 0; }
-  .pillar p { margin: 0; color: var(--ink-2); font-size: .95rem; }
-  .news-band { margin-top: 3.5rem; }
+  .hero { background: var(--white); border-bottom: 1px solid var(--line); }
+  .hero-inner { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(280px, .9fr); gap: 3rem; align-items: center; padding-top: 3rem; padding-bottom: 3rem; }
+  @media (max-width: 860px) { .hero-inner { grid-template-columns: 1fr; gap: 1.5rem; } }
+  .hero h1 { font-size: clamp(2.1rem, 4.5vw, 3rem); margin-bottom: .75rem; }
+  .hero .lead { font-size: 1.1rem; }
+  .hero-photo { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius); }
+  .strip { background: var(--cream-2); color: var(--ink); border-bottom: 1px solid var(--line); }
+  .strip a { color: var(--green); }
+  .strip-label { font-weight: 700; color: var(--brown); margin-right: .5rem; }
+  .strip .tel { color: var(--brown); font-size: 1.35rem; }
+  .strip-inner { padding-top: .8rem; padding-bottom: .8rem; }
+  .main-grid { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 3rem; padding-top: 2.5rem; padding-bottom: 2rem; }
+  @media (max-width: 900px) { .main-grid { grid-template-columns: 1fr; } }
+  .event { display: grid; grid-template-columns: 1fr 180px; gap: 1.5rem; align-items: start; background: var(--gold-soft); border: 1px solid #e6d5ae; border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 2rem; }
+  @media (max-width: 600px) { .event { grid-template-columns: 1fr; } }
+  .event h2 { margin: .2rem 0 .5rem; font-size: 1.5rem; }
+  .event h2 a { text-decoration: none; }
+  .event h2 a:hover { text-decoration: underline; }
+  .event p { margin: 0 0 .5rem; }
+  .event img { width: 100%; border: 1px solid var(--line); background: #fff; border-radius: 6px; }
 </style>

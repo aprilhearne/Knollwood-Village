@@ -5,8 +5,8 @@ import site from '../data/site.json';
 <div class="card card-soft">
   <div class="eyebrow">{site.duesYear} membership dues</div>
   <div class="amount">${site.duesAmount} <span class="per">per household, per year</span></div>
-  <p class="small">${site.duesCivic} runs the club and ${site.duesSecurity} funds the patrol. Dues are voluntary, and every household that chips in makes the patrol and the rest possible.</p>
-  <a class="btn btn-primary btn-sm" href={url('/dues/')}>Dues and how to pay</a>
+  <p class="small">${site.duesCivic} runs the club and ${site.duesSecurity} funds the Smith patrol. Dues are voluntary.</p>
+  <a href={url('/dues/')}>How to pay</a>
   <p class="small muted" style="margin:.75rem 0 0">Zelle (no fee): {site.emails.treasurer}</p>
 </div>
 <style>

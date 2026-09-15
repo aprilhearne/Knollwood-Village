@@ -75,8 +75,9 @@ code { font-family: ui-monospace, Menlo, monospace; font-size: .9em; }
 
 /* Page header */
 .page-head { background: var(--white); border-bottom: 1px solid var(--line); padding: 2.25rem 0 1.75rem; }
-.brick-band { height: 12px; background: var(--brick-pattern); background-size: 64px 32px; }
+.brick-band { height: 14px; background: var(--brick-pattern); background-size: 64px 32px; }
 .page-head h1 { margin-bottom: .35rem; }
+.page-head .brick-rule { margin: .6rem 0 .9rem; }
 .page-head .lead { margin: 0; max-width: 760px; }
 .page-body { padding: 2.5rem 0 4rem; }
 .prose { max-width: 780px; }
@@ -91,6 +92,7 @@ code { font-family: ui-monospace, Menlo, monospace; font-size: .9em; }
 .card + .card { margin-top: 1.25rem; }
 .card h3 { margin-top: 0; font-size: 1.1rem; }
 .card-soft { background: var(--gold-soft); border-color: #e6d5ae; box-shadow: none; }
+.card h3::after { content: ""; display: block; width: 36px; height: 4px; background: var(--brick); margin-top: .45rem; border-radius: 2px; }
 .card-sky { background: var(--green-soft); border-color: #c9d3b4; box-shadow: none; }
 .card-green { background: var(--green-soft); border-color: #c9d3b4; box-shadow: none; }
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
@@ -98,7 +100,7 @@ code { font-family: ui-monospace, Menlo, monospace; font-size: .9em; }
 @media (max-width: 800px) { .grid-3, .grid-2 { grid-template-columns: 1fr; } }
 .steps { counter-reset: step; list-style: none; padding: 0; }
 .steps > li { position: relative; padding-left: 3rem; margin-bottom: 1.25rem; }
-.steps > li::before { counter-increment: step; content: counter(step); position: absolute; left: 0; top: .05rem; width: 2rem; height: 2rem; border-radius: 50%; background: var(--brick); color: #fff; font-weight: 700; display: grid; place-items: center; font-size: .9rem; }
+.steps > li::before { counter-increment: step; content: counter(step); position: absolute; left: 0; top: .05rem; width: 2rem; height: 2rem; border-radius: 4px; background: var(--brick); color: #fff; font-weight: 700; display: grid; place-items: center; font-size: .9rem; }
 .notice { border-left: 4px solid var(--gold); background: var(--gold-soft); padding: 1rem 1.25rem; border-radius: 0 var(--radius) var(--radius) 0; margin: 1.5rem 0; }
 .notice-red { border-left-color: var(--red); background: #fbecea; }
 .notice-sky { border-left-color: var(--green); background: var(--green-soft); }
@@ -134,7 +136,12 @@ form.stack input:focus { outline: 2px solid var(--gold); border-color: var(--gre
 .brick-wall .eyebrow { color: var(--gold-soft); }
 .planter { border-bottom: 10px solid transparent; border-image: var(--brick-pattern) 0 0 32 0 / 0 0 10px 0 round; }
 .card.planter { border-radius: var(--radius) var(--radius) 0 0; }
-.section-divider { height: 1px; background: var(--line); margin: 2.5rem 0; }
+.section-divider { height: 22px; width: 176px; background: var(--brick-pattern); background-size: 44px 22px; margin: 2.75rem 0; border-radius: 2px; }
+.brick-rule { height: 22px; width: 132px; background: var(--brick-pattern); background-size: 44px 22px; margin: .9rem 0 1.1rem; border-radius: 2px; }
+.brick-rule.center { margin-left: auto; margin-right: auto; }
+.brick-side { border-left: 12px solid transparent; border-image: var(--brick-pattern) 0 0 0 24 / 0 0 0 12px round; }
+.brick-frame { display: block; padding-bottom: 24px; background: var(--brick-pattern) left bottom / 48px 24px repeat-x; border-radius: var(--radius) var(--radius) 0 0; }
+.brick-frame img { border-radius: var(--radius) var(--radius) 0 0; }
 .card table { table-layout: fixed; width: 100%; }
 .card table td, .card table th { overflow-wrap: anywhere; word-break: break-word; padding: .45rem .35rem; }
 .card table td:first-child { width: 42%; color: var(--ink-2); }

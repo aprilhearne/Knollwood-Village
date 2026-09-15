@@ -18,17 +18,18 @@ const day = (d: Date) => d.toLocaleDateString('en-US', { weekday: 'long', month:
     <div class="container hero-inner">
       <div class="hero-text">
         <h1>Knollwood Village Civic Club</h1>
+        <div class="brick-rule" aria-hidden="true"></div>
         <p class="lead">Knollwood Village is {site.homes} homes inside the Loop between Kirby, Main, Stella Link, and Brays Bayou. The Civic Club is the volunteer group of neighbors that funds the Smith Protective patrol, keeps up the deed restrictions and esplanades, and puts out the newsletter.</p>
         <p>New to the neighborhood? <a href={url('/new-residents/')}>Start with the resident guide.</a><br />Smith Protective dispatch: <a href={`tel:${site.patrol.dispatchTel}`}>{site.patrol.dispatch}</a>. In an emergency, call 911 first.</p>
       </div>
-      <img class="hero-photo" src={url('/images/about/knollwood-sign.jpg')} alt="Knollwood Village entrance sign, brick columns under live oaks" />
+      <span class="brick-frame"><img class="hero-photo" src={url('/images/about/knollwood-sign.jpg')} alt="Knollwood Village entrance sign, brick columns under live oaks" /></span>
     </div>
   </section>
 
   <section class="container main-grid">
     <div>
       {featured && (
-        <div class="event">
+        <div class="event brick-side">
           <div class="event-text">
             <div class="small muted">Coming up</div>
             <h2><a href={url(`/news/${featured.id}/`)}>{featured.data.title}</a></h2>
@@ -64,7 +65,7 @@ const day = (d: Date) => d.toLocaleDateString('en-US', { weekday: 'long', month:
   @media (max-width: 860px) { .hero-inner { grid-template-columns: 1fr; gap: 1.5rem; } }
   .hero h1 { font-size: clamp(1.9rem, 4vw, 2.6rem); margin-bottom: .75rem; }
   .hero .lead { font-size: 1.1rem; }
-  .hero-photo { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius); }
+  .hero-photo { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
   .strip { background: var(--cream-2); color: var(--ink); border-bottom: 1px solid var(--line); }
   .strip a { color: var(--green); }
   .strip-label { font-weight: 700; color: var(--brown); margin-right: .5rem; }
@@ -72,7 +73,7 @@ const day = (d: Date) => d.toLocaleDateString('en-US', { weekday: 'long', month:
   .strip-inner { padding-top: .8rem; padding-bottom: .8rem; }
   .main-grid { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 3rem; padding-top: 2.5rem; padding-bottom: 2rem; }
   @media (max-width: 900px) { .main-grid { grid-template-columns: 1fr; } }
-  .event { display: grid; grid-template-columns: 1fr 180px; gap: 1.5rem; align-items: start; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 2rem; }
+  .event { display: grid; grid-template-columns: 1fr 180px; gap: 1.5rem; align-items: start; background: var(--white); border: 1px solid var(--line); border-left: 0; border-radius: 0 var(--radius) var(--radius) 0; padding: 1.25rem 1.5rem; margin-bottom: 2rem; }
   @media (max-width: 600px) { .event { grid-template-columns: 1fr; } }
   .event h2 { margin: .2rem 0 .5rem; font-size: 1.5rem; }
   .event h2 a { text-decoration: none; }

@@ -126,22 +126,15 @@ form.stack input, form.stack select { width: 100%; padding: .65rem .75rem; borde
 form.stack input:focus { outline: 2px solid var(--gold); border-color: var(--green); }
 .req { color: var(--red); }
 
-/* Mid-century brick and breeze-block motifs */
+/* Mid-century brick motifs */
 :root {
-  --breeze-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Crect width='56' height='56' fill='none'/%3E%3Ccircle cx='28' cy='28' r='17' fill='none' stroke='%23c9a87a' stroke-width='5'/%3E%3Cpath d='M0 0h11v11H0zM45 0h11v11H45zM0 45h11v11H0zM45 45h11v11H45z' fill='%23c9a87a'/%3E%3C/svg%3E");
-  --breeze-pattern-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Ccircle cx='28' cy='28' r='17' fill='none' stroke='%23ffffff' stroke-width='5'/%3E%3Cpath d='M0 0h11v11H0zM45 0h11v11H45zM0 45h11v11H0zM45 45h11v11H45z' fill='%23ffffff'/%3E%3C/svg%3E");
 }
-.breeze { position: relative; }
-.breeze::before { content: ""; position: absolute; inset: 0; background: var(--breeze-pattern) center/56px 56px; opacity: .14; pointer-events: none; }
-.breeze > * { position: relative; }
-.page-head { position: relative; overflow: hidden; }
-.page-head::after { display: none; }
 .page-head > .container { position: relative; }
 .brick-wall { background: var(--brick-pattern); background-size: 64px 32px; color: #fff; }
 .brick-wall .eyebrow { color: var(--gold-soft); }
 .planter { border-bottom: 10px solid transparent; border-image: var(--brick-pattern) 0 0 32 0 / 0 0 10px 0 round; }
 .card.planter { border-radius: var(--radius) var(--radius) 0 0; }
-.section-divider { height: 20px; background: var(--breeze-pattern) center/56px 56px; opacity: .3; margin: 2.5rem 0; -webkit-mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent); mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent); }
+.section-divider { height: 1px; background: var(--line); margin: 2.5rem 0; }
 .card table { table-layout: fixed; width: 100%; }
 .card table td, .card table th { overflow-wrap: anywhere; word-break: break-word; padding: .45rem .35rem; }
 .card table td:first-child { width: 42%; color: var(--ink-2); }

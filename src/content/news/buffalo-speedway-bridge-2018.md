@@ -1,5 +1,5 @@
 ---
-title: "Buffalo Speedway Bridge replacement"
+title: "Buffalo Speedway Bridge Replacement"
 date: 2018-05-01
 description: "Harris County Flood Control District briefed the Braeswood Super Neighborhood on the 2018 to 2019 replacement of the Buffalo Speedway bridge over Brays Bayou."
 ---

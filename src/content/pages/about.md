@@ -15,7 +15,7 @@ The Knollwood Village Civic Club (KVCC) is a voluntary, volunteer-run civic club
 - [Meet the board and get involved](/contact/)
 - [Neighborhood map](/map/)
 
-## What's nearby
+## What's Nearby
 
 <div class="grid-2">
 <figure><img src="/images/about/nrg-stadium.jpg" alt="NRG Stadium" /><figcaption><strong>NRG Park.</strong> Knollwood Village is the closest single-family neighborhood in the city to NRG Park. Residents can leave the car at home and walk to events.</figcaption></figure>
@@ -28,7 +28,7 @@ The Knollwood Village Civic Club (KVCC) is a voluntary, volunteer-run civic club
 
 <div class="section-divider" aria-hidden="true"></div>
 
-<h2 id="signs">Our entrance signs</h2>
+<h2 id="signs">Our Entrance Signs</h2>
 
 <img src="/images/about/knollwood-sign.jpg" alt="Knollwood Village entrance sign" />
 

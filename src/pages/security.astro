@@ -5,7 +5,7 @@ import site from '../data/site.json';
 const p = site.patrol;
 ---
 <Base title="Security and the Smith Protective Patrol" description="Smith Protective Services patrols Knollwood Village. Dispatch 713-266-6042. Vacation watch, how to report incidents, and how the four-neighborhood patrol works.">
-  <div class="page-head"><div class="container"><h1>Smith Protective patrols Knollwood Village</h1><p class="lead">Smith Protective Services has patrolled Knollwood Village since {p.since}.</p></div></div>
+  <div class="page-head"><div class="container"><h1>Smith Protective Patrols Knollwood Village</h1><p class="lead">Smith Protective Services has patrolled Knollwood Village since {p.since}.</p></div></div>
 
   <div class="strip">
     <div class="container strip-inner">
@@ -18,17 +18,17 @@ const p = site.patrol;
     <div class="prose">
       <figure style="margin-top:0"><img src={url('/images/smith-patrol-vehicle.jpg')} alt="Smith Protective Services patrol vehicle parked on a Knollwood Village street with the officer at the wheel" /><figcaption>The Smith patrol vehicle in Knollwood Village</figcaption></figure>
 
-      <h2>In an emergency, always call 911 first</h2>
+      <h2>In an Emergency, Always Call 911 First</h2>
       <p>A crime in progress, a fire, a medical emergency, anything that threatens someone's safety: call 911 first. Smith is an added layer of security for our neighborhood. It does not replace police, fire, or EMS.</p>
 
-      <h2>Security concerns and patrol requests</h2>
+      <h2>Security Concerns and Patrol Requests</h2>
       <p>For a security concern or a patrol request, call <strong>Smith dispatch at <a href={`tel:${p.dispatchTel}`}>{p.dispatch}</a></strong>. That covers suspicious people or vehicles, trespassing, loitering, disturbances, anything that seems off, or a request to check on a particular spot.</p>
       <p>You do not need to know whether the Smith officer is on duty before you call. If the officer is on patrol, dispatch will pass the request along. If not, dispatch will reach the field supervisor to determine an appropriate response.</p>
 
-      <h2>Please report to HPD as well</h2>
+      <h2>Please Report to HPD as Well</h2>
       <p>Report criminal incidents to <strong>both</strong> HPD (<a href="tel:+17138843131">713-884-3131</a>) and Smith dispatch (<a href={`tel:${p.dispatchTel}`}>{p.dispatch}</a>). HPD assigns patrol resources where incidents get reported, so if we don't report, we don't get the resources. And Smith doesn't receive HPD's reports, so unless we tell them directly the officer won't know what to watch for.</p>
 
-      <h2>What Smith does for us</h2>
+      <h2>What Smith Does for Us</h2>
       <p>Beyond routine patrol, Smith provides:</p>
       <ul>
         <li>Vacation home checks while you are away</li>
@@ -38,7 +38,7 @@ const p = site.patrol;
         <li>Watching for open doors and gates, and accumulated newspapers</li>
       </ul>
 
-      <h2 id="vacation-watch">Vacation watch</h2>
+      <h2 id="vacation-watch">Vacation Watch</h2>
       <p>Going out of town? Send your request to <a href={`mailto:${p.vacationWatch}`}>{p.vacationWatch}</a>. Two weeks' notice is ideal, though they will accommodate less.</p>
       <p>Put "Knollwood Village" and your travel dates in the subject line. In the body, include:</p>
       <ul>
@@ -47,7 +47,7 @@ const p = site.patrol;
         <li>A local emergency contact and their phone number</li>
       </ul>
 
-      <h2 id="four-neighborhoods">One patrol, four neighborhoods</h2>
+      <h2 id="four-neighborhoods">One Patrol, Four Neighborhoods</h2>
       <p>Earlier in 2026 our previous provider raised our hourly rate by about 47 percent, and the board went looking for a better arrangement. Knollwood Village joined with three neighboring civic clubs, <strong>Woodside, Westridge, and Linkwood</strong>, to share one dedicated Smith Protective patrol. Together the four neighborhoods are {p.totalHomes.toLocaleString()} homes, and that size lets us pool resources, buy more patrol hours for our greater community, and keep a consistent officer presence.</p>
       <div class="map-wrap">
         <div id="patrol-map" class="map" data-base={import.meta.env.BASE_URL}></div>
@@ -66,7 +66,7 @@ const p = site.patrol;
       </table></div>
       <p>Smith Protective Services has been in business since 1903 and is licensed by the Texas Department of Public Safety Private Security Board (license {p.license}). Their officers are licensed, in uniform, and patrol in a marked vehicle. Look for new Smith signs around the neighborhood and a patrol vehicle marked with the names of all four communities.</p>
 
-      <h2>How the patrol is funded</h2>
+      <h2>How the Patrol Is Funded</h2>
       <p>The patrol is paid for by residents through dues collected by the Knollwood Village Civic Club. Because the KVCC is a voluntary civic club and not a mandatory HOA, the patrol exists only because neighbors choose to pay for it. {site.duesYear} dues are ${site.duesAmount} a year, and ${site.duesSecurity} of that goes to Smith. <a href={url('/dues/')}>How dues work →</a></p>
 
       <h2>Questions?</h2>
@@ -74,7 +74,7 @@ const p = site.patrol;
     </div>
     <aside class="aside">
       <div class="card card-sky">
-        <h3>Quick reference</h3>
+        <h3>Quick Reference</h3>
         <dl class="ref">
           <dt>Emergency</dt><dd><a href="tel:911"><strong>911</strong></a></dd>
           <dt>Smith dispatch</dt><dd><a href={`tel:${p.dispatchTel}`}><strong>{p.dispatch}</strong></a></dd>
@@ -85,7 +85,7 @@ const p = site.patrol;
         </dl>
       </div>
       <div class="card">
-        <h3>Report it twice</h3>
+        <h3>Report It Twice</h3>
         <p class="small">Incidents: call HPD <em>and</em> Smith dispatch. HPD staffing follows reports. Smith watches for what we tell them.</p>
       </div>
       <div class="card">

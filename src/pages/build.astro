@@ -12,7 +12,7 @@ const sections = [
 ---
 <Base title="Building and Deed Restrictions" description="Knollwood Village is deed-restricted. Find your section's restrictions on the map, get Architectural Control Committee (ACC) approval before you build, and read the FAQs.">
   <div class="page-head"><div class="container">
-        <h1>Before you build, remodel, or fence</h1>
+        <h1>Before You Build, Remodel, or Fence</h1>
     <p class="lead">Knollwood Village is a deed-restricted community and the Architectural Control Committee (ACC) takes that seriously. Approval is required before work that changes the size, shape, or exterior of your home. You will get timely, personal support.</p>
     <nav class="jump small" aria-label="On this page"><a href="#steps">The process</a><a href="#standard">Standard request</a><a href="#new-construction">New construction or addition</a><a href="#sections">Find your section</a><a href="#faqs">FAQs</a><a href="#documents">Documents</a></nav>
   </div></div>
@@ -23,7 +23,7 @@ const sections = [
         <div class="notice">
           <strong>Not everything needs a request.</strong> Swimming pools, driveways, re-roofing, painting, solar panels, and landscaping generally do not require an ACC request. City inspectors may still ask you for an approval letter in some cases, so when in doubt email <a href={`mailto:${site.emails.build}`}>{site.emails.build}</a>.
         </div>
-        <h2 id="steps">The process</h2>
+        <h2 id="steps">The Process</h2>
         <ol class="steps">
           <li><strong>Read the <a href="#faqs">FAQs</a>.</strong> They answer most questions about setbacks, easements, sheds, fences, and stories.</li>
           <li><strong>Review the <a href={url('/docs/acc/Guideline-for-Multi-Story-Residences-2020.pdf')}>Guideline for Multi-Story Residences</a></strong> if your project adds a second story. Section 8 and Braes Terrace II have their own <a href={url('/docs/acc/Building-Guidelines-Section-8.pdf')}>building guidelines</a>.</li>
@@ -32,7 +32,7 @@ const sections = [
         </ol>
         <p>The ACC has up to 30 days to complete its initial review after receiving all required documentation. You'll be notified by email if the submission is incomplete or doesn't meet the deed restrictions, and you'll receive a signed approval letter by email when your project is approved. Once approved, a "KVCC Approved" yard sign is available on request. Any City of Houston building permit application requires the homeowner to sign an affidavit that the work complies with the neighborhood's deed restrictions. ACC approval is what lets you sign that honestly.</p>
 
-        <h2 id="standard">Standard request <span class="badge badge-green">No fee</span></h2>
+        <h2 id="standard">Standard Request <span class="badge badge-green">No Fee</span></h2>
         <p>For a new fence, a storage shed, or a change to the front of the home (for example a remodel of the facade) or a related item <strong>not</strong> tied to an addition or new build.</p>
         <ol class="steps">
           <li>Read the <a href="#faqs">FAQs</a> and the <a href="#sections">deed restrictions for your section</a>.</li>
@@ -40,7 +40,7 @@ const sections = [
           <li>Scan the completed form and email it to <a href={`mailto:${site.emails.build}`}>{site.emails.build}</a>. If possible, include photos or a sketch.</li>
         </ol>
 
-        <h2 id="new-construction">New construction or addition <span class="badge">Fee applies</span></h2>
+        <h2 id="new-construction">New Construction or Addition <span class="badge">Fee Applies</span></h2>
         <p>All new construction and additions within Knollwood Village and Braes Terrace Section II must be pre-approved by the ACC. Plans are reviewed for compliance with the deed restrictions for your section. You are responsible for ensuring your plans comply with all applicable deed restrictions and, separately, with City of Houston ordinances and the current building code. Plans must be current, correct, and representative of the work to be completed. Changes that affect the exterior size, height, or appearance of your project after submission or approval must be re-submitted.</p>
         <ol class="steps">
           <li>Read the <a href="#faqs">FAQs</a> and the <a href="#sections">deed restrictions</a> for your section.</li>
@@ -65,7 +65,7 @@ const sections = [
           <p class="small"><a href={`mailto:${acc.email}`}>{acc.email}</a></p>
         </div>
         <div class="card card-soft" id="fee">
-          <h3>ACC review fee</h3>
+          <h3>ACC Review Fee</h3>
           <p class="small">For new construction and additions only. Checkout is handled by PayPal. You do not need a PayPal account: choose "Pay with Debit or Credit Card" on the next page. You'll get an email receipt.</p>
           <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="stack">
             <input name="cmd" type="hidden" value="_s-xclick" />
@@ -89,7 +89,7 @@ const sections = [
 
     <div class="section-divider" aria-hidden="true"></div>
 
-    <h2 id="sections" style="margin-top:0">Find your section</h2>
+    <h2 id="sections" style="margin-top:0">Find Your Section</h2>
     <p>Type your address or click your lot. Each lot links to the deed restrictions that apply to it.</p>
     <div class="map-wrap">
       <div class="map-tools"><input id="addr-search" type="search" placeholder="Search an address, e.g. 3018 Linkwood" aria-label="Search address" autocomplete="off" /><div id="addr-results" class="results" hidden></div></div>
@@ -97,13 +97,13 @@ const sections = [
     </div>
     <div class="grid-2">
       <div>
-        <h3 style="margin-top:0">Deed restrictions by section</h3>
+        <h3 style="margin-top:0">Deed Restrictions by Section</h3>
         <ul class="doc-list">
           {sections.map((s) => <li><a href={url(`/docs/deeds/Deed-Restrictions-${s.file}.pdf`)}>{s.label ?? `Section ${s.id}`}</a>{s.note && <span class="small muted">({s.note})</span>}</li>)}
         </ul>
       </div>
       <div>
-        <h3 style="margin-top:0" id="documents">Guidelines and forms</h3>
+        <h3 style="margin-top:0" id="documents">Guidelines and Forms</h3>
         <ul class="doc-list">
           <li><a href={url('/docs/deeds/Front-Fence-Guideline-2022.pdf')}>Front Fence Guideline (2022), all sections</a></li>
           <li><a href={url('/docs/acc/Residential-Security-Measures-Guidelines-2022.pdf')}>Residential security measures guidelines (fences, cameras), 2022</a></li>
@@ -122,7 +122,7 @@ const sections = [
 
     <div class="section-divider" aria-hidden="true"></div>
 
-    <h2 id="faqs" style="margin-top:0">Frequently asked questions</h2>
+    <h2 id="faqs" style="margin-top:0">Frequently Asked Questions</h2>
     <div class="faq prose">
       <details><summary>What is the ACC?</summary><div>The Architectural Control Committee is established by the deed restrictions to enforce the restrictions that govern the size of houses, the materials used in construction, and the location of houses, buildings, and fences on each lot. Members are volunteer neighbors approved by the club's Board of Directors.</div></details>
       <details><summary>Are the deed restrictions the same for every section?</summary><div>The restrictions for all sections except Section 8 are very similar but differ slightly. Always consult the restrictions for the section your property is in. Section 8's restrictions were modified by a majority vote of its homeowners in September 2020.</div></details>

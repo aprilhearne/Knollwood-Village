@@ -1,5 +1,5 @@
 ---
-title: "Neighborhood Halloween & holiday activities"
+title: "Neighborhood Halloween and Holiday Activities"
 date: 2022-09-16
 ---
 

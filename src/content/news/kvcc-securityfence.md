@@ -1,5 +1,5 @@
 ---
-title: "UPDATE: Board meeting on the security fence policy, Oct 26, 2022"
+title: "UPDATE: Board Meeting on the Security Fence Policy, Oct 26, 2022"
 date: 2022-10-25
 ---
 

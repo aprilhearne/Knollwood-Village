@@ -1,5 +1,5 @@
 ---
-title: "Annual resident meeting, Jan 24, 2023"
+title: "Annual Resident Meeting, Jan 24, 2023"
 date: 2022-12-07
 ---
 

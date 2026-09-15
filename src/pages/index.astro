@@ -46,12 +46,12 @@ const day = (d: Date) => d.toLocaleDateString('en-US', { weekday: 'long', month:
     </div>
     <aside class="aside">
       <div class="card">
-        <h3>About the club</h3>
+        <h3>About the Club</h3>
         <p class="small">The Civic Club is not an HOA. Dues are voluntary, there is no management company, and the board is elected neighbors. Dues pay for the Smith patrol, deed restriction enforcement, the esplanades, the newsletter, and events like National Night Out.</p>
         <p class="small" style="margin:0">{site.duesYear} dues are ${site.duesAmount} per household. <a href={url('/dues/')}>How to pay, and who has contributed</a></p>
       </div>
       <div class="card">
-        <h3>Neighborhood emails</h3>
+        <h3>Neighborhood Emails</h3>
         <p class="small">Security notes, meeting dates, and events. A few a month at most.</p>
         <EmailSignup compact />
       </div>

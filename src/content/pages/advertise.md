@@ -15,7 +15,7 @@ Single-issue rates are in the third column. Buy a full year (four issues) up fro
 
 <img src="/images/newsletter-ad-pricing.jpg" alt="Knollwood Village Voice advertising rate table" />
 
-## How it works
+## How It Works
 
 New advertisers: email [advertise@knollwoodvillage.org](mailto:advertise@knollwoodvillage.org) to get on the list. We send reminders about ten business days before each artwork deadline.
 

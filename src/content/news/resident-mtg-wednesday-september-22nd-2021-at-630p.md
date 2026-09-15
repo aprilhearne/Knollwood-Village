@@ -1,5 +1,5 @@
 ---
-title: "Recorded: Residents second annual meeting, Sept 20, 2022"
+title: "Recorded: Residents Second Annual Meeting, Sept 20, 2022"
 date: 2022-09-16
 ---
 

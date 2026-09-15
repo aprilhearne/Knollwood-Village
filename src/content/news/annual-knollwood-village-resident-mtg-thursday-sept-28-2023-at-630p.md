@@ -1,5 +1,5 @@
 ---
-title: "Annual resident meeting, Sept 28, 2023"
+title: "Annual Resident Meeting, Sept 28, 2023"
 date: 2023-08-06
 ---
 

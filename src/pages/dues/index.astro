@@ -5,7 +5,7 @@ import site from '../../data/site.json';
 ---
 <Base title="Dues" description={`Knollwood Village Civic Club ${site.duesYear} dues are $${site.duesAmount} per household and voluntary. See who has contributed and how to pay by Zelle, card, or check.`}>
   <div class="page-head"><div class="container">
-        <h1>{site.duesYear} dues: ${site.duesAmount} per household</h1>
+        <h1>{site.duesYear} Dues: ${site.duesAmount} per Household</h1>
     <p class="lead">Dues are voluntary. ${site.duesCivic} runs the club and ${site.duesSecurity} pays for the Smith Protective patrol.</p>
     <div class="controls">
       <label for="dues-year"><strong>Year</strong></label> <select id="dues-year"></select>
@@ -14,7 +14,7 @@ import site from '../../data/site.json';
     </div>
   </div></div>
   <div class="container page-body">
-    <h2 id="who-paid" style="margin-top:0">Who has contributed</h2>
+    <h2 id="who-paid" style="margin-top:0">Who Has Contributed</h2>
     <p>Green lots have contributed for the selected year. The treasurer updates this as payments are recorded, so allow a couple of weeks after you pay. Names and amounts are never shown.</p>
     <div class="map-wrap">
       <div class="map-tools"><input id="addr-search" type="search" placeholder="Look up your address" aria-label="Search address" autocomplete="off" /><div id="addr-results" class="results" hidden></div></div>
@@ -26,7 +26,7 @@ import site from '../../data/site.json';
 
     <div class="two-col">
       <div class="prose">
-        <h2 id="pay" style="margin-top:0">How to pay</h2>
+        <h2 id="pay" style="margin-top:0">How to Pay</h2>
         <div class="pay-grid">
           <div class="card card-green">
             <div class="badge badge-green">No fee</div>
@@ -40,7 +40,7 @@ import site from '../../data/site.json';
           </div>
         </div>
         <div class="card" style="margin-top:1.25rem">
-          <h3>PayPal, Venmo, or debit or credit card</h3>
+          <h3>PayPal, Venmo, or Debit or Credit Card</h3>
           <p>No PayPal account needed. Card payments cost the club about $12 in fees on a ${site.duesAmount} payment, so please consider contributing <strong>${site.duesWithFees}</strong> to cover them.</p>
           <div id={`paypal-container-${site.paypal.duesHostedButtonId}`}></div>
           <script is:inline src={`https://www.paypal.com/sdk/js?client-id=${site.paypal.clientId}&components=hosted-buttons&enable-funding=venmo&currency=USD`}></script>
@@ -49,7 +49,7 @@ import site from '../../data/site.json';
           </script>
         </div>
 
-        <h2>Where the money goes</h2>
+        <h2>Where the Money Goes</h2>
         <p>The Civic Club is voluntary, not a mandatory HOA, so everything below is paid for by neighbors who choose to. Dues fund:</p>
         <ul>
           <li><strong>The Smith Protective patrol</strong>, shared with three neighboring civic clubs. Security is the largest line in the budget.</li>
@@ -72,11 +72,11 @@ import site from '../../data/site.json';
           <p class="small muted">The board's goal is {site.participationGoal} of households participating.</p>
         </div>
         <div class="card">
-          <h3>Giving extra</h3>
+          <h3>Giving Extra</h3>
           <p class="small">Anything above ${site.duesAmount} goes to Smith patrol hours. Note "additional security" in your memo.</p>
         </div>
         <div class="card">
-          <h3>Buying or selling a home?</h3>
+          <h3>Buying or Selling a Home?</h3>
           <p class="small">There are no mandatory assessments, resale certificates, or transfer fees. <a href={url('/realtors/')}>Details for agents and title companies.</a></p>
         </div>
       </aside>

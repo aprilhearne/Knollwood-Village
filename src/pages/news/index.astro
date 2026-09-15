@@ -14,7 +14,7 @@ const labels: Record<number, string> = { 1: 'Spring', 2: 'Summer', 3: 'Fall', 4:
 const latest = nl[0];
 ---
 <Base title="News and Events" description="Knollwood Village Civic Club announcements, meetings, neighborhood events, and every issue of the Knollwood Village Voice newsletter since 2010.">
-  <PageHead title="News and events" lead="Announcements from the board and the social committee, plus every issue of the Knollwood Village Voice.">
+  <PageHead title="News and Events" lead="Announcements from the board and the social committee, plus every issue of the Knollwood Village Voice.">
     <nav class="jump small" aria-label="On this page"><a href="#upcoming">Upcoming</a><a href="#announcements">Announcements</a><a href="#newsletters">Newsletter archive</a></nav>
   </PageHead>
   <div class="container page-body">
@@ -32,13 +32,13 @@ const latest = nl[0];
             <p class="small" style="margin:0"><a href={url(latest.file)}>{labels[latest.quarter]} {latest.year} Knollwood Village Voice</a></p>
           </div>
         </div>
-        <div class="card"><h3>Every year, in your mailbox</h3><p class="small">The Voice goes to all 624 homes in March, June, September, and December. Local businesses can <a href={url('/advertise/')}>advertise</a> to help cover printing.</p></div>
+        <div class="card"><h3>Every Year, in Your Mailbox</h3><p class="small">The Voice goes to all 624 homes in March, June, September, and December. Local businesses can <a href={url('/advertise/')}>advertise</a> to help cover printing.</p></div>
       </aside>
     </div>
 
     <div class="section-divider" aria-hidden="true"></div>
 
-    <h2 id="newsletters" style="margin-top:0">Newsletter archive</h2>
+    <h2 id="newsletters" style="margin-top:0">Newsletter Archive</h2>
     <p>Every issue of the <em>Knollwood Village Voice</em> since 2010, as PDFs.</p>
     <div class="years">
       {years.map((y) => (

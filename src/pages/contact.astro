@@ -9,14 +9,14 @@ const latest = nl[0];
 ---
 <Base title="Board, Volunteers, and Contact" description="Meet the volunteer board of the Knollwood Village Civic Club, find the right email for your question, and learn how to get involved.">
   <div class="page-head"><div class="container">
-        <h1>Board, volunteers, and contact</h1>
+        <h1>Board, Volunteers, and Contact</h1>
     <p class="lead">Everything the Civic Club does is done by volunteers who live here. This page covers who they are, how to reach them, and how to get involved.</p>
   </div></div>
 
   <div class="container page-body">
     <section class="two-col">
       <div class="prose">
-        <h2 style="margin-top:0">What the board does</h2>
+        <h2 style="margin-top:0">What the Board Does</h2>
         <p>The Civic Club is a Texas nonprofit run by an elected board of resident volunteers. There is no management company and no paid staff. The board meets through the year and holds a resident meeting at least once a year. The board:</p>
         <ul>
           <li>Manages the Smith Protective patrol agreement and coordinates with the three neighboring civic clubs that share it</li>
@@ -27,7 +27,7 @@ const latest = nl[0];
           <li>Throws National Night Out, the decorating contests, and the spring festival</li>
           <li>Represents the neighborhood with city and county officials</li>
         </ul>
-        <h2>Getting involved</h2>
+        <h2>Getting Involved</h2>
         <p>Most roles take a few hours a month. No experience with civic clubs or nonprofits is needed, and renters are as welcome as owners. Where help is needed right now:</p>
         <ul>
           <li><strong>Vice President.</strong> The seat is open.</li>
@@ -44,7 +44,7 @@ const latest = nl[0];
           </div>
         </div>
         <div class="card">
-          <h3>Mailing address</h3>
+          <h3>Mailing Address</h3>
           <p class="small">{site.mailingAddress.map((l) => <span>{l}<br /></span>)}</p>
           <p class="small"><a href={url('/docs/club/KVCC-Bylaws-2004.pdf')}>Civic Club bylaws (PDF)</a></p>
         </div>
@@ -54,7 +54,7 @@ const latest = nl[0];
     <div class="section-divider" aria-hidden="true"></div>
 
     <section>
-      <h2 style="margin-top:0">{o.year} board</h2>
+      <h2 style="margin-top:0">{o.year} Board</h2>
       <div class="grid-2 officers">
         {o.officers.map((x) => (
           <div class="card">
@@ -85,7 +85,7 @@ const latest = nl[0];
 
     <section class="two-col">
       <div>
-        <h2 style="margin-top:0">Who to email</h2>
+        <h2 style="margin-top:0">Who to Email</h2>
         <div class="table-wrap"><table>
           <tr><td>Anything about the club, volunteering, or this website</td><td><a href={`mailto:${site.emails.president}`}>{site.emails.president}</a></td></tr>
           <tr><td>Dues and payments</td><td><a href={`mailto:${site.emails.treasurer}`}>{site.emails.treasurer}</a></td></tr>
@@ -97,7 +97,7 @@ const latest = nl[0];
           <tr><td>Title companies and real estate agents</td><td><a href={url('/realtors/')}>Read this first</a></td></tr>
         </table></div>
 
-        <h2>Useful phone numbers</h2>
+        <h2>Useful Phone Numbers</h2>
         <div class="table-wrap"><table>
           {site.phones.map((ph) => <tr><td>{ph.label}</td><td><a href={`tel:${ph.tel}`}>{ph.value}</a>{ph.email && <span> · <a href={`mailto:${ph.email}`}>{ph.email}</a></span>}</td></tr>)}
         </table></div>
@@ -105,7 +105,7 @@ const latest = nl[0];
       </div>
       <aside class="aside">
         <div class="card" id="email">
-          <h3>Neighborhood emails</h3>
+          <h3>Neighborhood Emails</h3>
           <EmailSignup />
         </div>
       </aside>

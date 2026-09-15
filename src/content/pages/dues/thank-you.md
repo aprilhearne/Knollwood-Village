@@ -1,5 +1,5 @@
 ---
-title: "Thank you"
+title: "Thank You"
 description: "Your contribution to the Knollwood Village Civic Club has been received."
 ---
 

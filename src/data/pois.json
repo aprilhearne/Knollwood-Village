@@ -1,7 +1,7 @@
 [
-  { "name": "Bailey Park", "type": "park", "lat": 29.69295, "lng": -95.42480, "desc": "Neighborhood pocket park at Greenbush and Conway. Home of National Night Out.", "address": "8011 Greenbush St" },
-  { "name": "Linkwood Park", "type": "park", "lat": 29.68730, "lng": -95.43560, "desc": "City of Houston park and community center with playground, pool, and fields.", "address": "3699 Norris Dr" },
+  { "name": "Bailey Park", "type": "park", "lat": 29.69295, "lng": -95.42480, "desc": "Park at Greenbush and Conway, where National Night Out is held.", "address": "8011 Greenbush St" },
+  { "name": "Linkwood Park", "type": "park", "lat": 29.68730, "lng": -95.43560, "desc": "City of Houston park and community center.", "address": "3699 Norris Dr" },
   { "name": "Brays Bayou Greenway Trail", "type": "trail", "lat": 29.69660, "lng": -95.42720, "desc": "Hike-and-bike trail along Brays Bayou. About 2.5 miles east to Hermann Park." },
-  { "name": "Knollwood Village entrance sign", "type": "sign", "lat": 29.69540, "lng": -95.42870, "desc": "Esplanade sign at Buffalo Speedway, installed 2015 and maintained by KVCC. (Approximate location.)" },
-  { "name": "Knollwood Village entrance sign", "type": "sign", "lat": 29.69120, "lng": -95.43600, "desc": "Esplanade sign on S. Braeswood, installed 2015 and maintained by KVCC. (Approximate location.)" }
+  { "name": "Knollwood Village entrance sign", "type": "sign", "lat": 29.69540, "lng": -95.42870, "desc": "Esplanade sign on Buffalo Speedway, maintained by KVCC. (Approximate location.)" },
+  { "name": "Knollwood Village entrance sign", "type": "sign", "lat": 29.69120, "lng": -95.43600, "desc": "Esplanade sign on S. Braeswood, maintained by KVCC. (Approximate location.)" }
 ]

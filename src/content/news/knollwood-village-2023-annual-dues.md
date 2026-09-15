@@ -5,7 +5,7 @@ date: 2023-10-04
 
 <p>UPDATE AS OF November 18, 2023, homeowners can check the link below to see if you have paid in 2023. </p>
 
-<p><a href="/docs/club/Dues-Paid-Report-2023-11-18.pdf">Pay No Pay List </a></p>
+<p><a href="/dues/">Pay No Pay List </a></p>
 
 <p>As a resident of Knollwood Village, your participation and support of the Civic Club is <strong>critical</strong> to maintaining and helping to keep our neighborhood safe.  For instance, your membership fees allow the civic club to provide a <strong>security </strong>presence, keep the medians attractive, enforce Deed Restrictions, and provide the most current news / communication to our residents. </p>
 

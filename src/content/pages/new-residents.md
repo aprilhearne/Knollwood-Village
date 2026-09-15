@@ -23,15 +23,15 @@ Knollwood Village is deed-restricted, and Architectural Control Committee (ACC) 
 
 ## 5. Trash and recycling
 
-- **Regular trash** and **recycling** are collected weekly by the City of Houston. Check your day at [houstontx.gov/solidwaste](https://www.houstontx.gov/solidwaste/).
-- **Heavy trash** is the **third Monday of each month**, alternating between tree waste and junk waste. Put items at the curb no earlier than the Friday before.
+- **Regular trash and recycling** are collected by the City of Houston. Look up your schedule at [houstontx.gov/solidwaste](https://www.houstontx.gov/solidwaste/).
+- **Heavy trash** is the **third Monday of each month**, alternating between tree waste and junk waste.
 - City services (missed pickup, streetlight out, potholes, water leaks, nuisance complaints): call **311** or use [houstontx.gov/311](https://www.houstontx.gov/311/).
 
 ## 6. Meet your neighbors
 
-- **National Night Out**, the first Tuesday in October, at Bailey Park (Greenbush at Conway).
-- **Holiday and Halloween decorating contests** every year.
-- **Spring festival** and the **annual resident meeting** each January.
+- **National Night Out**, the first Tuesday in October.
+- **Halloween and holiday decorating contests.**
+- The **annual resident meeting**, usually in January, and a spring festival.
 - The **Welcome Committee** ([welcome@knollwoodvillage.org](mailto:welcome@knollwoodvillage.org)) will happily answer newcomer questions.
 
 Check [News and Events](/news/) for dates and the newsletter archive.

@@ -13,7 +13,7 @@ We get the same questions from closers and agents every week, so here are the an
 |---|---|
 | Is there a mandatory HOA or property owners association? | **No.** |
 | Are there mandatory dues or assessments? | **No.** Annual dues are voluntary. |
-| Is a resale certificate (Texas Property Code Chapter 207) required or available? | **No.** Chapter 207 does not apply because there is no mandatory association. We do not issue resale certificates. |
+| Is a resale certificate required or available? | **No.** There is no mandatory association, so we do not issue resale certificates. |
 | Are there transfer fees, estoppel fees, or capitalization fees? | **No.** |
 | Can unpaid dues become a lien on the property? | **No.** Dues are not owed by the property or by any owner. |
 | Is there a management company? | **No.** The club is run by volunteer neighbors. |

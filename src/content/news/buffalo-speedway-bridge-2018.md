@@ -10,6 +10,6 @@ The Braeswood Super Neighborhood hosted Gary Zika of the Harris County Flood Con
 - During construction the bridge was completely closed in both directions.
 - The new bridge has sidewalks and turning lanes in both directions.
 
-**History.** The bridge was built in 1950 and originally named the Hugh Wilkin Bridge. Read the [Houston Chronicle article from May 13, 1951](/docs/archive/Houston-Chronicle-1951-Wilkin-Bridge.pdf).
+**History.** The bridge was built in 1950 and originally named the Hugh Wilkin Bridge. The Houston Chronicle covered its opening on May 13, 1951.
 
 <img src="/images/archive/Hugh-Wilkin-Bridge.jpg" alt="Historic photo of the Hugh Wilkin Bridge on Buffalo Speedway" />

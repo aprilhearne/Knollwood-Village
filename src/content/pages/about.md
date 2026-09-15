@@ -5,7 +5,7 @@ description: "An established neighborhood of 624 homes in the heart of Houston, 
 
 <img src="/images/hero-bayou.jpg" alt="Sunset over Brays Bayou at the edge of Knollwood Village" />
 
-Knollwood Village was formed in 1954 on the site of the former Houston Main Street Airport. Homes began going up in 1951, and the Knollwood Village Civic Club was established that same year. Today it is an established neighborhood of 624 homes bounded by Kirby Drive, Main Street, Stella Link Road, and South Braeswood along Brays Bayou. Most of the houses are the original one-story ranches, brick and wood under mature live oaks.
+Homes began going up in Knollwood Village in 1951, the Civic Club was established the same year, and all of the sections that make up the neighborhood were in place by 1954. Today it is an established neighborhood of 624 homes bounded by Kirby Drive, Main Street, Stella Link Road, and South Braeswood along Brays Bayou, inside Loop 610 just west of NRG Stadium.
 
 ## The Civic Club
 
@@ -30,14 +30,9 @@ The Knollwood Village Civic Club (KVCC) is a voluntary, volunteer-run civic club
 
 <h2 id="signs">Our entrance signs</h2>
 
-<div class="grid-2">
-<img src="/images/signs/old-sign-buffalo-speedway.png" alt="The old Knollwood Village sign on Buffalo Speedway" />
-<img src="/images/signs/old-sign-s-braeswood.png" alt="The old Knollwood Village sign on S. Braeswood" />
-</div>
+<img src="/images/about/knollwood-sign.jpg" alt="Knollwood Village entrance sign" />
 
-At the Civic Club's August 2014 residents meeting, an overwhelming majority supported replacing the aging esplanade signs on Buffalo Speedway and S. Braeswood, pictured above. Volunteers formed a Beautification sub-committee to refine a proposed design using neighbors' feedback and to bring the cost down without sacrificing quality.
-
-<img src="/images/signs/new-sign-rendering.jpg" alt="Artist rendering of the new Knollwood Village entrance sign" />
+At the Civic Club's August 2014 residents meeting, an overwhelming majority supported replacing the aging esplanade signs on Buffalo Speedway and S. Braeswood. Volunteers formed a Beautification sub-committee to refine a proposed design using neighbors' feedback and to bring the cost down without sacrificing quality.
 
 The design is modern with several nods to the neighborhood's history:
 
@@ -47,4 +42,4 @@ The design is modern with several nods to the neighborhood's history:
 - Brick columns echo the original homes, and the rooftop shape says "residential neighborhood."
 - Aluminum construction and automotive-grade, graffiti-resistant paint should last about 25 years maintenance-free.
 
-The original estimate was about $31,000 for two double-sided signs. By January 2015 the final cost had come down to $22,875, helped by a City of Houston grant of $2,845.13, with the balance raised from residents. The signs were installed in 2015 and are maintained by the Beautification Committee. Special thanks to Emily Anmuth, David Fitts, Bert Magh, Reed Hablinski, Liz Devaney, Parul Vyas, Brian Warwick, Hector Caram, Brent Nyquist, and Scott Rose.
+The original estimate was about $31,000 for two double-sided signs. By January 2015 the final cost had come down to $22,875, helped by a City of Houston grant of $2,845.13, with the balance raised from residents. The signs are maintained by the Beautification Committee. Special thanks to Emily Anmuth, David Fitts, Bert Magh, Reed Hablinski, Liz Devaney, Parul Vyas, Brian Warwick, Hector Caram, Brent Nyquist, and Scott Rose.

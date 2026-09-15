@@ -30,7 +30,7 @@ The Knollwood Village Civic Club (KVCC) is a voluntary, volunteer-run civic club
 
 <h2 id="signs">Our Entrance Signs</h2>
 
-<span class="brick-frame"><img src="/images/about/knollwood-sign.jpg" alt="Knollwood Village entrance sign" /></span>
+<span class="photo-70s"><img src="/images/about/knollwood-sign.jpg" alt="Knollwood Village entrance sign" /></span>
 
 At the Civic Club's August 2014 residents meeting, an overwhelming majority supported replacing the aging esplanade signs on Buffalo Speedway and S. Braeswood. Volunteers formed a Beautification sub-committee to refine a proposed design using neighbors' feedback and to bring the cost down without sacrificing quality.
 

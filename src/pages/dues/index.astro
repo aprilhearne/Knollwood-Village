@@ -6,7 +6,7 @@ import site from '../../data/site.json';
 <Base title="Dues" description={`Knollwood Village Civic Club ${site.duesYear} dues are $${site.duesAmount} per household and voluntary. See who has contributed and how to pay by Zelle, card, or check.`}>
   <div class="page-head"><div class="container">
         <h1>{site.duesYear} Dues: ${site.duesAmount} per Household</h1>
-    <div class="brick-rule" aria-hidden="true"></div>
+    <div class="stripe-rule" aria-hidden="true"></div>
     <p class="lead">Dues are voluntary. ${site.duesCivic} runs the club and ${site.duesSecurity} pays for the Smith Protective patrol.</p>
     <div class="controls">
       <label for="dues-year"><strong>Year</strong></label> <select id="dues-year"></select>

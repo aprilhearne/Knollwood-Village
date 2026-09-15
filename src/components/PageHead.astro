@@ -6,7 +6,7 @@ const { title, lead, eyebrow } = Astro.props;
   <div class="container">
     {eyebrow && <div class="eyebrow">{eyebrow}</div>}
     <h1>{title}</h1>
-    <div class="brick-rule" aria-hidden="true"></div>
+    <div class="stripe-rule" aria-hidden="true"></div>
     {lead && <p class="lead">{lead}</p>}
     <slot />
   </div>

@@ -23,7 +23,8 @@ if (el) {
     const d = await r.json();
     status = d.status;
     const pct = Math.round((d.paid / d.homes) * 100);
-    stats.innerHTML = `<strong>${d.paid}</strong> of <strong>${d.homes}</strong> homes paid for ${y} (${pct}%)${d.partial ? ` · ${d.partial} partial` : ''}`;
+    const asOf = d.asOf ? ' · as of ' + new Date(d.asOf + 'T12:00:00').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : '';
+    stats.innerHTML = `<strong>${d.paid}</strong> of <strong>${d.homes}</strong> households paid for ${y} (${pct}%)${d.partial ? ` · ${d.partial} partial` : ''}${asOf}`;
     layer?.setStyle(styleFor as any);
     layer?.eachLayer((l: any) => {
       const p = l.feature.properties; const st = p.m ? (status[p.k]?.s ?? 'none') : 'unknown';

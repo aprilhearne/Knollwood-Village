@@ -19,6 +19,15 @@ def norm(a):
     a = re.sub(r'\b(ST|DR|CT|LN|BLVD|RD|PL)\b', '', a).strip()
     return re.sub(r'\s+', ' ', a)
 wb = openpyxl.load_workbook(path, read_only=True, data_only=True)
+as_of = None
+if 'PNP' in wb.sheetnames:
+    for row in wb['PNP'].iter_rows(min_row=1, max_row=6, values_only=True):
+        for cell in row:
+            if hasattr(cell, 'isoformat'):
+                as_of = cell.date().isoformat() if hasattr(cell, 'date') else str(cell)
+                break
+        if as_of:
+            break
 ws = wb['PNP.Master']
 rows = list(ws.iter_rows(values_only=True))
 hdr = next(i for i, r in enumerate(rows) if r and r[0] == 'concatenation')
@@ -32,12 +41,12 @@ for r in rows[hdr + 1:]:
         continue
     st = 'full' if civic > 0 and sec > 0 else 'partial' if (civic > 0 or sec > 0) else 'none'
     status[norm(str(r[0]))] = {'s': st, 'x': extra > 0}
-out = {'year': year, 'asOf': None, 'homes': len(status), 'paid': sum(1 for v in status.values() if v['s'] == 'full'), 'partial': sum(1 for v in status.values() if v['s'] == 'partial'), 'status': status}
+out = {'year': year, 'asOf': as_of, 'homes': len(status), 'paid': sum(1 for v in status.values() if v['s'] == 'full'), 'partial': sum(1 for v in status.values() if v['s'] == 'partial'), 'status': status}
 os.makedirs(f'{root}/public/data/dues', exist_ok=True)
 json.dump(out, open(f'{root}/public/data/dues/{year}.json', 'w'), separators=(',', ':'))
 idx_path = f'{root}/public/data/dues/index.json'
 idx = json.load(open(idx_path)) if os.path.exists(idx_path) else {'years': [], 'summary': {}}
 idx['years'] = sorted(set(idx['years'] + [year]), reverse=True)
-idx['summary'][str(year)] = {'homes': out['homes'], 'paid': out['paid'], 'partial': out['partial']}
+idx['summary'][str(year)] = {'homes': out['homes'], 'paid': out['paid'], 'partial': out['partial'], 'asOf': as_of}
 json.dump(idx, open(idx_path, 'w'), indent=1)
-print(f'{year}: {out["paid"]} of {out["homes"]} paid, {out["partial"]} partial')
+print(f'{year}: {out["paid"]} of {out["homes"]} paid, {out["partial"]} partial, as of {as_of}')
